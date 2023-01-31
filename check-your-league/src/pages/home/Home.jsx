@@ -3,10 +3,24 @@ import './home.css';
 
 function Home() {
 
+  const [name, setName] = useState('');
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  }
+
+  const handleButtonClick = (e) => {
+    console.log(name);
+  }
+
   return (
     <div className="wrapper">
       <div className="mainComponent">
-        This is home! And I want this in a box , and t and tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand tand
+          <form>
+            <label className="nameLabel">Search</label>
+            <input type="text" value={name} onChange={handleNameChange} placeholder="Enter Summoner Name"></input>
+          </form>
+        <button className="searchButton" onClick={handleButtonClick}>Go</button>
       </div>
     </div>
   )
