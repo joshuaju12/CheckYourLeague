@@ -1,29 +1,3 @@
-/* .mainComponent {
-  margin: 0;
-  font-size: 2rem;
-  position: absolute;
-  border-style: solid;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  width: 50%;
-  text-align: center;
-  box-sizing: border-box;
-  word-wrap: break-word;
-} */
-
-/* .wrapper {
-  position: relative;
-  left: 25%;
-  right: 25%;
-  margin: 0;
-  width: 50%;
-  border: solid;
-  padding: 6rem;
-  box-sizing: border-box;
-  word-wrap: break-word;
-} */
 
 html {
   height: 100%;
@@ -34,12 +8,24 @@ html {
 .wrapper {
   font-size: 2rem;
   display: flex;
+  justify-content: center;
   height: 100%;
-  padding: 18% 30% 10% 30%;
+  padding: 35rem;
 }
 
 .mainComponent {
-  display: block;
+  display: flex;
   border: solid;
   padding: 0.5rem;
+}
+
+.nameLabel {
+  display: flex;
+  justify-content: center;
+  height: 2rem;
+}
+
+.searchButton {
+  margin-top: 2rem;
+  margin-left: 1rem;
 }
