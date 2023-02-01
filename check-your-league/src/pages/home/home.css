@@ -1,9 +1,9 @@
 
-html {
+/* html {
   height: 100%;
   box-sizing: border-box;
   word-wrap: break-word;
-}
+} */
 
 .wrapper {
   font-size: 2rem;
@@ -26,6 +26,6 @@ html {
 }
 
 .searchButton {
-  margin-top: 2rem;
+  margin-top: 2.9rem;
   margin-left: 1rem;
 }

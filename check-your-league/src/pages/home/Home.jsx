@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {Link} from  "react-router-dom";
 import './home.css';
 
 function Home() {
@@ -20,10 +21,13 @@ function Home() {
             <label className="nameLabel">Search</label>
             <input type="text" value={name} onChange={handleNameChange} placeholder="Enter Summoner Name"></input>
           </form>
-        <button className="searchButton" onClick={handleButtonClick}>Go</button>
+        <Link to="/page" state={name} style={{textDecoration:"none"}}>
+          <button className="searchButton" onClick={handleButtonClick}>Go</button>
+        </Link>
       </div>
     </div>
   )
 };
 
 export default Home;
+
