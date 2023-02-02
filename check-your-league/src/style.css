@@ -1,4 +1,7 @@
 html {
   background-color: #E6E6E6;
   /* background-color: #333333; */
+  height: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
 }

@@ -1,3 +1,9 @@
-html {
-  font-size: 62.5%;
+
+body {
+  font-size: 2rem
+}
+
+.pageContainer {
+  display: flex;
+  align-items: center;
 }
