@@ -2,3 +2,8 @@
 body {
   font-size: 2rem
 }
+
+.pageContainer {
+  display: flex;
+  align-items: center;
+}
