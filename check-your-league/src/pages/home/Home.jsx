@@ -22,7 +22,7 @@ function Home() {
             <input type="text" value={name} onChange={handleNameChange} placeholder="Enter Summoner Name"></input>
           </form>
         <Link to="/page" state={name} style={{textDecoration:"none"}}>
-          <button className="searchButton" onClick={handleButtonClick}>Go</button>
+          <button className="searchButton">Go</button>
         </Link>
       </div>
     </div>
