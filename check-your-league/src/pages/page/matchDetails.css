@@ -1,0 +1,10 @@
+.matchContainer {
+ border-top: solid;
+ border-left: solid;
+ border-right: solid;
+ height: 3em;
+}
+
+.playersContainer {
+  font-size: .5em;
+}

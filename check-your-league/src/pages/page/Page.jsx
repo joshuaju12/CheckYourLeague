@@ -51,8 +51,8 @@ function Page() {
       <div className="nameContainer">
         <div className="name">{name}</div>
       </div>
-      <div className="matchContainer">
-        <div>Match history</div>
+      <div>Match history</div>
+      <div className="allMatchesContainer">
         {allMatchData ?
           <>
             {allMatchData.map((value, index) =>
