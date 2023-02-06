@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 import './page.css';
+import MatchDetails from './MatchDetails.jsx';
 
 function Page() {
   const location = useLocation();
@@ -41,11 +42,6 @@ function Page() {
               .then((result) => {
                 setAllMatchData(result);
               })
-            // allMatches.data.forEach((matchString) => {
-            //   axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/${matchString}`, {params: {"api_key": process.env.REACT_APP_RIOT_API}})
-            //     .then((matchData) => {
-            //     })
-            // })
           })
       })
   }, [start, count])
@@ -55,12 +51,13 @@ function Page() {
       <div className="nameContainer">
         <div className="name">{name}</div>
       </div>
-      <div className="matchContainer">
-        <div>Match history</div>
+      <div>Match history</div>
+      <div className="allMatchesContainer">
         {allMatchData ?
           <>
             {allMatchData.map((value, index) =>
-              <div key={index}>{value.data.metadata.dataVersion}</div>
+              <MatchDetails key={index} matchData={value.data} />
+              // <div key={index}>{value.data.metadata.dataVersion}</div>
             )}
           </>
           : <div>Loading...</div>
