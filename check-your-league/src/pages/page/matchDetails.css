@@ -1,16 +1,26 @@
 .matchContainer {
  /* border-top: solid;
  border-left: solid;
- border-right: solid; */
- /* height: 3em; */
+ border-right: solid;
+ height: 23rem; */
 }
 
 .playersContainer {
-  font-size: .5em;
+  font-size: 1.6rem;
   display: flex;
+  width: 20rem;
   /* border-style: solid; */
 }
 
 .team2 {
-  padding-left: 1em;
+  padding-left: 3rem;
+}
+
+.detailsContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.combatContainer {
+  font-size: 1.6rem;
 }
