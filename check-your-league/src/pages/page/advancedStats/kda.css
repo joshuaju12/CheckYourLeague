@@ -1,3 +1,9 @@
+.kdaValueContainer {
+  /* width: 2rem; */
+  display: flex;
+}
+
 .kdaValues {
-  width: 2rem;
+  width: 9rem;
+  text-align: center;
 }

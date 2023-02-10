@@ -24,3 +24,15 @@
 .combatContainer {
   font-size: 1.6rem;
 }
+
+.kda {
+  display: flex;
+}
+
+.largestKillingSpree {
+  display: flex;
+}
+
+.category {
+  width: 22rem;
+}

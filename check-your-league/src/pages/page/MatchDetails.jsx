@@ -1,6 +1,7 @@
 import './matchDetails.css';
 import {useState} from 'react';
 import Kda from './advancedStats/Kda.jsx';
+import LargestKillingSpree from './advancedStats/LargestKillingSpree.jsx';
 
 function MatchDetails({matchData}) {
   const date = new Date(matchData.info.gameCreation);
@@ -57,8 +58,12 @@ function MatchDetails({matchData}) {
             {combatExpanded ?
               <div className="combatContainer">
                 <div className="kda">
-                  <div>KDA</div>
+                  <div className="category">KDA</div>
                   <Kda matchData={matchData} />
+                </div>
+                <div className="largestKillingSpree">
+                  <div className="category">Largest Killing Spree</div>
+                  <LargestKillingSpree matchData={matchData} />
                 </div>
               </div>
               : null
@@ -67,7 +72,7 @@ function MatchDetails({matchData}) {
           <div className="damageDealtStats">
             <button onClick={handleDamageDealtClick}> V Damage Dealt</button>
             {damageDealtExpanded ?
-                <div>dwa</div>
+                <div>fes</div>
               : null
             }
           </div>
