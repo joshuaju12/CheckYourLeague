@@ -65,6 +65,15 @@ function MatchDetails({matchData}) {
                   <div className="category">Largest Killing Spree</div>
                   <LargestKillingSpree matchData={matchData} />
                 </div>
+                <div className="largestMultiKill">
+                  <div className="category">Largest Multi Kill</div>
+                </div>
+                <div className="ccScore">
+                  <div className="category">Crowd Control Score</div>
+                </div>
+                <div className="firstBlood">
+                  <div className="category">First Blood</div>
+                </div>
               </div>
               : null
             }

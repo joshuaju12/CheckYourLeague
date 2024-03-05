@@ -27,10 +27,27 @@
 
 .kda {
   display: flex;
+  padding: 0 0 1.3rem 0;
 }
 
 .largestKillingSpree {
   display: flex;
+  padding: 0 0 1.3rem 0;
+}
+
+.largestMultiKill {
+  display: flex;
+  padding: 0 0 1.3rem 0;
+}
+
+.ccScore {
+  display: flex;
+  padding: 0 0 1.3rem 0;
+}
+
+.firstBlood {
+  display: flex;
+  padding: 0 0 1.3rem 0;
 }
 
 .category {
