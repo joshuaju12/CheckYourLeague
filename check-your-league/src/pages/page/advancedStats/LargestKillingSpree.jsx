@@ -2,9 +2,7 @@ import './largestKillingSpree.css';
 
 function LargestKillingSpree({matchData}) {
 
-  console.log(matchData);
-
-  return(
+  return (
     <div className="largestKillingSpreeContainer">
       {matchData.info.participants.map((value, index) =>
         <div className="killingSpreeValues" key={index}>{value.largestKillingSpree}</div>
