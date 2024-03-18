@@ -1,6 +1,6 @@
 import './LargestMultiKill.css';
 
-function largestMultiKill({matchData}) {
+function LargestMultiKill({matchData}) {
 
   return (
     <div className="largestMultiKillContainer">
@@ -11,4 +11,4 @@ function largestMultiKill({matchData}) {
   )
 }
 
-export default largestMultiKill;
+export default LargestMultiKill;
