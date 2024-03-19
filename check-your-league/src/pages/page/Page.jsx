@@ -28,7 +28,7 @@ function Page() {
         setUserInfo({
           summonerId: results.data.id,
           accountId: results.data.accountId,
-          puui: results.data.puuid,
+          puuid: results.data.puuid,
           iconId: results.data.profileIconId,
           level: results.data.summonerLevel
         });
