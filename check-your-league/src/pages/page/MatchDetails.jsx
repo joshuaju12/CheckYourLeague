@@ -3,6 +3,7 @@ import {useState} from 'react';
 import Kda from './advancedStats/Kda.jsx';
 import LargestKillingSpree from './advancedStats/LargestKillingSpree.jsx';
 import LargestMultiKill from './advancedStats/LargestMultiKill.jsx';
+import CcScore from './advancedStats/CcScore.jsx';
 
 function MatchDetails({matchData}) {
   const date = new Date(matchData.info.gameCreation);
@@ -72,6 +73,7 @@ function MatchDetails({matchData}) {
                 </div>
                 <div className="ccScore">
                   <div className="category">Crowd Control Score</div>
+                  <CcScore matchData={matchData} />
                 </div>
                 <div className="firstBlood">
                   <div className="category">First Blood</div>

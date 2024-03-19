@@ -1,0 +1,9 @@
+.ccValueContainer {
+  /* width: 2rem; */
+  display: flex;
+}
+
+.ccValues {
+  width: 9rem;
+  text-align: center;
+}
