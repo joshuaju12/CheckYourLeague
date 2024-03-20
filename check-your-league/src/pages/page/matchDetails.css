@@ -3,6 +3,8 @@
  border-left: solid;
  border-right: solid;
  height: 23rem; */
+ margin-bottom: 2rem;
+ width: 74rem;
 }
 
 .playersContainer {
@@ -19,6 +21,31 @@
 .detailsContainer {
   display: flex;
   flex-direction: row;
+}
+
+.statsContainer {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.6rem;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  font-size: 3rem;
+  margin: 0 0 0 0;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  list-style-type: none;
+  margin: 1.5rem 0 1.5rem 0;
+  /* padding-left: 5rem;
+  padding-right: 5rem; */
+  padding-left: 0;
+  width: 100%;
 }
 
 .combatContainer {
