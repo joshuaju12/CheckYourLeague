@@ -1,15 +1,15 @@
 import './matchDetails.css';
 import {useState} from 'react';
-import Kda from './advancedStats/Kda.jsx';
-import LargestKillingSpree from './advancedStats/LargestKillingSpree.jsx';
-import LargestMultiKill from './advancedStats/LargestMultiKill.jsx';
-import CcScore from './advancedStats/CcScore.jsx';
+import TestTab from './advancedStats/TestTab.jsx';
+import Tabtitle from './advancedStats/TabTitle.jsx';
+import TabContent from './advancedStats/TabContent.jsx';
 
 function MatchDetails({matchData}) {
   const date = new Date(matchData.info.gameCreation);
   const [expanded, setExpanded] = useState(false);
   const [combatExpanded, setCombatExpanded] = useState(true);
   const [damageDealtExpanded, setDamageDealtExpanded] = useState(true);
+  const [activeTab, setActiveTab] = useState('tab1');
   // console.log(matchData);
 
 
@@ -54,41 +54,19 @@ function MatchDetails({matchData}) {
         <button onClick={handleExpandClick}>V</button>
       </div>
       {expanded ?
-        <div className="extraStats">
-          <div className="combatStats">
-            <button onClick={handleCombatClick}> V Combat</button>
-            {combatExpanded ?
-              <div className="combatContainer">
-                <div className="kda">
-                  <div className="category">KDA</div>
-                  <Kda matchData={matchData} />
-                </div>
-                <div className="largestKillingSpree">
-                  <div className="category">Largest Killing Spree</div>
-                  <LargestKillingSpree matchData={matchData} />
-                </div>
-                <div className="largestMultiKill">
-                  <div className="category">Largest Multi Kill</div>
-                  <LargestMultiKill matchData={matchData} />
-                </div>
-                <div className="ccScore">
-                  <div className="category">Crowd Control Score</div>
-                  <CcScore matchData={matchData} />
-                </div>
-                <div className="firstBlood">
-                  <div className="category">First Blood</div>
-                </div>
-              </div>
-              : null
-            }
+        <div className="statsContainer">
+          <div className="tabs">
+            <ul className="nav">
+              <Tabtitle title="Overview" id="tab1" activeTab={activeTab} setActiveTab={setActiveTab} />
+              <Tabtitle title="Stats" id="tab2" activeTab={activeTab} setActiveTab={setActiveTab} />
+              <Tabtitle title="Gold Graph" id="tab3" activeTab={activeTab} setActiveTab={setActiveTab} />
+              <Tabtitle title="Build" id="tab4" activeTab={activeTab} setActiveTab={setActiveTab} />
+            </ul>
           </div>
-          <div className="damageDealtStats">
-            <button onClick={handleDamageDealtClick}> V Damage Dealt</button>
-            {damageDealtExpanded ?
-                <div>fes</div>
-              : null
-            }
-          </div>
+          <TabContent id="tab1" currentTab={activeTab}>
+            <TestTab />
+          </TabContent>
+          <div>combat stuff</div>
         </div>
         : null
       }
