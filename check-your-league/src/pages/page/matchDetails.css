@@ -32,8 +32,10 @@
 .tabs {
   display: flex;
   flex-direction: row;
-  font-size: 3rem;
-  margin: 0 0 0 0;
+  align-items: center;
+  font-size: 1.9rem;
+  height: 4.5rem;
+  margin: 1rem 0 1rem 0;
   background-color: white;
   border-radius: 0.3em;
 }
@@ -44,10 +46,26 @@ ul {
   justify-content: space-evenly;
   list-style-type: none;
   margin: 1.5rem 0 1.5rem 0;
-  /* padding-left: 5rem;
-  padding-right: 5rem; */
+
   padding-left: 0;
   width: 100%;
+}
+
+.nav li:hover{
+  cursor: pointer;
+}
+
+.nav li {
+  display: block;
+  width: 100%;
+  border-radius: 0.3em;
+  text-align: center;
+  margin: 0 1rem 0 1rem;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+}
+
+.nav li.active {
+  background-color: #E1F7FF;
 }
 
 .combatContainer {

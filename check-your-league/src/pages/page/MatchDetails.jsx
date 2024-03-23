@@ -1,31 +1,20 @@
 import './matchDetails.css';
 import {useState} from 'react';
-import TestTab from './advancedStats/TestTab.jsx';
 import Tabtitle from './advancedStats/TabTitle.jsx';
 import TabContent from './advancedStats/TabContent.jsx';
+import Overview from './advancedStats/overview/Overview.jsx';
 
 function MatchDetails({matchData}) {
   const date = new Date(matchData.info.gameCreation);
   const [expanded, setExpanded] = useState(false);
-  const [combatExpanded, setCombatExpanded] = useState(true);
-  const [damageDealtExpanded, setDamageDealtExpanded] = useState(true);
   const [activeTab, setActiveTab] = useState('tab1');
-  // console.log(matchData);
+  console.log(matchData);
 
 
   const handleExpandClick = (e) => {
     e.preventDefault();
     setExpanded(!expanded);
   };
-
-  const handleCombatClick = (e) => {
-    setCombatExpanded(!combatExpanded);
-  }
-
-  const handleDamageDealtClick = (e) => {
-    setDamageDealtExpanded(!damageDealtExpanded);
-  }
-
 
   return (
     <div className="matchContainer">
@@ -64,7 +53,7 @@ function MatchDetails({matchData}) {
             </ul>
           </div>
           <TabContent id="tab1" currentTab={activeTab}>
-            <TestTab />
+            <Overview matchData={matchData} />
           </TabContent>
           <div>combat stuff</div>
         </div>
