@@ -29,6 +29,11 @@ function Table({matchData, team}) {
         <tr>
           <th>Name</th>
           <th>KDA</th>
+          <th>Damage</th>
+          <th>CC Score</th>
+          <th>CS</th>
+          <th>Gold</th>
+          <th>Build</th>
         </tr>
       </thead>
       <tbody>
