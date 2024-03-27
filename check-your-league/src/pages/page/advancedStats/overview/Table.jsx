@@ -12,12 +12,35 @@ function Table({matchData, team}) {
         <tr key={i}>
           <td>{playerData.riotIdGameName}</td>
           <td>{playerData.kills}/{playerData.deaths}/{playerData.assists}</td>
+          <td>
+            <td>{playerData.totalDamageDealtToChampions}</td>
+            <td>{playerData.totalDamageTaken}</td>
+          </td>
+          <td>{playerData.timeCCingOthers}</td>
+          <td>{playerData.totalMinionsKilled}</td>
+          <td>{playerData.goldEarned}</td>
         </tr>
       )
     }
     console.log(rows);
   } else {
     start = 5;
+    for (let i = 5; i < 10; i++) {
+      let playerData = matchData.info.participants[i];
+      rows.push(
+        <tr key={i}>
+          <td>{playerData.riotIdGameName}</td>
+          <td>{playerData.kills}/{playerData.deaths}/{playerData.assists}</td>
+          <td>
+            <td>{playerData.totalDamageDealtToChampions}</td>
+            <td>{playerData.totalDamageTaken}</td>
+          </td>
+          <td>{playerData.timeCCingOthers}</td>
+          <td>{playerData.totalMinionsKilled}</td>
+          <td>{playerData.goldEarned}</td>
+        </tr>
+      )
+    }
   }
 
 
