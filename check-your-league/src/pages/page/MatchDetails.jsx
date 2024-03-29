@@ -6,7 +6,6 @@ import TabContent from './advancedStats/TabContent.jsx';
 import Overview from './advancedStats/overview/Overview.jsx';
 
 function MatchDetails({matchData}) {
-  // const date = new Date(matchData.info.gameCreation);
   const date = formatDistanceStrict(new Date(matchData.info.gameCreation), new Date(), {addSuffix: true});
   const [expanded, setExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState('tab1');
@@ -23,7 +22,6 @@ function MatchDetails({matchData}) {
       <div className="detailsContainer">
         <div className="overalInfo">
           <div>
-            {/* <div>Date: {date.toLocaleDateString('en-US')}</div> */}
             <div>{date}</div>
             <div className="playersContainer">
               <div className="team1">

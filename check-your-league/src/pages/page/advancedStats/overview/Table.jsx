@@ -1,3 +1,4 @@
+import './table.css';
 
 function Table({matchData, team}) {
   let start;
@@ -13,8 +14,14 @@ function Table({matchData, team}) {
           <td>{playerData.riotIdGameName}</td>
           <td>{playerData.kills}/{playerData.deaths}/{playerData.assists}</td>
           <td>
-            <td>{playerData.totalDamageDealtToChampions}</td>
-            <td>{playerData.totalDamageTaken}</td>
+            <table>
+              <tbody>
+                <tr>
+                  <td>{playerData.totalDamageDealtToChampions}</td>
+                  <td>{playerData.totalDamageTaken}</td>
+                </tr>
+              </tbody>
+            </table>
           </td>
           <td>{playerData.timeCCingOthers}</td>
           <td>{playerData.totalMinionsKilled}</td>
@@ -32,8 +39,14 @@ function Table({matchData, team}) {
           <td>{playerData.riotIdGameName}</td>
           <td>{playerData.kills}/{playerData.deaths}/{playerData.assists}</td>
           <td>
-            <td>{playerData.totalDamageDealtToChampions}</td>
-            <td>{playerData.totalDamageTaken}</td>
+            <table>
+              <tbody>
+                <tr>
+                  <td>{playerData.totalDamageDealtToChampions}</td>
+                  <td>{playerData.totalDamageTaken}</td>
+                </tr>
+              </tbody>
+            </table>
           </td>
           <td>{playerData.timeCCingOthers}</td>
           <td>{playerData.totalMinionsKilled}</td>
@@ -50,7 +63,7 @@ function Table({matchData, team}) {
     <table>
       <thead>
         <tr>
-          <th>Name</th>
+          <th className="nameHeader">Name</th>
           <th>KDA</th>
           <th>Damage</th>
           <th>CC Score</th>
