@@ -1,4 +1,5 @@
 import './table.css';
+import {exhaust, barrier, ghost, ignite, flash, heal, clarity, smite, snowball} from './assets';
 
 function Table({matchData, team}) {
   let start;
@@ -11,7 +12,7 @@ function Table({matchData, team}) {
       let playerData = matchData.info.participants[i];
       rows.push(
         <tr key={i}>
-          <td>{playerData.riotIdGameName}</td>
+          <td className="test">{playerData.riotIdGameName}</td>
           <td>{playerData.kills}/{playerData.deaths}/{playerData.assists}</td>
           <td>
             <table>
@@ -29,7 +30,6 @@ function Table({matchData, team}) {
         </tr>
       )
     }
-    console.log(rows);
   } else {
     start = 5;
     for (let i = 5; i < 10; i++) {
@@ -60,7 +60,7 @@ function Table({matchData, team}) {
 
   console.log(start);
   return (
-    <table>
+    <table className="overViewTable">
       <thead>
         <tr>
           <th className="nameHeader">Name</th>
@@ -69,7 +69,6 @@ function Table({matchData, team}) {
           <th>CC Score</th>
           <th>CS</th>
           <th>Gold</th>
-          <th>Build</th>
         </tr>
       </thead>
       <tbody>

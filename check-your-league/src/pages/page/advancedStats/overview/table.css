@@ -5,3 +5,11 @@
   /* overflow: hidden; */
   /* text-overflow: ellipsis; */
 }
+
+.test{
+  border-right: solid;
+}
+
+.overViewTable {
+  border-collapse: collapse;
+}
