@@ -1,5 +1,5 @@
 import './table.css';
-import {exhaust, barrier, ghost, ignite, flash, heal, clarity, smite, snowball} from './assets';
+import {exhaust, barrier, ghost, ignite, flash, heal, clarity, smite, snowball} from './assets/summonerSpells';
 
 function Table({matchData, team}) {
   let start;

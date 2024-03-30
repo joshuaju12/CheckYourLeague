@@ -6,7 +6,7 @@ import flash from './SummonerFlash.png';
 import heal from './SummonerHeal.png';
 import clarity from './SummonerMana.png';
 import smite from './SummonerSmite.png';
-import snowball from './SummonerSnowball.png'
+import snowball from './SummonerSnowball.png';
 
 export {
   exhaust,
