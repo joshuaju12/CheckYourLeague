@@ -20,10 +20,10 @@ function Table({matchData, team}) {
                   </td>
                   <td>
                     <div>
-                      sum1
+                      <img className="overviewSummonerImage" src={require(`./assets/summonerSpells/${playerData.summoner1Id}.png`)} alt="" />
                     </div>
                     <div>
-                      sum2
+                      <img className="overviewSummonerImage" src={require(`./assets/summonerSpells/${playerData.summoner2Id}.png`)} alt="" />
                     </div>
                   </td>
                   <td>{playerData.riotIdGameName}</td>
@@ -60,6 +60,14 @@ function Table({matchData, team}) {
                 <tr>
                   <td>
                     <img className="smallImage" src={require(`./assets/champions/${playerData.championName}.png`)} alt="" />
+                  </td>
+                  <td>
+                    <div>
+                      <img className="overviewSummonerImage" src={require(`./assets/summonerSpells/${playerData.summoner1Id}.png`)} alt="" />
+                    </div>
+                    <div>
+                      <img className="overviewSummonerImage" src={require(`./assets/summonerSpells/${playerData.summoner2Id}.png`)} alt="" />
+                    </div>
                   </td>
                   <td>{playerData.riotIdGameName}</td>
                 </tr>
