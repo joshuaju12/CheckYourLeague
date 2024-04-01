@@ -26,6 +26,14 @@ function Table({matchData, team}) {
                       <img className="overviewSummonerImage" src={require(`./assets/summonerSpells/${playerData.summoner2Id}.png`)} alt="" />
                     </div>
                   </td>
+                  <td>
+                    <div>
+                      rune1
+                    </div>
+                    <div>
+                      rune2
+                    </div>
+                  </td>
                   <td>{playerData.riotIdGameName}</td>
                 </tr>
               </tbody>
@@ -95,7 +103,6 @@ function Table({matchData, team}) {
 
 
 
-  console.log(start);
   return (
     <table className="overViewTable">
       <thead>
