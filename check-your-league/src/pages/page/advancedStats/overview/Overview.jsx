@@ -1,18 +1,13 @@
-import {useTable} from 'react-table';
+import Table from './Table.jsx';
 
 function Overview({matchData}) {
-  // console.log(matchData);
-
   return (
-    <div className="overviewContainer">
-      {/* {matchData.info.participants.map((value, index) =>
-        <div className="playerValues">
-
-        </div>
-      )} */}
+    <div>
+      <Table matchData={matchData} team={1} />
+      <Table matchData={matchData} team={2} />
     </div>
   )
-};
+}
 
 export default Overview;
 

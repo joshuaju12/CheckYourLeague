@@ -1,0 +1,21 @@
+.nameHeader{
+  /* display: flex;
+  width: 20rem;
+  white-space: nowrap; */
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
+}
+
+.test{
+  border-right: solid;
+}
+
+.overViewTable {
+  border-collapse: collapse;
+}
+
+.smallImage {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+}
