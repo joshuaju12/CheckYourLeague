@@ -18,6 +18,14 @@ function Table({matchData, team}) {
                   <td>
                     <img className="smallImage" src={require(`./assets/champions/${playerData.championName}.png`)} alt="" />
                   </td>
+                  <td>
+                    <div>
+                      sum1
+                    </div>
+                    <div>
+                      sum2
+                    </div>
+                  </td>
                   <td>{playerData.riotIdGameName}</td>
                 </tr>
               </tbody>
