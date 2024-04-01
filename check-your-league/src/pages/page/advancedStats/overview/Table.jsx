@@ -1,5 +1,4 @@
 import './table.css';
-import {exhaust, barrier, ghost, ignite, flash, heal, clarity, smite, snowball} from './assets/summonerSpells';
 
 function Table({matchData, team}) {
   let start;
@@ -12,7 +11,18 @@ function Table({matchData, team}) {
       let playerData = matchData.info.participants[i];
       rows.push(
         <tr key={i}>
-          <td className="test">{playerData.riotIdGameName}</td>
+          <td>
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <img className="smallImage" src={require(`./assets/champions/${playerData.championName}.png`)} alt="" />
+                  </td>
+                  <td>{playerData.riotIdGameName}</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
           <td>{playerData.kills}/{playerData.deaths}/{playerData.assists}</td>
           <td>
             <table>
@@ -36,7 +46,18 @@ function Table({matchData, team}) {
       let playerData = matchData.info.participants[i];
       rows.push(
         <tr key={i}>
-          <td>{playerData.riotIdGameName}</td>
+          <td>
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <img className="smallImage" src={require(`./assets/champions/${playerData.championName}.png`)} alt="" />
+                  </td>
+                  <td>{playerData.riotIdGameName}</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
           <td>{playerData.kills}/{playerData.deaths}/{playerData.assists}</td>
           <td>
             <table>
@@ -63,7 +84,7 @@ function Table({matchData, team}) {
     <table className="overViewTable">
       <thead>
         <tr>
-          <th className="nameHeader">Name</th>
+          <th className="nameHeader">Team</th>
           <th>KDA</th>
           <th>Damage</th>
           <th>CC Score</th>
