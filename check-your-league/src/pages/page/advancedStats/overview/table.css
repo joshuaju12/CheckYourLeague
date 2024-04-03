@@ -25,3 +25,10 @@
   height: 1.7rem;
   border-radius: 5px;
 }
+
+.overviewRuneImage {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 9999px;
+  background-color: black;
+}

@@ -28,10 +28,10 @@ function Table({matchData, team}) {
                   </td>
                   <td>
                     <div>
-                      rune1
+                      <img className="overviewRuneImage" src={require(`./assets/runes/${playerData.perks.styles[0].selections[0].perk}.png`)} alt="" />
                     </div>
                     <div>
-                      rune2
+                      <img className="overviewRuneImage" src={require(`./assets/runes/${playerData.perks.styles[1].style}.png`)} alt="" />
                     </div>
                   </td>
                   <td>{playerData.riotIdGameName}</td>
@@ -75,6 +75,14 @@ function Table({matchData, team}) {
                     </div>
                     <div>
                       <img className="overviewSummonerImage" src={require(`./assets/summonerSpells/${playerData.summoner2Id}.png`)} alt="" />
+                    </div>
+                  </td>
+                  <td>
+                    <div>
+                      <img className="overviewRuneImage" src={require(`./assets/runes/${playerData.perks.styles[0].selections[0].perk}.png`)} alt="" />
+                    </div>
+                    <div>
+                      <img className="overviewRuneImage" src={require(`./assets/runes/${playerData.perks.styles[1].style}.png`)} alt="" />
                     </div>
                   </td>
                   <td>{playerData.riotIdGameName}</td>
