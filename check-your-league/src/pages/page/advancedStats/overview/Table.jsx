@@ -34,7 +34,10 @@ function Table({matchData, team}) {
                       <img className="overviewRuneImage" src={require(`./assets/runes/${playerData.perks.styles[1].style}.png`)} alt="" />
                     </div>
                   </td>
-                  <td>{playerData.riotIdGameName}</td>
+                  <td>
+                    <div>{playerData.riotIdGameName}</div>
+                    <div>{playerData.championName}</div>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -85,7 +88,10 @@ function Table({matchData, team}) {
                       <img className="overviewRuneImage" src={require(`./assets/runes/${playerData.perks.styles[1].style}.png`)} alt="" />
                     </div>
                   </td>
-                  <td>{playerData.riotIdGameName}</td>
+                  <td>
+                    <div>{playerData.riotIdGameName}</div>
+                    <div>{playerData.championName}</div>
+                  </td>
                 </tr>
               </tbody>
             </table>
