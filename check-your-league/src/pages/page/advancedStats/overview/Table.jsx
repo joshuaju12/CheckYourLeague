@@ -39,6 +39,16 @@ function Table({matchData, team}) {
                     <div className="nameHeader">{playerData.riotIdGameName}</div>
                     <div>{playerData.championName}</div>
                   </td>
+                  <td>
+                    <div>
+                      <img className="itemImage" src={require(`./assets/items/${playerData.item0}.png`)} alt ="" />
+                      <img className="itemImage" src={require(`./assets/items/${playerData.item1}.png`)} alt ="" />
+                      <img className="itemImage" src={require(`./assets/items/${playerData.item2}.png`)} alt ="" />
+                      <img className="itemImage" src={require(`./assets/items/${playerData.item3}.png`)} alt ="" />
+                      <img className="itemImage" src={require(`./assets/items/${playerData.item4}.png`)} alt ="" />
+                      <img className="itemImage" src={require(`./assets/items/${playerData.item5}.png`)} alt ="" />
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -92,6 +102,16 @@ function Table({matchData, team}) {
                   <td>
                     <div className="nameHeader">{playerData.riotIdGameName}</div>
                     <div>{playerData.championName}</div>
+                  </td>
+                  <td>
+                    <div>
+                      <img className="itemImage" src={require(`./assets/items/${playerData.item0}.png`)} alt ="" />
+                      <img className="itemImage" src={require(`./assets/items/${playerData.item1}.png`)} alt ="" />
+                      <img className="itemImage" src={require(`./assets/items/${playerData.item2}.png`)} alt ="" />
+                      <img className="itemImage" src={require(`./assets/items/${playerData.item3}.png`)} alt ="" />
+                      <img className="itemImage" src={require(`./assets/items/${playerData.item4}.png`)} alt ="" />
+                      <img className="itemImage" src={require(`./assets/items/${playerData.item5}.png`)} alt ="" />
+                    </div>
                   </td>
                 </tr>
               </tbody>

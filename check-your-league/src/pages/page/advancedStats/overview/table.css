@@ -33,3 +33,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.itemImage {
+  width: 2.3rem;
+  height: 2.3rem;
+  padding-right: 0.1rem;
+}
