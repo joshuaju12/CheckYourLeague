@@ -4,6 +4,7 @@ import Home from './pages/home/Home.jsx';
 import Page from './pages/page/Page.jsx';
 
 function App() {
+
   return (
     <Router>
       <Routes>

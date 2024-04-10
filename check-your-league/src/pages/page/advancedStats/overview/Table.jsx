@@ -9,6 +9,7 @@ function Table({matchData, team}) {
     start = 0;
     for (let i = 0; i < 5; i++) {
       let playerData = matchData.info.participants[i];
+
       rows.push(
         <tr key={i}>
           <td>
@@ -35,7 +36,7 @@ function Table({matchData, team}) {
                     </div>
                   </td>
                   <td>
-                    <div>{playerData.riotIdGameName}</div>
+                    <div className="nameHeader">{playerData.riotIdGameName}</div>
                     <div>{playerData.championName}</div>
                   </td>
                 </tr>
@@ -89,7 +90,7 @@ function Table({matchData, team}) {
                     </div>
                   </td>
                   <td>
-                    <div>{playerData.riotIdGameName}</div>
+                    <div className="nameHeader">{playerData.riotIdGameName}</div>
                     <div>{playerData.championName}</div>
                   </td>
                 </tr>
