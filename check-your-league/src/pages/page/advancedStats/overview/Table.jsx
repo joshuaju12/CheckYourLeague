@@ -11,8 +11,8 @@ function Table({matchData, team}) {
       let playerData = matchData.info.participants[i];
 
       rows.push(
-        <tr key={i}>
-          <td>
+        <tr className="rowContainer" key={i}>
+          <td className="teamContainer">
             <table>
               <tbody>
                 <tr>
@@ -53,20 +53,22 @@ function Table({matchData, team}) {
               </tbody>
             </table>
           </td>
-          <td>{playerData.kills}/{playerData.deaths}/{playerData.assists}</td>
+          <td className="kdaValue">{playerData.kills}/{playerData.deaths}/{playerData.assists}</td>
           <td>
             <table>
               <tbody>
-                <tr>
-                  <td>{playerData.totalDamageDealtToChampions}</td>
-                  <td>{playerData.totalDamageTaken}</td>
+                <tr className="damageContainer">
+                  <td className="damageDealt">{playerData.totalDamageDealtToChampions}</td>
+                  <td className="damageReceived">{playerData.totalDamageTaken}</td>
                 </tr>
               </tbody>
             </table>
           </td>
-          <td>{playerData.timeCCingOthers}</td>
-          <td>{playerData.totalMinionsKilled}</td>
-          <td>{playerData.goldEarned}</td>
+          <td className="cellContent">{playerData.timeCCingOthers}</td>
+          <td className="cellContent">{playerData.totalHeal}</td>
+          <td className="cellContent">{playerData.totalDamageShieldedOnTeammates}</td>
+          <td className="cellContent">{playerData.totalMinionsKilled}</td>
+          <td className="cellContent">{playerData.goldEarned}</td>
         </tr>
       )
     }
@@ -75,8 +77,8 @@ function Table({matchData, team}) {
     for (let i = 5; i < 10; i++) {
       let playerData = matchData.info.participants[i];
       rows.push(
-        <tr key={i}>
-          <td>
+        <tr className="rowContainer" key={i}>
+          <td className="teamContainer">
             <table>
               <tbody>
                 <tr>
@@ -117,20 +119,22 @@ function Table({matchData, team}) {
               </tbody>
             </table>
           </td>
-          <td>{playerData.kills}/{playerData.deaths}/{playerData.assists}</td>
+          <td className="kdaValue">{playerData.kills}/{playerData.deaths}/{playerData.assists}</td>
           <td>
             <table>
               <tbody>
-                <tr>
-                  <td>{playerData.totalDamageDealtToChampions}</td>
-                  <td>{playerData.totalDamageTaken}</td>
+                <tr className="damageContainer">
+                  <td className="damageDealt">{playerData.totalDamageDealtToChampions}</td>
+                  <td className="damageReceived">{playerData.totalDamageTaken}</td>
                 </tr>
               </tbody>
             </table>
           </td>
-          <td>{playerData.timeCCingOthers}</td>
-          <td>{playerData.totalMinionsKilled}</td>
-          <td>{playerData.goldEarned}</td>
+          <td className="cellContent">{playerData.timeCCingOthers}</td>
+          <td className="cellContent">{playerData.totalHeal}</td>
+          <td className="cellContent">{playerData.totalDamageShieldedOnTeammates}</td>
+          <td className="cellContent">{playerData.totalMinionsKilled}</td>
+          <td className="cellContent">{playerData.goldEarned}</td>
         </tr>
       )
     }
@@ -141,11 +145,13 @@ function Table({matchData, team}) {
   return (
     <table className="overViewTable">
       <thead>
-        <tr>
+        <tr className="headerContainer">
           <th className="nameHeader">Team</th>
-          <th>KDA</th>
-          <th>Damage</th>
-          <th>CC Score</th>
+          <th className="kdaHeader">KDA</th>
+          <th className="damageHeader">Damage</th>
+          <th className="ccHeader">CC</th>
+          <th className="healsHeader">Heals</th>
+          <th className="shieldsHeader">Shields</th>
           <th>CS</th>
           <th>Gold</th>
         </tr>

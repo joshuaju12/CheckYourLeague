@@ -1,6 +1,15 @@
 
 .test{
-  border-right: solid;
+  /* border-right: solid; */
+  /* display: flex; */
+  /* text-align: center; */
+  /* border-right: solid; */
+  /* border-top: solid; */
+  /* padding-left: 3rem; */
+  /* padding-left: 3rem; */
+  /* display: flex; */
+  /* justify-content: space-evenly; */
+  /* display: flex; */
 }
 
 .overViewTable {
@@ -32,10 +41,63 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  /* border-right: solid; */
+}
+
+.cellContent {
+  text-align: center;
 }
 
 .itemImage {
   width: 2.3rem;
   height: 2.3rem;
   padding-right: 0.1rem;
+}
+
+.teamContainer {
+  border-right: 2px black solid;
+}
+
+.kdaHeader {
+  padding-left: 3rem;
+}
+
+.kdaValue {
+  text-align: center;
+  padding-left: 3rem;
+}
+
+.damageContainer {
+  display: flex;
+  width: 10rem;
+  justify-content: center;
+}
+
+.damageDealt {
+  width: 5rem;
+  text-align: right;
+  padding-right: 0.4rem;
+  border-right: 1px black solid;
+}
+
+.damageReceived {
+  width: 5rem;
+  text-align: left;
+  padding-left: 0.4rem;
+}
+
+tr.headerContainer th {
+  padding-left: 3rem;
+}
+
+tr.headerContainer th:first-child {
+  padding-left: 0rem;
+}
+
+tr.rowContainer > td {
+  padding-left: 3rem;
+}
+
+tr.rowContainer td:first-child {
+  padding-left: 0rem;
 }
