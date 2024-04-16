@@ -24,6 +24,12 @@ width: 90rem;
   flex-direction: row;
 }
 
+.detailsContainer2 {
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: row;
+}
+
 .statsContainer {
   display: flex;
   flex-direction: column;

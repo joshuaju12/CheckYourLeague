@@ -11,7 +11,15 @@ function MatchDetails({matchData, id}) {
   const [expanded, setExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState('tab1');
   // console.log(matchData);
+  let players = matchData.info.participants;
+  let player;
 
+  for (let i = 0; i < players.length; i++) {
+    if (players[i].puuid === id) {
+      player = i;
+      break;
+    }
+  }
 
   const handleExpandClick = (e) => {
     e.preventDefault();
@@ -21,28 +29,46 @@ function MatchDetails({matchData, id}) {
   return (
     <div className="matchContainer">
       <div className="detailsContainer">
-        <div className="overalInfo">
+        <div className="overallInfo">
           <div>
             <div>{date}</div>
             <div className="playersContainer">
               <div className="team1">
-                <div>{matchData.info.participants[0].riotIdGameName}</div>
-                <div>{matchData.info.participants[1].riotIdGameName}</div>
-                <div>{matchData.info.participants[2].riotIdGameName}</div>
-                <div>{matchData.info.participants[3].riotIdGameName}</div>
-                <div>{matchData.info.participants[4].riotIdGameName}</div>
+                <div>{players[0].riotIdGameName}</div>
+                <div>{players[1].riotIdGameName}</div>
+                <div>{players[2].riotIdGameName}</div>
+                <div>{players[3].riotIdGameName}</div>
+                <div>{players[4].riotIdGameName}</div>
               </div>
               <div className="team2">
-                <div>{matchData.info.participants[5].riotIdGameName}</div>
-                <div>{matchData.info.participants[6].riotIdGameName}</div>
-                <div>{matchData.info.participants[7].riotIdGameName}</div>
-                <div>{matchData.info.participants[8].riotIdGameName}</div>
-                <div>{matchData.info.participants[9].riotIdGameName}</div>
+                <div>{players[5].riotIdGameName}</div>
+                <div>{players[6].riotIdGameName}</div>
+                <div>{players[7].riotIdGameName}</div>
+                <div>{players[8].riotIdGameName}</div>
+                <div>{players[9].riotIdGameName}</div>
               </div>
             </div>
           </div>
         </div>
         <button onClick={handleExpandClick}>V</button>
+      </div>
+      <div className="detailsContainer2">
+        <div className="overallGameDetails">
+          game details
+          <div className="overallGameDetailsType">
+            <div>game type</div>
+            <div>time</div>
+          </div>
+        </div>
+        <div className="overallPlayerDetails">
+          player details
+        </div>
+        <div className="overallPlayerStats">
+          player stats
+        </div>
+        <div className="overallAllPlayers">
+          overall All players
+        </div>
       </div>
       {expanded ?
         <div className="statsContainer">
