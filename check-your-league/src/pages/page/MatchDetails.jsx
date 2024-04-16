@@ -4,13 +4,14 @@ import {formatDistanceStrict} from 'date-fns';
 import Tabtitle from './advancedStats/TabTitle.jsx';
 import TabContent from './advancedStats/TabContent.jsx';
 import Overview from './advancedStats/overview/Overview.jsx';
+import QueueType from './QueueType.jsx';
 
 function MatchDetails({matchData, id}) {
 
   const date = formatDistanceStrict(new Date(matchData.info.gameCreation), new Date(), {addSuffix: true});
   const [expanded, setExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState('tab1');
-  // console.log(matchData);
+  // console.log(matchData.info.queueId);
   let players = matchData.info.participants;
   let player;
 
@@ -56,7 +57,7 @@ function MatchDetails({matchData, id}) {
         <div className="overallGameDetails">
           game details
           <div className="overallGameDetailsType">
-            <div>game type</div>
+            <QueueType id={matchData.info.queueId} />
             <div>time</div>
           </div>
         </div>
