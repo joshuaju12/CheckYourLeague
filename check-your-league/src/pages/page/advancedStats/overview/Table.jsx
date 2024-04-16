@@ -2,12 +2,10 @@ import './table.css';
 
 function Table({matchData, team}) {
 
-  let start;
   const rows = [];
   console.log(matchData);
 
   if (team === 0) {
-    start = 0;
     for (let i = 0; i < 5; i++) {
       let playerData = matchData.info.participants[i];
 
@@ -74,7 +72,6 @@ function Table({matchData, team}) {
       )
     }
   } else {
-    start = 5;
     for (let i = 5; i < 10; i++) {
       let playerData = matchData.info.participants[i];
       rows.push(
