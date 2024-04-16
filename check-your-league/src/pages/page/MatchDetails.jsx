@@ -5,7 +5,8 @@ import Tabtitle from './advancedStats/TabTitle.jsx';
 import TabContent from './advancedStats/TabContent.jsx';
 import Overview from './advancedStats/overview/Overview.jsx';
 
-function MatchDetails({matchData}) {
+function MatchDetails({matchData, id}) {
+
   const date = formatDistanceStrict(new Date(matchData.info.gameCreation), new Date(), {addSuffix: true});
   const [expanded, setExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState('tab1');
@@ -54,7 +55,7 @@ function MatchDetails({matchData}) {
             </ul>
           </div>
           <TabContent id="tab1" currentTab={activeTab}>
-            <Overview matchData={matchData} />
+            <Overview matchData={matchData} id={id}/>
           </TabContent>
           <div>combat stuff</div>
         </div>

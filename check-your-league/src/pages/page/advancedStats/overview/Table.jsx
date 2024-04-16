@@ -1,11 +1,12 @@
 import './table.css';
 
 function Table({matchData, team}) {
+
   let start;
   const rows = [];
   console.log(matchData);
 
-  if (team === 1) {
+  if (team === 0) {
     start = 0;
     for (let i = 0; i < 5; i++) {
       let playerData = matchData.info.participants[i];
@@ -146,7 +147,10 @@ function Table({matchData, team}) {
     <table className="overViewTable">
       <thead>
         <tr className="headerContainer">
-          <th className="nameHeader">Team</th>
+          {matchData.info.teams[team].win ?
+            <th className="nameHeader">Victory</th>
+            : <th className="nameHeader">Defeat</th>
+          }
           <th className="kdaHeader">KDA</th>
           <th className="damageHeader">Damage</th>
           <th className="ccHeader">CC</th>
