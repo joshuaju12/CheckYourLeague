@@ -91,7 +91,8 @@ tr.headerContainer th {
 }
 
 tr.headerContainer th:first-child {
-  padding-left: 0rem;
+  padding-left: 0.5rem;
+  text-align: left;
 }
 
 tr.rowContainer > td {
