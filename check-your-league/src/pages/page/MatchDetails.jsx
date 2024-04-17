@@ -14,10 +14,17 @@ function MatchDetails({matchData, id}) {
   // console.log(matchData.info.queueId);
   let players = matchData.info.participants;
   let player;
+  let team;
 
   for (let i = 0; i < players.length; i++) {
     if (players[i].puuid === id) {
       player = i;
+
+      if (i <= 4) {
+        team = 0;
+      } else {
+        team = 1;
+      }
       break;
     }
   }
@@ -55,10 +62,13 @@ function MatchDetails({matchData, id}) {
       </div>
       <div className="detailsContainer2">
         <div className="overallGameDetails">
-          game details
           <div className="overallGameDetailsType">
             <QueueType id={matchData.info.queueId} />
-            <div>time</div>
+            <div>{date}</div>
+          </div>
+          <div className="overallGameDetailsOutcome">
+            <div>{matchData.info.teams[team].win ? "Victory" : "Defeat"}</div>
+            <div>{Math.floor(matchData.info.gameDuration / 60)}m {matchData.info.gameDuration % 60}s</div>
           </div>
         </div>
         <div className="overallPlayerDetails">
