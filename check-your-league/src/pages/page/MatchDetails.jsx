@@ -84,7 +84,8 @@ function MatchDetails({matchData, id}) {
             <img src={require(`./tabs/overview/assets/runes/${players[player].perks.styles[1].style}.png`)} alt='' />
           </div>
           <div className="overallPlayerDetailsStats">
-
+            <div>{players[player].kills} / {players[player].deaths} / {players[player].assists}</div>
+            <div>{players[player].championName}</div>
           </div>
         </div>
         <div className="overallPlayerStats">
