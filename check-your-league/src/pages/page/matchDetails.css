@@ -67,6 +67,11 @@ width: 90rem;
   background-color: black;
 }
 
+.overallPlayerStats {
+  display: flex;
+  flex-direction: column;
+}
+
 .statsContainer {
   display: flex;
   flex-direction: column;

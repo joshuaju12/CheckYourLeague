@@ -15,6 +15,10 @@ function MatchDetails({matchData, id}) {
   let players = matchData.info.participants;
   let player;
   let team;
+  let kills = {
+    '0' : 0,
+    '1' : 0,
+  }
 
   for (let i = 0; i < players.length; i++) {
     if (players[i].puuid === id) {
@@ -25,7 +29,11 @@ function MatchDetails({matchData, id}) {
       } else {
         team = 1;
       }
-      break;
+    }
+    if (i <= 4) {
+      kills['0'] += players[i].kills;
+    } else {
+      kills['1'] += players[i].kills;
     }
   }
 
@@ -89,7 +97,10 @@ function MatchDetails({matchData, id}) {
           </div>
         </div>
         <div className="overallPlayerStats">
-          player stats
+          <div>CS {players[player].totalMinionsKilled + players[player].neutralMinionsKilled}</div>
+          <div>Kill% {Math.ceil((players[player].kills + players[player].assists) / kills[team] * 100)}</div>
+          <div>Damage {(players[player].totalDamageDealtToChampions / 1000).toFixed(1)}k</div>
+          <div>Vision Score {players[player].visionScore}</div>
         </div>
         <div className="overallAllPlayers">
           overall All players
