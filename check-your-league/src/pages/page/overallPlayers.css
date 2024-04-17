@@ -1,0 +1,51 @@
+
+.overallAllPlayers {
+  display: flex;
+  flex-direction: row;
+}
+
+.playersRowOne {
+  display: flex;
+  flex-direction: row;
+  padding-top: 0.2rem;
+}
+
+.playersRowOne :first-child {
+  height: 1.9rem;
+  width: 1.9rem;
+  border-radius: 5px;
+}
+
+.playersRowOne :last-child {
+  width: 7.6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.playersRowTwo :last-child {
+  width: 7.6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.playersOneContainer :last-child {
+  padding-bottom: 0.2rem;
+}
+
+.playersTwoContainer :last-child {
+  padding-bottom: 0.2rem;
+}
+
+.playersRowTwo {
+  display: flex;
+  flex-direction: row;
+  padding-top: 0.2rem;
+}
+
+.playersRowTwo :first-child {
+  height: 1.9rem;
+  width: 1.9rem;
+  border-radius: 5px;
+}

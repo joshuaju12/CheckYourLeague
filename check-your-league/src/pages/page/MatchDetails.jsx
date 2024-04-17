@@ -5,6 +5,7 @@ import Tabtitle from './tabs/TabTitle.jsx';
 import TabContent from './tabs/TabContent.jsx';
 import Overview from './tabs/overview/Overview.jsx';
 import QueueType from './QueueType.jsx';
+import OverallPlayers from './OverallPlayers.jsx';
 
 function MatchDetails({matchData, id}) {
 
@@ -102,9 +103,7 @@ function MatchDetails({matchData, id}) {
           <div>Damage {(players[player].totalDamageDealtToChampions / 1000).toFixed(1)}k</div>
           <div>Vision Score {players[player].visionScore}</div>
         </div>
-        <div className="overallAllPlayers">
-          overall All players
-        </div>
+        <OverallPlayers players={players} />
       </div>
       {expanded ?
         <div className="statsContainer">
