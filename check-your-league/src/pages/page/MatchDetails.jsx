@@ -1,9 +1,9 @@
 import './matchDetails.css';
 import {useState} from 'react';
 import {formatDistanceStrict} from 'date-fns';
-import Tabtitle from './advancedStats/TabTitle.jsx';
-import TabContent from './advancedStats/TabContent.jsx';
-import Overview from './advancedStats/overview/Overview.jsx';
+import Tabtitle from './tabs/TabTitle.jsx';
+import TabContent from './tabs/TabContent.jsx';
+import Overview from './tabs/overview/Overview.jsx';
 import QueueType from './QueueType.jsx';
 
 function MatchDetails({matchData, id}) {
@@ -72,7 +72,20 @@ function MatchDetails({matchData, id}) {
           </div>
         </div>
         <div className="overallPlayerDetails">
-          player details
+          <div className="overallPlayerDetailsChampion">
+            <img src={require(`./tabs/overview/assets/champions/${players[player].championName}.png`)} alt=''/>
+          </div>
+          <div className="overallPlayerDetailsSums">
+            <img src={require(`./tabs/overview/assets/summonerSpells/${players[player].summoner1Id}.png`)} alt='' />
+            <img src={require(`./tabs/overview/assets/summonerSpells/${players[player].summoner2Id}.png`)} alt='' />
+          </div>
+          <div className="overallPlayerDetailsRunes">
+            <img src={require(`./tabs/overview/assets/runes/${players[player].perks.styles[0].selections[0].perk}.png`)} alt='' />
+            <img src={require(`./tabs/overview/assets/runes/${players[player].perks.styles[1].style}.png`)} alt='' />
+          </div>
+          <div className="overallPlayerDetailsStats">
+
+          </div>
         </div>
         <div className="overallPlayerStats">
           player stats

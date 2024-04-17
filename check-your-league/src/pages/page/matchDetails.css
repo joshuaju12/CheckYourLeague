@@ -30,6 +30,43 @@ width: 90rem;
   flex-direction: row;
 }
 
+.overallPlayerDetails {
+  display: flex;
+  flex-direction: row;
+}
+
+.overallPlayerDetailsChampion > * {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 9999px;
+}
+
+.overallPlayerDetailsSums {
+  display: flex;
+  flex-direction: column;
+}
+
+.overallPlayerDetailsSums > * {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 5px;
+}
+
+.overallPlayerDetailsRunes {
+  display: flex;
+  flex-direction: column;
+}
+
+.overallPlayerDetailsRunes > * {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.overallPlayerDetailsRunes :first-child {
+  border-radius: 9999px;
+  background-color: black;
+}
+
 .statsContainer {
   display: flex;
   flex-direction: column;
