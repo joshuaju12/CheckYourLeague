@@ -1,0 +1,34 @@
+.teamComparisonContainer {
+  display: flex;
+  /* height: 5rem; */
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.killIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 1rem 0 1rem;
+}
+
+.goldIcon {
+  width: 2rem;
+  height: 2rem;
+  padding: 0 1rem 0 1rem;
+}
+
+.comparisonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.teamOneStatus {
+  padding-right: 3rem;
+}
+
+.teamTwoStatus {
+  padding-left: 3rem;
+}

@@ -6,6 +6,7 @@ import './page.css';
 import MatchDetails from './MatchDetails.jsx';
 
 function Page() {
+
   const location = useLocation();
   const name = location.state;
   const [userInfo, setUserInfo] = useState({
@@ -56,7 +57,7 @@ function Page() {
         {allMatchData ?
           <>
             {allMatchData.map((value, index) =>
-              <MatchDetails key={index} matchData={value.data} />
+              <MatchDetails key={index} matchData={value.data} id={userInfo.puuid}/>
               // <div key={index}>{value.data.metadata.dataVersion}</div>
             )}
           </>
