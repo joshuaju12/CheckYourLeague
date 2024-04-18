@@ -45,7 +45,7 @@ function MatchDetails({matchData, id}) {
 
   return (
     <div className="matchContainer">
-      <div className="detailsContainer">
+      {/* <div className="detailsContainer">
         <div className="overallInfo">
           <div>
             <div>{date}</div>
@@ -68,8 +68,8 @@ function MatchDetails({matchData, id}) {
           </div>
         </div>
         <button onClick={handleExpandClick}>V</button>
-      </div>
-      <div className="detailsContainer2">
+      </div> */}
+      <div className="detailsContainer">
         <div className="overallGameDetails">
           <div className="overallGameDetailsType">
             <QueueType id={matchData.info.queueId} />
@@ -104,6 +104,11 @@ function MatchDetails({matchData, id}) {
           <div>Vision Score {players[player].visionScore}</div>
         </div>
         <OverallPlayers players={players} />
+        {expanded ?
+          <button className="buttonFlipped button" onClick={handleExpandClick}>V</button>
+          :  <button className="button" onClick={handleExpandClick}>V</button>
+
+        }
       </div>
       {expanded ?
         <div className="statsContainer">
