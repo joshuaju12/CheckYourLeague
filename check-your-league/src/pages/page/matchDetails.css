@@ -14,11 +14,17 @@
   display: flex;
   flex-direction: row;
   padding: 1rem 0 1rem 1rem;
+  /* background-color: aliceblue; */
+  background-color: aquamarine;
+}
+
+.overallGameDetails {
+  width: 11rem;
 }
 
 .overallGameDetailsType {
   border-bottom: 0.1rem black solid;
-  border-image: linear-gradient(to right, #000 70%, transparent 50%) 100% 1;
+  border-image: linear-gradient(to right, #000 60%, transparent 50%) 100% 1;
   height: 50%;
 }
 
@@ -30,11 +36,12 @@
 .overallPlayerDetails {
   display: flex;
   flex-direction: row;
+  padding-left: 2rem;
 }
 
 .overallPlayerDetailsChampion > * {
-  width: 5rem;
-  height: 5rem;
+  width: 6rem;
+  height: 6rem;
   border-radius: 9999px;
 }
 
