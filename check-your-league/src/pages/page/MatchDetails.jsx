@@ -45,30 +45,6 @@ function MatchDetails({matchData, id}) {
 
   return (
     <div className="matchContainer">
-      {/* <div className="detailsContainer">
-        <div className="overallInfo">
-          <div>
-            <div>{date}</div>
-            <div className="playersContainer">
-              <div className="team1">
-                <div>{players[0].riotIdGameName}</div>
-                <div>{players[1].riotIdGameName}</div>
-                <div>{players[2].riotIdGameName}</div>
-                <div>{players[3].riotIdGameName}</div>
-                <div>{players[4].riotIdGameName}</div>
-              </div>
-              <div className="team2">
-                <div>{players[5].riotIdGameName}</div>
-                <div>{players[6].riotIdGameName}</div>
-                <div>{players[7].riotIdGameName}</div>
-                <div>{players[8].riotIdGameName}</div>
-                <div>{players[9].riotIdGameName}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button onClick={handleExpandClick}>V</button>
-      </div> */}
       <div className="detailsContainer">
         <div className="overallGameDetails">
           <div className="overallGameDetailsType">
@@ -105,8 +81,8 @@ function MatchDetails({matchData, id}) {
         </div>
         <OverallPlayers players={players} />
         {expanded ?
-          <button className="buttonFlipped button" onClick={handleExpandClick}>V</button>
-          :  <button className="button" onClick={handleExpandClick}>V</button>
+          <button className="buttonFlipped" onClick={handleExpandClick}>V</button>
+          :  <button onClick={handleExpandClick}>V</button>
 
         }
       </div>

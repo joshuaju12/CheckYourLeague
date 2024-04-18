@@ -1,34 +1,19 @@
 .matchContainer {
- /* border-top: solid;
- border-left: solid;
- border-right: solid;
- height: 23rem; */
- margin-bottom: 2rem;
- /* width: 74rem; */
-width: 90rem;
+  margin-bottom: 2rem;
+  width: 90rem;
 }
 
 .playersContainer {
   font-size: 1.6rem;
   display: flex;
   width: 20rem;
-  /* border-style: solid; */
-}
-
-.team2 {
-  padding-left: 3rem;
-}
-
-.detailsContainer {
-  display: flex;
-  flex-direction: row;
-  /* position: relative; */
 }
 
 .detailsContainer {
   font-size: 1.6rem;
   display: flex;
   flex-direction: row;
+  padding-left: 1rem;
 }
 
 .overallPlayerDetails {
@@ -82,15 +67,6 @@ width: 90rem;
   transform: scale(1, -1);
 }
 
-.button {
-  /* position: absolute; */
-  /* right: 0; */
-  /* height: 100%; */
-  /* margin-left: auto; */
-  /* margin-right: 0; */
-  /* width: 100%; */
-}
-
 .statsContainer {
   display: flex;
   flex-direction: column;
@@ -139,37 +115,4 @@ ul {
 
 .nav li.active {
   background-color: #E1F7FF;
-}
-
-.combatContainer {
-  font-size: 1.6rem;
-}
-
-.kda {
-  display: flex;
-  padding: 0 0 1.3rem 0;
-}
-
-.largestKillingSpree {
-  display: flex;
-  padding: 0 0 1.3rem 0;
-}
-
-.largestMultiKill {
-  display: flex;
-  padding: 0 0 1.3rem 0;
-}
-
-.ccScore {
-  display: flex;
-  padding: 0 0 1.3rem 0;
-}
-
-.firstBlood {
-  display: flex;
-  padding: 0 0 1.3rem 0;
-}
-
-.category {
-  width: 22rem;
 }
