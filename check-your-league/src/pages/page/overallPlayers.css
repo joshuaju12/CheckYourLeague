@@ -3,12 +3,14 @@
   display: flex;
   flex-direction: row;
   margin-left: auto;
+  padding-right: 2rem;
 }
 
 .playersRowOne {
   display: flex;
   flex-direction: row;
-  padding-top: 0.2rem;
+  padding-top: 0.1rem;
+  padding-right: 1rem;
 }
 
 .playersRowOne :first-child {
@@ -42,7 +44,7 @@
 .playersRowTwo {
   display: flex;
   flex-direction: row;
-  padding-top: 0.2rem;
+  padding-top: 0.1rem;
 }
 
 .playersRowTwo :first-child {

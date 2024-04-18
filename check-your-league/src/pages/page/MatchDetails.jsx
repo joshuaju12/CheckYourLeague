@@ -81,8 +81,8 @@ function MatchDetails({matchData, id}) {
         </div>
         <OverallPlayers players={players} />
         {expanded ?
-          <button className="buttonFlipped" onClick={handleExpandClick}>V</button>
-          :  <button onClick={handleExpandClick}>V</button>
+          <button className="buttonFlipped button" onClick={handleExpandClick}>V</button>
+          :  <button className="button" onClick={handleExpandClick}>V</button>
 
         }
       </div>
