@@ -8,7 +8,8 @@ import MatchDetails from './MatchDetails.jsx';
 function Page() {
 
   const location = useLocation();
-  const name = location.state;
+  const name = (location.state).split(" ");
+  console.log(name);
   const [userInfo, setUserInfo] = useState({
     summonerId: '',
     accountId: '',
@@ -24,27 +25,27 @@ function Page() {
   const [tempArray, setTempArray] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${name}`, {params: {"api_key": process.env.REACT_APP_RIOT_API}})
-      .then((results) => {
-        setUserInfo({
-          summonerId: results.data.id,
-          accountId: results.data.accountId,
-          puuid: results.data.puuid,
-          iconId: results.data.profileIconId,
-          level: results.data.summonerLevel
-        });
-        axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${results.data.puuid}/ids`, {params: {"api_key": process.env.REACT_APP_RIOT_API, "start": 0, "count": 5}})
-          .then((allMatches) => {
-            setMatches(allMatches.data);
-            // const tempArray = [];
-            Promise.all(allMatches.data.map((value) => {
-              return axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/${value}`, {params: {"api_key": process.env.REACT_APP_RIOT_API}})
-            }))
-              .then((result) => {
-                setAllMatchData(result);
-              })
-          })
-      })
+    // axios.get(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${name}`, {params: {"api_key": process.env.REACT_APP_RIOT_API}})
+    //   .then((results) => {
+    //     setUserInfo({
+    //       summonerId: results.data.id,
+    //       accountId: results.data.accountId,
+    //       puuid: results.data.puuid,
+    //       iconId: results.data.profileIconId,
+    //       level: results.data.summonerLevel
+    //     });
+    //     axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${results.data.puuid}/ids`, {params: {"api_key": process.env.REACT_APP_RIOT_API, "start": 0, "count": 5}})
+    //       .then((allMatches) => {
+    //         setMatches(allMatches.data);
+    //         // const tempArray = [];
+    //         Promise.all(allMatches.data.map((value) => {
+    //           return axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/${value}`, {params: {"api_key": process.env.REACT_APP_RIOT_API}})
+    //         }))
+    //           .then((result) => {
+    //             setAllMatchData(result);
+    //           })
+    //       })
+    // })
   }, [start, count])
 
   return (
