@@ -71,6 +71,10 @@
   background-color: black;
 }
 
+.overallPlayerDetails {
+  /* padding-top: 2rem; */
+}
+
 .overallPlayerStats {
   display: flex;
   flex-direction: column;
