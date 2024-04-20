@@ -19,7 +19,7 @@ function Home() {
       <div className="mainComponent">
           <form>
             <label className="nameLabel">Search</label>
-            <input type="text" value={name} onChange={handleNameChange} placeholder="Enter Summoner Name"></input>
+            <input type="text" value={name} onChange={handleNameChange} placeholder="Riot Id ex. Name #na1"></input>
           </form>
         <Link to="/page" state={name} style={{textDecoration:"none"}}>
           <button className="searchButton">Go</button>

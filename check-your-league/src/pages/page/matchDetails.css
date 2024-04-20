@@ -1,43 +1,47 @@
 .matchContainer {
- /* border-top: solid;
- border-left: solid;
- border-right: solid;
- height: 23rem; */
- margin-bottom: 2rem;
- /* width: 74rem; */
-width: 90rem;
+  margin-bottom: 2rem;
+  width: 90rem;
 }
 
 .playersContainer {
   font-size: 1.6rem;
   display: flex;
   width: 20rem;
-  /* border-style: solid; */
-}
-
-.team2 {
-  padding-left: 3rem;
 }
 
 .detailsContainer {
-  display: flex;
-  flex-direction: row;
-}
-
-.detailsContainer2 {
   font-size: 1.6rem;
   display: flex;
   flex-direction: row;
+  padding: 1rem 0 1rem 1rem;
+  /* background-color: aliceblue; */
+  background-color: aquamarine;
+}
+
+.overallGameDetails {
+  width: 11rem;
+}
+
+.overallGameDetailsType {
+  border-bottom: 0.1rem black solid;
+  border-image: linear-gradient(to right, #000 60%, transparent 50%) 100% 1;
+  height: 50%;
+}
+
+.overallGameDetailsOutcome {
+  height: auto;
+  margin-top: 1rem;
 }
 
 .overallPlayerDetails {
   display: flex;
   flex-direction: row;
+  padding-left: 2rem;
 }
 
 .overallPlayerDetailsChampion > * {
-  width: 5rem;
-  height: 5rem;
+  width: 6rem;
+  height: 6rem;
   border-radius: 9999px;
 }
 
@@ -67,9 +71,26 @@ width: 90rem;
   background-color: black;
 }
 
+.overallPlayerDetails {
+  /* padding-top: 2rem; */
+}
+
 .overallPlayerStats {
   display: flex;
   flex-direction: column;
+  /* margin-left: 10rem; */
+}
+
+.button {
+  margin: -1rem 0 -1rem 0;
+}
+
+.buttonFlipped {
+  -moz-transform: scale(1, -1);
+  -webkit-transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
 }
 
 .statsContainer {
@@ -87,6 +108,11 @@ width: 90rem;
   margin: 1rem 0 1rem 0;
   background-color: white;
   border-radius: 0.3em;
+}
+
+.tabContent {
+  padding-left: 1rem;
+  padding: 0 1rem 0 1rem;
 }
 
 ul {
@@ -115,37 +141,4 @@ ul {
 
 .nav li.active {
   background-color: #E1F7FF;
-}
-
-.combatContainer {
-  font-size: 1.6rem;
-}
-
-.kda {
-  display: flex;
-  padding: 0 0 1.3rem 0;
-}
-
-.largestKillingSpree {
-  display: flex;
-  padding: 0 0 1.3rem 0;
-}
-
-.largestMultiKill {
-  display: flex;
-  padding: 0 0 1.3rem 0;
-}
-
-.ccScore {
-  display: flex;
-  padding: 0 0 1.3rem 0;
-}
-
-.firstBlood {
-  display: flex;
-  padding: 0 0 1.3rem 0;
-}
-
-.category {
-  width: 22rem;
 }
