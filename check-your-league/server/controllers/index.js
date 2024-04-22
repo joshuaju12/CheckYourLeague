@@ -1,0 +1,1 @@
+exports.getAccount = require('./getAccount.js');
