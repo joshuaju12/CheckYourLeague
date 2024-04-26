@@ -1,7 +1,7 @@
 
 // require('dotenv').config();
 import { useLocation } from 'react-router-dom';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useMemo} from 'react';
 import axios from 'axios';
 import './page.css';
 import MatchDetails from './MatchDetails.jsx';
@@ -17,38 +17,41 @@ function Page() {
     iconId: 0,
     level: 0
   });
-  const [matches, setMatches] = useState([]);
   const [allMatchData, setAllMatchData] = useState([]);
   const [start, setStart] = useState(0);
   const [count, setCount] = useState(10);
-  const [isLoading, setIsLoading] = useState(true);
-  const [tempArray, setTempArray] = useState([]);
+
+  const getMatchHistory = useMemo(() => async() => {
+    try {
+      const account = await axios.get('http://localhost:3001/account', {params: {summonerName: name[0], tagline: name[1]}});
+      const summoner = await axios.get('http://localhost:3001/summoner', {params: {puuid: account.data.puuid}});
+      const matches = await axios.get('http://localhost:3001/allMatches', {params: {puuid: summoner.data.puuid}});
+      const matchArray = await Promise.all(matches.data.map((value) => {
+        return axios.get('http://localhost:3001/match', {params: {matchId: value}})
+      }))
+      setUserInfo({
+        summonerId: summoner.data.id,
+        accountId: summoner.data.accountId,
+        puuid: summoner.data.puuid,
+        iconId: summoner.data.profileIconId,
+        level: summoner.data.summonerLevel,
+      })
+      setAllMatchData(matchArray);
+      return {
+        summonerId: summoner.data.id,
+        accountId: summoner.data.accountId,
+        puuid: summoner.data.puuid,
+        iconId: summoner.data.profileIconId,
+        level: summoner.data.summonerLevel,
+        matchData: matchArray,
+      }
+    } catch(error) {
+      console.log('error getting account');
+    }
+  }, [name]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/account', {params: {summonerName: 'mekju', tagline: 'na1'}})
-      .then((data) => {
-        console.log(data);
-      })
-    // axios.get(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${name}`, {params: {"api_key": process.env.REACT_APP_RIOT_API}})
-    //   .then((results) => {
-    //     setUserInfo({
-    //       summonerId: results.data.id,
-    //       accountId: results.data.accountId,
-    //       puuid: results.data.puuid,
-    //       iconId: results.data.profileIconId,
-    //       level: results.data.summonerLevel
-    //     });
-    //     axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${results.data.puuid}/ids`, {params: {"api_key": process.env.REACT_APP_RIOT_API, "start": 0, "count": 5}})
-    //       .then((allMatches) => {
-    //         setMatches(allMatches.data);
-    //         Promise.all(allMatches.data.map((value) => {
-    //           return axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/${value}`, {params: {"api_key": process.env.REACT_APP_RIOT_API}})
-    //         }))
-    //           .then((result) => {
-    //             setAllMatchData(result);
-    //           })
-    //       })
-    // })
+    getMatchHistory();
   }, [start, count])
 
   return (
@@ -62,7 +65,6 @@ function Page() {
           <>
             {allMatchData.map((value, index) =>
               <MatchDetails key={index} matchData={value.data} id={userInfo.puuid}/>
-              // <div key={index}>{value.data.metadata.dataVersion}</div>
             )}
           </>
           : <div>Loading...</div>

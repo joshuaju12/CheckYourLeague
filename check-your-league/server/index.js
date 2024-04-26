@@ -16,9 +16,9 @@ app.options("/*", function(req, res, next) {
 });
 
 app.get('/account', controllers.getAccount);
-// app.get('/summoner', controllers.getSummoner);
-// app.get('/allMatches', controllers.getAllMatches);
-// app.get('/match', controllers.getMatch);
+app.get('/summoner', controllers.getSummoner);
+app.get('/allMatches', controllers.getAllMatches);
+app.get('/match', controllers.getMatch);
 
 app.listen(process.env.PORT, (err) => {
   if (err) {
@@ -26,6 +26,3 @@ app.listen(process.env.PORT, (err) => {
   }
   console.log(`listening on port ${process.env.PORT}`);
 })
-
-
-/* need account, summoner, allMatches, match*/
