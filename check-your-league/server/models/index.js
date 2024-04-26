@@ -31,3 +31,11 @@ exports.findMatch = (data, cb) => {
       console.log('error retrieving match');
     })
 };
+
+exports.findChampionMastery = (data, cb) => {
+  axios.get(`https://na1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/${data.puuid}/by-champion/${data.championId}`, {params: {"api_key": process.env.RIOT_API_KEY}})
+    .then(cb)
+    .catch((err) => {
+      console.log('error retrieving mastery points');
+    })
+}

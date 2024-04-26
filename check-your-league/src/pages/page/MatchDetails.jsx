@@ -56,21 +56,24 @@ function MatchDetails({matchData, id}) {
           </div>
         </div>
         <div className="overallPlayerDetails">
-          <div className="overallPlayerDetailsChampion">
-            <img src={require(`./tabs/overview/assets/champions/${players[player].championName}.png`)} alt=''/>
+          <div className="overallPlayerDetailsWrapper">
+            <div className="overallPlayerDetailsChampion">
+              <img src={require(`./tabs/overview/assets/champions/${players[player].championName}.png`)} alt=''/>
+            </div>
+            <div className="overallPlayerDetailsSums">
+              <img src={require(`./tabs/overview/assets/summonerSpells/${players[player].summoner1Id}.png`)} alt='' />
+              <img src={require(`./tabs/overview/assets/summonerSpells/${players[player].summoner2Id}.png`)} alt='' />
+            </div>
+            <div className="overallPlayerDetailsRunes">
+              <img src={require(`./tabs/overview/assets/runes/${players[player].perks.styles[0].selections[0].perk}.png`)} alt='' />
+              <img src={require(`./tabs/overview/assets/runes/${players[player].perks.styles[1].style}.png`)} alt='' />
+            </div>
+            <div className="overallPlayerDetailsStats">
+              <div>{players[player].kills} / {players[player].deaths} / {players[player].assists}</div>
+              <div>{players[player].championName}</div>
+            </div>
           </div>
-          <div className="overallPlayerDetailsSums">
-            <img src={require(`./tabs/overview/assets/summonerSpells/${players[player].summoner1Id}.png`)} alt='' />
-            <img src={require(`./tabs/overview/assets/summonerSpells/${players[player].summoner2Id}.png`)} alt='' />
-          </div>
-          <div className="overallPlayerDetailsRunes">
-            <img src={require(`./tabs/overview/assets/runes/${players[player].perks.styles[0].selections[0].perk}.png`)} alt='' />
-            <img src={require(`./tabs/overview/assets/runes/${players[player].perks.styles[1].style}.png`)} alt='' />
-          </div>
-          <div className="overallPlayerDetailsStats">
-            <div>{players[player].kills} / {players[player].deaths} / {players[player].assists}</div>
-            <div>{players[player].championName}</div>
-          </div>
+          <div className="gamesPlayedAs">Games played as {players[player].championName} :  500</div>
         </div>
         <div className="overallPlayerStats">
           <div>CS {players[player].totalMinionsKilled + players[player].neutralMinionsKilled}</div>
