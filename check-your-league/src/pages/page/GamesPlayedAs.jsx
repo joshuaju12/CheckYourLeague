@@ -20,7 +20,7 @@ function GamesPlayedAs({puuid, championName, championId}) {
   }, []);
 
   return (
-    <div>Games played as {championName} : {Math.round(mastery / 600)}</div>
+    <div>Games played as {championName} : {Math.round(mastery / 600) > 0 ? Math.round(mastery / 600) : 1}</div>
   )
 }
 

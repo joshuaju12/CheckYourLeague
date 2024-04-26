@@ -41,8 +41,8 @@
 
 .overallPlayerDetails > :last-child {
   font-size: 1.55rem;
-  padding: 1rem 0 1rem 0;
-  margin-top: auto;
+  padding: 1.2rem 0 1rem 0;
+  /* margin-top: auto; */
 }
 
 .overallPlayerDetailsWrapper {
