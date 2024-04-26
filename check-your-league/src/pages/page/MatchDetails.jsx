@@ -12,7 +12,6 @@ function MatchDetails({matchData, id}) {
   const date = formatDistanceStrict(new Date(matchData.info.gameCreation), new Date(), {addSuffix: true});
   const [expanded, setExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState('tab1');
-  // console.log(matchData.info.queueId);
   let players = matchData.info.participants;
   let player;
   let team;
