@@ -54,11 +54,14 @@
   width: 6rem;
   height: 6rem;
   border-radius: 9999px;
+  margin-right: 1rem;
 }
 
 .overallPlayerDetailsSums {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  margin: 0.2rem 0.3rem 0.5rem 0;
 }
 
 .overallPlayerDetailsSums > * {
@@ -70,6 +73,8 @@
 .overallPlayerDetailsRunes {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  margin: 0.2rem 1.3rem 0.5rem 0;
 }
 
 .overallPlayerDetailsRunes > * {
@@ -82,10 +87,25 @@
   background-color: black;
 }
 
+.overallPlayerDetailsStats {
+  display: flex;
+  flex-direction: column;
+  margin: 1.3rem 13rem 0 0 ;
+}
+
+.overallPlayerDetailsStats :last-child {
+  padding-top: 0.4rem;
+}
+
 .overallPlayerStats {
   display: flex;
   flex-direction: column;
   /* margin-left: 10rem; */
+}
+
+.overallPlayerStatsWrapper {
+  border-left: 1px solid;
+  padding-left: 1rem;
 }
 
 .button {

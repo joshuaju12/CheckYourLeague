@@ -77,10 +77,12 @@ function MatchDetails({matchData, id}) {
           <GamesPlayedAs puuid={players[player].puuid} championName={players[player].championName} championId={players[player].championId} />
         </div>
         <div className="overallPlayerStats">
-          <div>CS {players[player].totalMinionsKilled + players[player].neutralMinionsKilled}</div>
-          <div>Kill% {Math.ceil((players[player].kills + players[player].assists) / kills[team] * 100)}</div>
-          <div>Damage {(players[player].totalDamageDealtToChampions / 1000).toFixed(1)}k</div>
-          <div>Vision Score {players[player].visionScore}</div>
+          <div className="overallPlayerStatsWrapper">
+            <div>CS {players[player].totalMinionsKilled + players[player].neutralMinionsKilled}</div>
+            <div>Kill% {Math.ceil((players[player].kills + players[player].assists) / kills[team] * 100)}</div>
+            <div>Damage {(players[player].totalDamageDealtToChampions / 1000).toFixed(1)}k</div>
+            <div>Vision Score {players[player].visionScore}</div>
+          </div>
         </div>
         <OverallPlayers players={players} />
         {expanded ?
