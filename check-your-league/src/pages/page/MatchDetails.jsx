@@ -6,6 +6,7 @@ import TabContent from './tabs/TabContent.jsx';
 import Overview from './tabs/overview/Overview.jsx';
 import QueueType from './QueueType.jsx';
 import OverallPlayers from './OverallPlayers.jsx';
+import GamesPlayedAs from './GamesPlayedAs.jsx';
 
 function MatchDetails({matchData, id}) {
 
@@ -73,7 +74,7 @@ function MatchDetails({matchData, id}) {
               <div>{players[player].championName}</div>
             </div>
           </div>
-          <div className="gamesPlayedAs">Games played as {players[player].championName} :  500</div>
+          <GamesPlayedAs puuid={players[player].puuid} championName={players[player].championName} championId={players[player].championId} />
         </div>
         <div className="overallPlayerStats">
           <div>CS {players[player].totalMinionsKilled + players[player].neutralMinionsKilled}</div>

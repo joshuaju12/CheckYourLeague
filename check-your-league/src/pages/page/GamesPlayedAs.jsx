@@ -1,13 +1,13 @@
 import {useState, useEffect, useMemo} from 'react';
 import axios from 'axios';
 
-function GamesPlayedAs({championName, championId}) {
+function GamesPlayedAs({puuid, championName, championId}) {
 
   const [mastery, setMastery] = useState(0);
 
   const getMasteryPoints = useMemo(() => async() => {
     try {
-      const masteryPoints = await axios.get('http://localhost:3001/masteryPoints', {params: {championId: championId}});
+      const masteryPoints = await axios.get('http://localhost:3001/masteryPoints', {params: {puuid: puuid, championId: championId}});
       setMastery(masteryPoints.data.championPoints);
       return masteryPoints;
     } catch(error) {
@@ -16,11 +16,11 @@ function GamesPlayedAs({championName, championId}) {
   }, []);
 
   useEffect(() => {
-
+    getMasteryPoints();
   }, []);
 
   return (
-    <div>Games played as {championName} : {mastery / 600}</div>
+    <div>Games played as {championName} : {Math.round(mastery / 600)}</div>
   )
 }
 

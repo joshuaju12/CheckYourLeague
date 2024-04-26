@@ -39,15 +39,15 @@
   padding-left: 2rem;
 }
 
-.overallPlayerDetailsWrapper {
-  display: flex;
-  flex-direction: row;
-}
-
-.gamesPlayedAs {
+.overallPlayerDetails > :last-child {
   font-size: 1.55rem;
   padding: 1rem 0 1rem 0;
   margin-top: auto;
+}
+
+.overallPlayerDetailsWrapper {
+  display: flex;
+  flex-direction: row;
 }
 
 .overallPlayerDetailsChampion > * {
@@ -80,10 +80,6 @@
 .overallPlayerDetailsRunes :first-child {
   border-radius: 9999px;
   background-color: black;
-}
-
-.overallPlayerDetails {
-  /* padding-top: 2rem; */
 }
 
 .overallPlayerStats {
