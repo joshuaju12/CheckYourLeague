@@ -90,7 +90,8 @@
 .overallPlayerDetailsStats {
   display: flex;
   flex-direction: column;
-  margin: 1.3rem 13rem 0 0 ;
+  width: 12rem;
+  margin: 1.3rem 6rem 0 0 ;
 }
 
 .overallPlayerDetailsStats :last-child {
