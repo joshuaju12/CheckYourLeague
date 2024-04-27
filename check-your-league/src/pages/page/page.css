@@ -1,7 +1,4 @@
 
-html {
-}
-
 body {
   font-size: 4rem
 }
@@ -18,5 +15,27 @@ body {
 }
 
 .allMatchesContainer {
-  border-bottom: solid;
+  /* border-bottom: solid; */
+}
+
+.contentContainer {
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.playerStatistics {
+  border: solid;
+  width: 28rem;
+  margin-right: 1rem;
+}
+
+.test {
+  margin-left: auto;
+  margin-right: auto;
+  width: 119rem;
+  border: solid;
+  margin-bottom: 1rem;
 }

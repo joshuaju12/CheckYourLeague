@@ -56,19 +56,19 @@ function Page() {
 
   return (
     <div className="pageContainer">
-      <div className="nameContainer">
-        <div className="name">{name}</div>
-      </div>
-      <div>Match history</div>
-      <div className="allMatchesContainer">
-        {allMatchData ?
-          <>
-            {allMatchData.map((value, index) =>
-              <MatchDetails key={index} matchData={value.data} id={userInfo.puuid}/>
-            )}
-          </>
-          : <div>Loading...</div>
-        }
+      <div className="test">Profile</div>
+      <div className="contentContainer">
+        <div className="playerStatistics">extra stuff</div>
+        <div className="allMatchesContainer">
+          {allMatchData ?
+            <>
+              {allMatchData.map((value, index) =>
+                <MatchDetails key={index} matchData={value.data} id={userInfo.puuid}/>
+              )}
+            </>
+            : <div>Loading...</div>
+          }
+        </div>
       </div>
     </div>
   )
