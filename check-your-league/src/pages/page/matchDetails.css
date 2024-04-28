@@ -1,5 +1,5 @@
 .matchContainer {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   width: 90rem;
 }
 
@@ -35,19 +35,33 @@
 
 .overallPlayerDetails {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding-left: 2rem;
+}
+
+.overallPlayerDetails > :last-child {
+  font-size: 1.55rem;
+  padding: 1.2rem 0 1rem 0;
+  /* margin-top: auto; */
+}
+
+.overallPlayerDetailsWrapper {
+  display: flex;
+  flex-direction: row;
 }
 
 .overallPlayerDetailsChampion > * {
   width: 6rem;
   height: 6rem;
   border-radius: 9999px;
+  margin-right: 1rem;
 }
 
 .overallPlayerDetailsSums {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  margin: 0.2rem 0.3rem 0.5rem 0;
 }
 
 .overallPlayerDetailsSums > * {
@@ -59,6 +73,8 @@
 .overallPlayerDetailsRunes {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  margin: 0.2rem 1.3rem 0.5rem 0;
 }
 
 .overallPlayerDetailsRunes > * {
@@ -71,14 +87,26 @@
   background-color: black;
 }
 
-.overallPlayerDetails {
-  /* padding-top: 2rem; */
+.overallPlayerDetailsStats {
+  display: flex;
+  flex-direction: column;
+  width: 12rem;
+  margin: 1.3rem 6rem 0 0 ;
+}
+
+.overallPlayerDetailsStats :last-child {
+  padding-top: 0.4rem;
 }
 
 .overallPlayerStats {
   display: flex;
   flex-direction: column;
   /* margin-left: 10rem; */
+}
+
+.overallPlayerStatsWrapper {
+  border-left: 1px solid;
+  padding-left: 1rem;
 }
 
 .button {

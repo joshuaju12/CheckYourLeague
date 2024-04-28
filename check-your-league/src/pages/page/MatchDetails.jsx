@@ -6,13 +6,13 @@ import TabContent from './tabs/TabContent.jsx';
 import Overview from './tabs/overview/Overview.jsx';
 import QueueType from './QueueType.jsx';
 import OverallPlayers from './OverallPlayers.jsx';
+import GamesPlayedAs from './GamesPlayedAs.jsx';
 
 function MatchDetails({matchData, id}) {
 
   const date = formatDistanceStrict(new Date(matchData.info.gameCreation), new Date(), {addSuffix: true});
   const [expanded, setExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState('tab1');
-  // console.log(matchData.info.queueId);
   let players = matchData.info.participants;
   let player;
   let team;
@@ -57,27 +57,32 @@ function MatchDetails({matchData, id}) {
           </div>
         </div>
         <div className="overallPlayerDetails">
-          <div className="overallPlayerDetailsChampion">
-            <img src={require(`./tabs/overview/assets/champions/${players[player].championName}.png`)} alt=''/>
+          <div className="overallPlayerDetailsWrapper">
+            <div className="overallPlayerDetailsChampion">
+              <img src={require(`./tabs/overview/assets/champions/${players[player].championName}.png`)} alt=''/>
+            </div>
+            <div className="overallPlayerDetailsSums">
+              <img src={require(`./tabs/overview/assets/summonerSpells/${players[player].summoner1Id}.png`)} alt='' />
+              <img src={require(`./tabs/overview/assets/summonerSpells/${players[player].summoner2Id}.png`)} alt='' />
+            </div>
+            <div className="overallPlayerDetailsRunes">
+              <img src={require(`./tabs/overview/assets/runes/${players[player].perks.styles[0].selections[0].perk}.png`)} alt='' />
+              <img src={require(`./tabs/overview/assets/runes/${players[player].perks.styles[1].style}.png`)} alt='' />
+            </div>
+            <div className="overallPlayerDetailsStats">
+              <div>{players[player].kills} / {players[player].deaths} / {players[player].assists}</div>
+              <div>{players[player].championName}</div>
+            </div>
           </div>
-          <div className="overallPlayerDetailsSums">
-            <img src={require(`./tabs/overview/assets/summonerSpells/${players[player].summoner1Id}.png`)} alt='' />
-            <img src={require(`./tabs/overview/assets/summonerSpells/${players[player].summoner2Id}.png`)} alt='' />
-          </div>
-          <div className="overallPlayerDetailsRunes">
-            <img src={require(`./tabs/overview/assets/runes/${players[player].perks.styles[0].selections[0].perk}.png`)} alt='' />
-            <img src={require(`./tabs/overview/assets/runes/${players[player].perks.styles[1].style}.png`)} alt='' />
-          </div>
-          <div className="overallPlayerDetailsStats">
-            <div>{players[player].kills} / {players[player].deaths} / {players[player].assists}</div>
-            <div>{players[player].championName}</div>
-          </div>
+          <GamesPlayedAs puuid={players[player].puuid} championName={players[player].championName} championId={players[player].championId} />
         </div>
         <div className="overallPlayerStats">
-          <div>CS {players[player].totalMinionsKilled + players[player].neutralMinionsKilled}</div>
-          <div>Kill% {Math.ceil((players[player].kills + players[player].assists) / kills[team] * 100)}</div>
-          <div>Damage {(players[player].totalDamageDealtToChampions / 1000).toFixed(1)}k</div>
-          <div>Vision Score {players[player].visionScore}</div>
+          <div className="overallPlayerStatsWrapper">
+            <div>CS {players[player].totalMinionsKilled + players[player].neutralMinionsKilled}</div>
+            <div>Kill% {Math.ceil((players[player].kills + players[player].assists) / kills[team] * 100)}</div>
+            <div>Damage {(players[player].totalDamageDealtToChampions / 1000).toFixed(1)}k</div>
+            <div>Vision Score {players[player].visionScore}</div>
+          </div>
         </div>
         <OverallPlayers players={players} />
         {expanded ?

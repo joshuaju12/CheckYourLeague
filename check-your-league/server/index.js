@@ -19,6 +19,8 @@ app.get('/account', controllers.getAccount);
 app.get('/summoner', controllers.getSummoner);
 app.get('/allMatches', controllers.getAllMatches);
 app.get('/match', controllers.getMatch);
+app.get('/masteryPoints', controllers.getMasteryPoints);
+app.get('/ranked', controllers.getRanked);
 
 app.listen(process.env.PORT, (err) => {
   if (err) {
