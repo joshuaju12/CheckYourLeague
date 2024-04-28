@@ -60,7 +60,7 @@ function Page() {
 
   return (
     <div className="pageContainer">
-      <ProfileHeader name={name} userInfo={userInfo} />
+      <ProfileHeader name={name} userInfo={userInfo} rankedInfo={rankedInfo} />
       <div className="contentContainer">
         <div className="playerStatistics">extra stuff</div>
         <div className="allMatchesContainer">
