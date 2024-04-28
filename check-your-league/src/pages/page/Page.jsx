@@ -5,6 +5,7 @@ import {useEffect, useState, useMemo} from 'react';
 import axios from 'axios';
 import './page.css';
 import MatchDetails from './MatchDetails.jsx';
+import ProfileHeader from './ProfileHeader.jsx';
 
 function Page() {
 
@@ -17,6 +18,7 @@ function Page() {
     iconId: 0,
     level: 0
   });
+  // const [name, setName] = ((location.state).split(" "));
   const [allMatchData, setAllMatchData] = useState([]);
   const [start, setStart] = useState(0);
   const [count, setCount] = useState(10);
@@ -28,7 +30,7 @@ function Page() {
       const matches = await axios.get('http://localhost:3001/allMatches', {params: {puuid: summoner.data.puuid}});
       const matchArray = await Promise.all(matches.data.map((value) => {
         return axios.get('http://localhost:3001/match', {params: {matchId: value}})
-      }))
+      }));
       setUserInfo({
         summonerId: summoner.data.id,
         accountId: summoner.data.accountId,
@@ -56,7 +58,7 @@ function Page() {
 
   return (
     <div className="pageContainer">
-      <div className="test">Profile</div>
+      <ProfileHeader name={name} userInfo={userInfo} />
       <div className="contentContainer">
         <div className="playerStatistics">extra stuff</div>
         <div className="allMatchesContainer">

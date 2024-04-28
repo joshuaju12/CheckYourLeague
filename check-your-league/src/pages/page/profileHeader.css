@@ -1,0 +1,15 @@
+.profileWrapper {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  width: 119rem;
+  border: solid;
+  margin-bottom: 1rem;
+}
+
+.profileIcon {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 10px;
+}

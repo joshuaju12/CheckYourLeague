@@ -39,3 +39,7 @@ exports.findChampionMastery = (data, cb) => {
       console.log('error retrieving mastery points');
     })
 }
+
+exports.findRanked = (data, cb) => {
+  axios.get(`https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${data.accountId}`, {params: {"api_key": process.env.RIOT_API_KEY}});
+}
