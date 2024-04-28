@@ -18,7 +18,7 @@ function Page() {
     iconId: 0,
     level: 0
   });
-  // const [name, setName] = ((location.state).split(" "));
+  const [rankedInfo, setRankedInfo] = useState([])
   const [allMatchData, setAllMatchData] = useState([]);
   const [start, setStart] = useState(0);
   const [count, setCount] = useState(10);
@@ -27,6 +27,7 @@ function Page() {
     try {
       const account = await axios.get('http://localhost:3001/account', {params: {summonerName: name[0], tagline: name[1]}});
       const summoner = await axios.get('http://localhost:3001/summoner', {params: {puuid: account.data.puuid}});
+      const ranked = await axios.get('http://localhost:3001/ranked', {params: {accountId: summoner.data.id}})
       const matches = await axios.get('http://localhost:3001/allMatches', {params: {puuid: summoner.data.puuid}});
       const matchArray = await Promise.all(matches.data.map((value) => {
         return axios.get('http://localhost:3001/match', {params: {matchId: value}})
@@ -39,6 +40,7 @@ function Page() {
         level: summoner.data.summonerLevel,
       })
       setAllMatchData(matchArray);
+      setRankedInfo(ranked.data);
       return {
         summonerId: summoner.data.id,
         accountId: summoner.data.accountId,

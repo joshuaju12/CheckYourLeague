@@ -41,5 +41,9 @@ exports.findChampionMastery = (data, cb) => {
 }
 
 exports.findRanked = (data, cb) => {
-  axios.get(`https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${data.accountId}`, {params: {"api_key": process.env.RIOT_API_KEY}});
+  axios.get(`https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${data.accountId}`, {params: {"api_key": process.env.RIOT_API_KEY}})
+    .then(cb)
+    .catch((err) => {
+      console.log('error retrieving ranked stats');
+    })
 }

@@ -1,4 +1,4 @@
-const findRanked = require('../models');
+const {findRanked} = require('../models');
 
 const getRanked = (req, res) => {
   findRanked({accountId: req.query.accountId}, (response) => {
