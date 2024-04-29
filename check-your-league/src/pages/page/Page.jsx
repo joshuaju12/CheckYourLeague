@@ -1,14 +1,16 @@
 
 // require('dotenv').config();
 import { useLocation } from 'react-router-dom';
-import {useEffect, useState, useMemo} from 'react';
+import {useEffect, useState, useMemo, useContext} from 'react';
 import axios from 'axios';
 import './page.css';
 import MatchDetails from './MatchDetails.jsx';
 import ProfileHeader from './ProfileHeader.jsx';
+import {SharedContext} from '../../App.js';
 
 function Page() {
 
+  const {setCurrentRoute} = useContext(SharedContext);
   const location = useLocation();
   const name = (location.state).split(" ");
   const [userInfo, setUserInfo] = useState({
@@ -57,6 +59,10 @@ function Page() {
   useEffect(() => {
     getMatchHistory();
   }, [start, count])
+
+  useEffect(() => {
+    setCurrentRoute('page');
+  }, [])
 
   return (
     <div className="pageContainer">

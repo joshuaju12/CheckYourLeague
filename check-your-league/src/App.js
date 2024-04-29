@@ -1,17 +1,46 @@
 import './style.css';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {useState, createContext, useEffect} from 'react';
 import Home from './pages/home/Home.jsx';
 import Page from './pages/page/Page.jsx';
+import background from './pages/assets/background.jpg';
+
+export const SharedContext = createContext();
 
 function App() {
 
+  const [currentRoute, setCurrentRoute] = useState('home');
+
+  const setHomepageBackground = () => {
+    const body = document.body;
+    body.style.backgroundImage = `url(${background})`;
+    body.style.backgroundPosition = "center";
+    body.style.backgroundRepeat = "no-repeat";
+    body.style.backgroundSize = "cover";
+  };
+
+  const setPageBackground = () => {
+    const body = document.body;
+    body.style.backgroundImage = "none";
+  };
+
+  useEffect(() => {
+    if (currentRoute === 'home') {
+      setHomepageBackground();
+    } else {
+      setPageBackground();
+    }
+  }, [currentRoute]);
+
   return (
-    <Router>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/page" element={<Page />} />
-      </Routes>
-    </Router>
+    <SharedContext.Provider value={{setCurrentRoute}}>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/page" element={<Page />} />
+        </Routes>
+      </Router>
+    </SharedContext.Provider>
   );
 }
 
