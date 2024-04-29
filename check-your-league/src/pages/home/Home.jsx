@@ -10,9 +10,9 @@ function Home() {
     setName(e.target.value);
   }
 
-  const handleButtonClick = (e) => {
-    console.log(name);
-  }
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
 
   return (
     <div className="wrapper">
