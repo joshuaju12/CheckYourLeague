@@ -1,18 +1,20 @@
-import {useState} from 'react';
+import {useEffect, useState, useContext} from 'react';
 import {Link} from  "react-router-dom";
 import './home.css';
+import {SharedContext} from '../../App.js';
 
 function Home() {
 
+  const {setCurrentRoute} = useContext(SharedContext);
   const [name, setName] = useState('');
 
   const handleNameChange = (e) => {
     setName(e.target.value);
-  }
+  };
 
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // background-size: cover;
+  useEffect(() => {
+    setCurrentRoute('home');
+  }, [])
 
   return (
     <div className="wrapper">
