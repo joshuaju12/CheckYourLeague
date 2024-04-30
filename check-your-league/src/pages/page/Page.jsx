@@ -12,7 +12,7 @@ function Page() {
 
   const {setCurrentRoute} = useContext(SharedContext);
   const location = useLocation();
-  const name = (location.state).split(" ");
+  const name = (location.state.name).split(" ");
   const [userInfo, setUserInfo] = useState({
     summonerId: '',
     accountId: '',
