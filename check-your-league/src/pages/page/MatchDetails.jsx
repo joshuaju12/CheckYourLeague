@@ -7,6 +7,7 @@ import Overview from './tabs/overview/Overview.jsx';
 import QueueType from './QueueType.jsx';
 import OverallPlayers from './OverallPlayers.jsx';
 import GamesPlayedAs from './GamesPlayedAs.jsx';
+import Stats from './tabs/stats/Stats.jsx';
 
 function MatchDetails({matchData, id}) {
 
@@ -104,7 +105,9 @@ function MatchDetails({matchData, id}) {
           <TabContent id="tab1" currentTab={activeTab}>
             <Overview matchData={matchData} id={id}/>
           </TabContent>
-          <div>combat stuff</div>
+          <TabContent id="tab2" currentTab={activeTab}>
+            <Stats id={id} />
+          </TabContent>
         </div>
         : null
       }
