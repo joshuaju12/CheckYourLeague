@@ -47,3 +47,11 @@ exports.findRanked = (data, cb) => {
       console.log('error retrieving ranked stats');
     })
 }
+
+exports.findTimeline = (data, cb) => {
+  axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/${data.matchId}/timeline`, {params: {"api_key": process.env.RIOT_API_KEY}})
+    .then(cb)
+    .catch((err) => {
+      console.log('error retrieving timeline');
+    })
+}

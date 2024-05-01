@@ -9,7 +9,7 @@ import OverallPlayers from './OverallPlayers.jsx';
 import GamesPlayedAs from './GamesPlayedAs.jsx';
 import Stats from './tabs/stats/Stats.jsx';
 
-function MatchDetails({matchData, id}) {
+function MatchDetails({matchData, matchId, id}) {
 
   const date = formatDistanceStrict(new Date(matchData.info.gameCreation), new Date(), {addSuffix: true});
   const [expanded, setExpanded] = useState(false);
@@ -106,7 +106,7 @@ function MatchDetails({matchData, id}) {
             <Overview matchData={matchData} id={id}/>
           </TabContent>
           <TabContent id="tab2" currentTab={activeTab}>
-            <Stats id={id} />
+            <Stats matchId={matchId} />
           </TabContent>
         </div>
         : null

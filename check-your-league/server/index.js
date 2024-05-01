@@ -21,6 +21,7 @@ app.get('/allMatches', controllers.getAllMatches);
 app.get('/match', controllers.getMatch);
 app.get('/masteryPoints', controllers.getMasteryPoints);
 app.get('/ranked', controllers.getRanked);
+app.get('/timeline', controllers.getTimeline);
 
 app.listen(process.env.PORT, (err) => {
   if (err) {
