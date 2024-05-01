@@ -21,11 +21,14 @@ function MatchDetails({matchData, matchId, id}) {
     '0' : 0,
     '1' : 0,
   }
+  let puuidToChamp = {
+
+  };
+
 
   for (let i = 0; i < players.length; i++) {
     if (players[i].puuid === id) {
       player = i;
-
       if (i <= 4) {
         team = 0;
       } else {
@@ -37,6 +40,7 @@ function MatchDetails({matchData, matchId, id}) {
     } else {
       kills['1'] += players[i].kills;
     }
+    puuidToChamp[players[i].puuid] = players[i].championName;
   }
 
   const handleExpandClick = (e) => {
@@ -103,10 +107,10 @@ function MatchDetails({matchData, matchId, id}) {
             </ul>
           </div>
           <TabContent id="tab1" currentTab={activeTab}>
-            <Overview matchData={matchData} id={id}/>
+            <Overview matchData={matchData} id={id} />
           </TabContent>
           <TabContent id="tab2" currentTab={activeTab}>
-            <Stats matchId={matchId} />
+            <Stats matchId={matchId} puuidToChamp={puuidToChamp} />
           </TabContent>
         </div>
         : null
