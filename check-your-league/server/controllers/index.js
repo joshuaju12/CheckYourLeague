@@ -4,3 +4,4 @@ exports.getAllMatches = require('./getAllMatches.js');
 exports.getMatch = require('./getMatch.js');
 exports.getMasteryPoints = require('./getMasteryPoints.js');
 exports.getRanked = require('./getRanked.js');
+exports.getTimeline = require('./getTimeline.js');

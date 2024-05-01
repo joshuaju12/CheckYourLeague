@@ -20,7 +20,8 @@ function Page() {
     iconId: 0,
     level: 0
   });
-  const [rankedInfo, setRankedInfo] = useState([])
+  const [rankedInfo, setRankedInfo] = useState([]);
+  const [matchList, setMatchList] = useState([]);
   const [allMatchData, setAllMatchData] = useState([]);
   const [start, setStart] = useState(0);
   const [count, setCount] = useState(10);
@@ -43,6 +44,7 @@ function Page() {
       })
       setAllMatchData(matchArray);
       setRankedInfo(ranked.data);
+      setMatchList(matches.data);
       return {
         summonerId: summoner.data.id,
         accountId: summoner.data.accountId,
@@ -73,7 +75,7 @@ function Page() {
           {allMatchData ?
             <>
               {allMatchData.map((value, index) =>
-                <MatchDetails key={index} matchData={value.data} id={userInfo.puuid}/>
+                <MatchDetails key={index} matchData={value.data} matchId={matchList[index]} id={userInfo.puuid}/>
               )}
             </>
             : <div>Loading...</div>

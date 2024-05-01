@@ -1,7 +1,7 @@
 import './profileHeader.css';
 
 function ProfileHeader({userInfo, name, rankedInfo}) {
-  console.log(rankedInfo);
+  // console.log(rankedInfo);
   let highestRank;
   let lp;
   let queue;
