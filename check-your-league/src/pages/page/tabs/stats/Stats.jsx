@@ -35,26 +35,6 @@ function Stats({matchId, puuidToChamp, championName}) {
             };
           };
         };
-<<<<<<< HEAD
-      };
-
-      const currentParticipant = await findCurrentPlayer();
-
-      // for (let i = 0; i < timelineData.length; i++) {
-      //   for (let j = 0; j < timelineData[i].events.length; j++) {
-      //     if (timelineData[i].events[j].type === "CHAMPION_KILL") {
-      //       console.log('got a match');
-      //     }
-      //   }
-      // }
-
-
-    } catch(err) {
-      console.log('error getting kills', err);
-    }
-  }, [getParticipants, selectedPlayer]);
-
-=======
         const currentParticipant = Number(findCurrentPlayer());
 
         for (let i = 0; i < timelineData.length; i++) {
@@ -71,7 +51,6 @@ function Stats({matchId, puuidToChamp, championName}) {
         setKills(killTracker);
       })
   }
->>>>>>> test
 
 
   useEffect(() => {
