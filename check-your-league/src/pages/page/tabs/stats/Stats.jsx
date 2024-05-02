@@ -7,57 +7,35 @@ function Stats({matchId, puuidToChamp, championName}) {
 
   const [timeline, setTimeline] = useState({});
   const [selectedPlayer, setSelectedPlayer] = useState(championName);
+  const [kills, setKills] = useState({});
+  const [killedChampions, setKilledChampions] = useState([]);
 
-  const getTimeline = useMemo(() => async() => {
-    try {
-      const timeline = await axios.get('http://localhost:3001/timeline', {params: {matchId: matchId}});
-      // console.log(timeline.data);
-      setTimeline(timeline.data);
-      return timeline;
-    } catch(err) {
-      console.log('error getting timeline');
-    }
-  }, []);
-
-  const getParticipants = useMemo(() => async() => {
-    try {
-      const matchData = await getTimeline();
-      const participants = matchData.data.info.participants;
-
-      const mapParticipants = () => {
-        const participantsToChamps = {};
-        for (let i = 0; i < participants.length; i++) {
-          participantsToChamps[i + 1] = puuidToChamp[participants[i].puuid];
+  const test = () => {
+    axios.get('http://localhost:3001/timeline', {params: {matchId: matchId}})
+      .then((timeline) => {
+        const participants = timeline.data.info.participants;
+        const mapParticipants = () => {
+          const participantsToChamps = {};
+          for (let i = 0; i < participants.length; i++) {
+            participantsToChamps[i + 1] = puuidToChamp[participants[i].puuid];
+          }
+          return participantsToChamps;
         }
-        return participantsToChamps;
-      }
-
-      const mapParticipantsResults = await mapParticipants();
-      return [mapParticipantsResults, timeline];
-    } catch(err) {
-      console.log('error getting participants', err);
-    }
-  }, [getTimeline, puuidToChamp]);
-
-  const getKills = useMemo(() => async() => {
-    try {
-
-      const helper = async() => {
-        const asyncData = await getParticipants();
-        return asyncData;
-      }
-
-      const data = await helper();
-      // const data = await getParticipants();
-      // console.log(data.info);
-      const timelineData = data[1].info.frames;
-
-      const findCurrentPlayer = () => {
-        for (let key in data[0]) {
-          if (data[0][key] === selectedPlayer) {
-            return key;
+        const mapParticipantsResults = mapParticipants();
+        return [mapParticipantsResults, timeline.data];
+      })
+      .then((data) => {
+        const timelineData = data[1].info.frames;
+        const killTracker = {};
+        const killed = [];
+        const findCurrentPlayer = () => {
+          for (let key in data[0]) {
+            if (data[0][key] === selectedPlayer) {
+              return key;
+            };
           };
         };
+<<<<<<< HEAD
       };
 
       const currentParticipant = await findCurrentPlayer();
@@ -76,13 +54,29 @@ function Stats({matchId, puuidToChamp, championName}) {
     }
   }, [getParticipants, selectedPlayer]);
 
+=======
+        const currentParticipant = Number(findCurrentPlayer());
+
+        for (let i = 0; i < timelineData.length; i++) {
+          for (let j = 0; j < timelineData[i].events.length; j++) {
+            if (timelineData[i].events[j].type === "CHAMPION_KILL" && timelineData[i].events[j].killerId === currentParticipant) {
+              if (!killTracker[data[0][timelineData[i].events[j].victimId]]) {
+                killTracker[data[0][timelineData[i].events[j].victimId]] = 1;
+              } else {
+                killTracker[data[0][timelineData[i].events[j].victimId]]++;
+              }
+            }
+          }
+        }
+        setKills(killTracker);
+      })
+  }
+>>>>>>> test
 
 
   useEffect(() => {
-    getTimeline();
-    getParticipants();
-    getKills();
-  }, [])
+    test();
+  }, [selectedPlayer])
 
   return (
     <div>test</div>
