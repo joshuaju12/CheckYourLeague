@@ -4,13 +4,14 @@ import './stats.css';
 
 
 function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
-console.log(matchData);
+  console.log('rerender');
+
   const [selectedPuuid, setSelectedPuuid] = useState(puuid);
   const [selectedPlayer, setSelectedPlayer] = useState(championName);
   const [kills, setKills] = useState({});
   const [enemyTeam, setEnemyTeam] = useState([]);
   const [loaded, setLoaded] = useState(false);
-  const [participant, setParticipant] = useState();
+  const [participant, setParticipant] = useState(-1);
 
   const getKillResults = () => {
     axios.get('http://localhost:3001/timeline', {params: {matchId: matchId}})
@@ -65,7 +66,6 @@ console.log(matchData);
         setKills(killTracker);
         setEnemyTeam(teams[opposingTeam]);
         setParticipant(currentParticipant - 1);
-        setLoaded(true);
       })
   }
 
@@ -76,8 +76,18 @@ console.log(matchData);
 
   return (
     <div>
-      {loaded ?
-        <div>{matchData.info.participants[participant].championName}</div>
+      {participant > -1 ?
+        <div className="statsKillsContainer">
+          <table className="statsKillTable">
+            <thead>
+              <tr>
+                {enemyTeam.map((value, index) =>
+                <th className="statsTableHeader" key={index}>{value}</th>
+              )}
+              </tr>
+            </thead>
+          </table>
+        </div>
 
       : null
       }
