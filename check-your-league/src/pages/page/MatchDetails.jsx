@@ -111,7 +111,7 @@ function MatchDetails({matchData, matchId, id}) {
             <Overview matchData={matchData} id={id} />
           </TabContent>
           <TabContent id="tab2" currentTab={activeTab}>
-            <Stats matchId={matchId} puuidToChamp={puuidToChamp} championName={players[player].championName} teams={teams} puuid={id} />
+            <Stats matchId={matchId} matchData={matchData} puuidToChamp={puuidToChamp} championName={players[player].championName} teams={teams} puuid={id} />
           </TabContent>
         </div>
         : null

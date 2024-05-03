@@ -3,28 +3,24 @@ import axios from 'axios';
 import './stats.css';
 
 
-function Stats({matchId, puuidToChamp, championName, teams, puuid}) {
-
+function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
+console.log(matchData);
   const [selectedPuuid, setSelectedPuuid] = useState(puuid);
-  const [timeline, setTimeline] = useState({});
   const [selectedPlayer, setSelectedPlayer] = useState(championName);
   const [kills, setKills] = useState({});
-  const [killedChampions, setKilledChampions] = useState([]);
   const [enemyTeam, setEnemyTeam] = useState([]);
-
-  const getEnemyTeam = () => {
-    if (teams[0].indexOf(selectedPlayer) >= 0) {
-
-    }
-  }
+  const [loaded, setLoaded] = useState(false);
+  const [participant, setParticipant] = useState();
 
   const getKillResults = () => {
     axios.get('http://localhost:3001/timeline', {params: {matchId: matchId}})
       .then((timeline) => {
         const participants = timeline.data.info.participants;
+        const participantIdToChamp = {};
         const mapParticipants = () => {
           const participantsToChamps = [];
           for (let i = 0; i < participants.length; i++) {
+            participantIdToChamp[i + 1] = puuidToChamp[participants[i].puuid];
             const participantsInfo = {}
             participantsInfo.name = puuidToChamp[participants[i].puuid];
             participantsInfo.participantId = i + 1;
@@ -34,15 +30,20 @@ function Stats({matchId, puuidToChamp, championName, teams, puuid}) {
           return participantsToChamps;
         }
         const mapParticipantsResults = mapParticipants();
-        return [mapParticipantsResults, timeline.data];
+        return [mapParticipantsResults, timeline.data, participantIdToChamp];
       })
       .then((data) => {
-        console.log(data);
         const timelineData = data[1].info.frames;
         const killTracker = {};
+        let opposingTeam;
         const findCurrentPlayer = () => {
           for (let i = 0; i < data[0].length; i++) {
             if (data[0][i].name === selectedPlayer && data[0][i].puuid === selectedPuuid) {
+              if (i <= 4) {
+                opposingTeam = 1;
+              } else {
+                opposingTeam = 0;
+              }
               return data[0][i].participantId;
             }
           }
@@ -52,15 +53,19 @@ function Stats({matchId, puuidToChamp, championName, teams, puuid}) {
         for (let i = 0; i < timelineData.length; i++) {
           for (let j = 0; j < timelineData[i].events.length; j++) {
             if (timelineData[i].events[j].type === "CHAMPION_KILL" && timelineData[i].events[j].killerId === currentParticipant) {
-              if (!killTracker[data[0][timelineData[i].events[j].victimId]]) {
-                killTracker[data[0][timelineData[i].events[j].victimId]] = 1;
+              if (!killTracker[data[2][timelineData[i].events[j].victimId]]) {
+                killTracker[data[2][timelineData[i].events[j].victimId]] = 1;
               } else {
-                killTracker[data[0][timelineData[i].events[j].victimId]]++;
+                killTracker[data[2][timelineData[i].events[j].victimId]]++;
               }
             }
           }
         }
+
         setKills(killTracker);
+        setEnemyTeam(teams[opposingTeam]);
+        setParticipant(currentParticipant - 1);
+        setLoaded(true);
       })
   }
 
@@ -70,7 +75,13 @@ function Stats({matchId, puuidToChamp, championName, teams, puuid}) {
   }, [selectedPlayer])
 
   return (
-    <div>test</div>
+    <div>
+      {loaded ?
+        <div>{matchData.info.participants[participant].championName}</div>
+
+      : null
+      }
+    </div>
   )
 }
 
