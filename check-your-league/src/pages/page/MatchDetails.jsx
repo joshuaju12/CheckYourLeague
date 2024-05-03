@@ -21,9 +21,8 @@ function MatchDetails({matchData, matchId, id}) {
     '0' : 0,
     '1' : 0,
   }
-  let puuidToChamp = {
-
-  };
+  let puuidToChamp = {};
+  let teams = [[], []];
 
 
   for (let i = 0; i < players.length; i++) {
@@ -37,8 +36,10 @@ function MatchDetails({matchData, matchId, id}) {
     }
     if (i <= 4) {
       kills['0'] += players[i].kills;
+      teams[0].push(players[i].championName);
     } else {
       kills['1'] += players[i].kills;
+      teams[1].push(players[i].championName);
     }
     puuidToChamp[players[i].puuid] = players[i].championName;
   }
@@ -110,7 +111,7 @@ function MatchDetails({matchData, matchId, id}) {
             <Overview matchData={matchData} id={id} />
           </TabContent>
           <TabContent id="tab2" currentTab={activeTab}>
-            <Stats matchId={matchId} puuidToChamp={puuidToChamp} championName={players[player].championName} />
+            <Stats matchId={matchId} puuidToChamp={puuidToChamp} championName={players[player].championName} teams={teams} puuid={id} />
           </TabContent>
         </div>
         : null
