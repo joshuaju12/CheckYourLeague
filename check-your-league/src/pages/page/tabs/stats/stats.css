@@ -1,0 +1,74 @@
+
+.statsKillsAndAssistsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+.statsCombatStatsContainer {
+  padding-bottom: 1rem;
+}
+
+.statsTablePlayerHeader {
+  height: 3.5rem;
+  width: 3.5rem;
+  font-size: 0;
+}
+
+.statsTableHeader {
+  height: 3.5rem;
+  width: 3.5rem;
+  font-size: 0;
+  border-radius: 9999px;
+}
+
+.statsTableRowPlayer {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 9999px;
+}
+
+.statsKillContainer > :first-child {
+  text-align: center;
+}
+
+.statsAssistContainer > :first-child {
+  text-align: center;
+}
+
+/* .statsCombatStatsCombatHeader {
+  border-bottom: solid;
+} */
+
+.statsCombatTableValueContainer {
+  display: flex;
+  flex-direction: row;
+  height: 2rem;
+}
+
+.statsCombatTableValueTitle {
+  width: 18rem;
+}
+
+.statsCombatTableValue {
+  width: 5rem;
+  text-align: center;
+}
+
+.statsCombatTableCombat .statsCombatTableValueTitle {
+  width: 17rem;
+}
+
+.statsCombatTableIncomingDamage .statsCombatTableValueTitle {
+  width: 15rem;
+}
+
+.statsCombatTableGold .statsCombatTableValueTitle {
+  width: 12.5rem;
+}
+
+/* .test { */
+  /* width: 15rem; */
+  /* height: 15rem; */
+/* } */
