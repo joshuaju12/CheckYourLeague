@@ -50,3 +50,25 @@
 .statsCombatTableValueTitle {
   width: 18rem;
 }
+
+.statsCombatTableValue {
+  width: 5rem;
+  text-align: center;
+}
+
+.statsCombatTableCombat .statsCombatTableValueTitle {
+  width: 17rem;
+}
+
+.statsCombatTableIncomingDamage .statsCombatTableValueTitle {
+  width: 15rem;
+}
+
+.statsCombatTableGold .statsCombatTableValueTitle {
+  width: 12.5rem;
+}
+
+/* .test { */
+  /* width: 15rem; */
+  /* height: 15rem; */
+/* } */

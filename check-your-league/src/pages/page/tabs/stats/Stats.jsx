@@ -1,5 +1,6 @@
 import {useState, useEffect, useMemo} from 'react';
 import axios from 'axios';
+import Select from 'react-select';
 import './stats.css';
 
 
@@ -12,6 +13,7 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
   const [loaded, setLoaded] = useState(false);
   const [participant, setParticipant] = useState(-1);
   const test = "Brand";
+  const test2 = [{value: 0, label: "option1"}, {value: 1, label: "option2"}];
 
   const getKillResults = () => {
     axios.get('http://localhost:3001/timeline', {params: {matchId: matchId}})
@@ -98,6 +100,19 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
     <div>
       {participant > -1 ?
         <div>
+          <div className="dropdownContainer">
+            <Select
+              value={1}
+              options={test2}
+              isSearchable={false}
+              formatOptionLabel={player => (
+                <div>
+                  <img src={require(`../overview/assets/champions/${test}.png`)} alt="" />
+                  <span>{player.label}</span>
+                </div>
+              )}
+            />
+          </div>
           <div className="statsKillsAndAssistsContainer">
             <div className="statsKillContainer">
               <div>Kills</div>
