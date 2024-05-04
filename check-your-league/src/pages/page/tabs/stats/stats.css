@@ -3,6 +3,11 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+.statsCombatStatsContainer {
+  padding-bottom: 1rem;
 }
 
 .statsTablePlayerHeader {
@@ -22,4 +27,26 @@
   height: 4rem;
   width: 4rem;
   border-radius: 9999px;
+}
+
+.statsKillContainer > :first-child {
+  text-align: center;
+}
+
+.statsAssistContainer > :first-child {
+  text-align: center;
+}
+
+/* .statsCombatStatsCombatHeader {
+  border-bottom: solid;
+} */
+
+.statsCombatTableValueContainer {
+  display: flex;
+  flex-direction: row;
+  height: 2rem;
+}
+
+.statsCombatTableValueTitle {
+  width: 18rem;
 }

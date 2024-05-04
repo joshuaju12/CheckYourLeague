@@ -97,55 +97,195 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
   return (
     <div>
       {participant > -1 ?
-        <div className="statsKillsAndAssistsContainer">
-          <div className="statsKillContainer">
-            <table className="statsKillTable">
-              <thead>
-                <tr>
-                  <th className="statsTablePlayerHeader">player</th>
-                  {enemyTeam.map((value, index) =>
-                    <th className="statsTableHeader" style={{background: `url(${require(`../overview/assets/champions/${value}.png`)})`, backgroundPosition: 'center', backgroundSize: 'cover'}} key={index}>{value}</th>
-                  )}
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <img className="statsTableRowPlayer" src={require(`../overview/assets/champions/${selectedPlayer}.png`)} alt="" />
-                  </td>
-                  {enemyTeam.map((value, index) => {
-                    if (!kills[value] || !kills[value][0]) {
-                      return <td className="statsTableRowKills" key={index}>0</td>
-                    } else {
-                      return <td className="statsTableRowKills" key={index}>{kills[value][0]}</td>
-                    }
-                  })}
-                </tr>
-              </tbody>
-            </table>
+        <div>
+          <div className="statsKillsAndAssistsContainer">
+            <div className="statsKillContainer">
+              <div>Kills</div>
+              <table className="statsKillTable">
+                <thead>
+                  <tr>
+                    <th className="statsTablePlayerHeader">player</th>
+                    {enemyTeam.map((value, index) =>
+                      <th className="statsTableHeader" style={{background: `url(${require(`../overview/assets/champions/${value}.png`)})`, backgroundPosition: 'center', backgroundSize: 'cover'}} key={index}>{value}</th>
+                    )}
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <img className="statsTableRowPlayer" src={require(`../overview/assets/champions/${selectedPlayer}.png`)} alt="" />
+                    </td>
+                    {enemyTeam.map((value, index) => {
+                      if (!kills[value] || !kills[value][0]) {
+                        return <td className="statsTableRowKills" key={index}>0</td>
+                      } else {
+                        return <td className="statsTableRowKills" key={index}>{kills[value][0]}</td>
+                      }
+                    })}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="statsAssistContainer">
+              <div>Assists</div>
+              <table className="statsAssistTable">
+                <thead>
+                  <tr>
+                    <th className="statsTablePlayerHeader">player</th>
+                    {enemyTeam.map((value, index) =>
+                      <th className="statsTableHeader" style={{background: `url(${require(`../overview/assets/champions/${value}.png`)})`, backgroundPosition: 'center', backgroundSize: 'cover'}} key={index}>{value}</th>
+                    )}
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <img className="statsTableRowPlayer" src={require(`../overview/assets/champions/${selectedPlayer}.png`)} alt="" />
+                    </td>
+                    {enemyTeam.map((value, index) => {
+                      if (!kills[value] || !kills[value][1]) {
+                        return <td className="statsTableRowKills" key={index}>0</td>
+                      } else {
+                        return <td className="statsTableRowKills" key={index}>{kills[value][1]}</td>
+                      }
+                    })}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div className="statsAssistTable">
-            <table className="statsAssistTable">
+          <div className="statsCombatStatsContainer">
+            <table className="statsCombatStatsTable">
               <thead>
                 <tr>
-                  <th className="statsTablePlayerHeader">player</th>
-                  {enemyTeam.map((value, index) =>
-                    <th className="statsTableHeader" style={{background: `url(${require(`../overview/assets/champions/${value}.png`)})`, backgroundPosition: 'center', backgroundSize: 'cover'}} key={index}>{value}</th>
-                  )}
+                  <th className="statsCombatStatsCombatHeader">Combat</th>
+                  <th className="statsCombatStatsDamageDealtHeader">Damage Dealt</th>
+                  <th className="statsCombatStatsIncomingDamageHeader">Incoming Damage</th>
+                  <th className="statsCombatStatsGoldHeader">Gold</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>
-                    <img className="statsTableRowPlayer" src={require(`../overview/assets/champions/${selectedPlayer}.png`)} alt="" />
+                  <td className="statsCombatTableCombat">
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Largest Killing Spree</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].largestKillingSpree}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Largest Multi Kill</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].largestMultiKill}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Crowd Control Score</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].timeCCingOthers}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Vision Score</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].visionScore}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Wards Places</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].wardsPlaced}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Wards Destroyed</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].wardsKilled}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Control Wards Purchased</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].visionWardsBoughtInGame}</div>
+                    </div>
                   </td>
-                  {enemyTeam.map((value, index) => {
-                    if (!kills[value] || !kills[value][1]) {
-                      return <td className="statsTableRowKills" key={index}>0</td>
-                    } else {
-                      return <td className="statsTableRowKills" key={index}>{kills[value][1]}</td>
-                    }
-                  })}
+                  <td className="statsCombatTableDamageDealt">
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Total Dmg to Champs</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].totalDamageDealtToChampions}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Physical Dmg to Champs</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].physicalDamageDealtToChampions}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Magic Dmg to Champs</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].magicDamageDealtToChampions}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">True Dmg to Champs</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].trueDamageDealtToChampions}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Dmg to Turrets</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].damageDealtToTurrets}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Dmg to Objectives</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].damageDealtToObjectives}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle"></div>
+                      <div className="statsCombatTableValue"></div>
+                    </div>
+                  </td>
+                  <td className="statsCombatTableIncomingDamage">
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Dmg Healed</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].totalHeal}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Dmg Taken</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].totalDamageTaken}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Self Mitigated Dmg</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].damageSelfMitigated}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Shields to Others</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].totalDamageShieldedOnTeammates}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Physical Dmg Taken</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].physicalDamageTaken}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Magic Dmg Taken</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].magicDamageTaken}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">True Dmg Taken</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].trueDamageTaken}</div>
+                    </div>
+                  </td>
+                  <td className="statsCombatTableGold">
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Gold Earned</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].goldEarned}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Gold Spent</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].goldSpent}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Minions</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].totalMinionsKilled}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle">Jungle Minions</div>
+                      <div className="statsCombatTableValue">{matchData.info.participants[participant].neutralMinionsKilled}</div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle"></div>
+                      <div className="statsCombatTableValue"></div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle"></div>
+                      <div className="statsCombatTableValue"></div>
+                    </div>
+                    <div className="statsCombatTableValueContainer">
+                      <div className="statsCombatTableValueTitle"></div>
+                      <div className="statsCombatTableValue"></div>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>
