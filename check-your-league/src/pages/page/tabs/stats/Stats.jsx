@@ -55,14 +55,34 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
           for (let j = 0; j < timelineData[i].events.length; j++) {
             if (timelineData[i].events[j].type === "CHAMPION_KILL" && timelineData[i].events[j].killerId === currentParticipant) {
               if (!killTracker[data[2][timelineData[i].events[j].victimId]]) {
-                killTracker[data[2][timelineData[i].events[j].victimId]] = 1;
+                let tuple = Array(2);
+                tuple[0] = 1;
+                killTracker[data[2][timelineData[i].events[j].victimId]] = tuple;
               } else {
-                killTracker[data[2][timelineData[i].events[j].victimId]]++;
+                if (!killTracker[data[2][timelineData[i].events[j].victimId]][0]) {
+                  killTracker[data[2][timelineData[i].events[j].victimId]][0] = 1;
+                } else {
+                  killTracker[data[2][timelineData[i].events[j].victimId]][0]++;
+                }
+              }
+            } else {
+              const assists = timelineData[i].events[j].assistingParticipantIds;
+              if (timelineData[i].events[j].type === "CHAMPION_KILL" && assists && assists.indexOf(currentParticipant) >= 0) {
+                if (killTracker[data[2][timelineData[i].events[j].victimId]] === undefined) {
+                  let tuple = Array(2);
+                  tuple[1] = 1;
+                  killTracker[data[2][timelineData[i].events[j].victimId]] = tuple;
+                } else {
+                  if (!killTracker[data[2][timelineData[i].events[j].victimId]][1]) {
+                    killTracker[data[2][timelineData[i].events[j].victimId]][1] = 1;
+                  } else {
+                    killTracker[data[2][timelineData[i].events[j].victimId]][1]++;
+                  }
+                }
               }
             }
           }
         }
-
         setKills(killTracker);
         setEnemyTeam(teams[opposingTeam]);
         setParticipant(currentParticipant - 1);
@@ -77,19 +97,59 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
   return (
     <div>
       {participant > -1 ?
-        <div className="statsKillsContainer">
-          <table className="statsKillTable">
-            <thead>
-              <tr>
-                <th className="statsTablePlayerHeader">player</th>
-                {enemyTeam.map((value, index) =>
-                <th className="statsTableHeader" style={{background: `url(${require(`../overview/assets/champions/${value}.png`)})`, backgroundPosition: 'center', backgroundSize: 'cover'}} key={index}>{value}</th>
-                // <th key={index}>{value}</th>
-              )}
-              </tr>
-            </thead>
-          </table>
-          {/* <img src={require(`../overview/assets/champions/${test}.png`)} alt="" /> */}
+        <div className="statsKillsAndAssistsContainer">
+          <div className="statsKillContainer">
+            <table className="statsKillTable">
+              <thead>
+                <tr>
+                  <th className="statsTablePlayerHeader">player</th>
+                  {enemyTeam.map((value, index) =>
+                    <th className="statsTableHeader" style={{background: `url(${require(`../overview/assets/champions/${value}.png`)})`, backgroundPosition: 'center', backgroundSize: 'cover'}} key={index}>{value}</th>
+                  )}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <img className="statsTableRowPlayer" src={require(`../overview/assets/champions/${selectedPlayer}.png`)} alt="" />
+                  </td>
+                  {enemyTeam.map((value, index) => {
+                    if (!kills[value] || !kills[value][0]) {
+                      return <td className="statsTableRowKills" key={index}>0</td>
+                    } else {
+                      return <td className="statsTableRowKills" key={index}>{kills[value][0]}</td>
+                    }
+                  })}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="statsAssistTable">
+            <table className="statsAssistTable">
+              <thead>
+                <tr>
+                  <th className="statsTablePlayerHeader">player</th>
+                  {enemyTeam.map((value, index) =>
+                    <th className="statsTableHeader" style={{background: `url(${require(`../overview/assets/champions/${value}.png`)})`, backgroundPosition: 'center', backgroundSize: 'cover'}} key={index}>{value}</th>
+                  )}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <img className="statsTableRowPlayer" src={require(`../overview/assets/champions/${selectedPlayer}.png`)} alt="" />
+                  </td>
+                  {enemyTeam.map((value, index) => {
+                    if (!kills[value] || !kills[value][1]) {
+                      return <td className="statsTableRowKills" key={index}>0</td>
+                    } else {
+                      return <td className="statsTableRowKills" key={index}>{kills[value][1]}</td>
+                    }
+                  })}
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       : null
       }

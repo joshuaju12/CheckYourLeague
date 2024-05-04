@@ -75,7 +75,7 @@ function Page() {
           {allMatchData ?
             <>
               {allMatchData.map((value, index) =>
-                <MatchDetails key={index} matchData={value.data} matchId={matchList[index]} id={userInfo.puuid}/>
+                <MatchDetails key={index} eventKey={index} matchData={value.data} matchId={matchList[index]} id={userInfo.puuid}/>
               )}
             </>
             : <div>Loading...</div>
