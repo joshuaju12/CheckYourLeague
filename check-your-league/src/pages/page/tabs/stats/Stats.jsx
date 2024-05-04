@@ -4,7 +4,6 @@ import './stats.css';
 
 
 function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
-  console.log('rerender');
 
   const [selectedPuuid, setSelectedPuuid] = useState(puuid);
   const [selectedPlayer, setSelectedPlayer] = useState(championName);
@@ -12,6 +11,7 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
   const [enemyTeam, setEnemyTeam] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [participant, setParticipant] = useState(-1);
+  const test = "Brand";
 
   const getKillResults = () => {
     axios.get('http://localhost:3001/timeline', {params: {matchId: matchId}})
@@ -81,14 +81,16 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
           <table className="statsKillTable">
             <thead>
               <tr>
+                <th className="statsTablePlayerHeader">player</th>
                 {enemyTeam.map((value, index) =>
-                <th className="statsTableHeader" key={index}>{value}</th>
+                <th className="statsTableHeader" style={{background: `url(${require(`../overview/assets/champions/${value}.png`)})`, backgroundPosition: 'center', backgroundSize: 'cover'}} key={index}>{value}</th>
+                // <th key={index}>{value}</th>
               )}
               </tr>
             </thead>
           </table>
+          {/* <img src={require(`../overview/assets/champions/${test}.png`)} alt="" /> */}
         </div>
-
       : null
       }
     </div>

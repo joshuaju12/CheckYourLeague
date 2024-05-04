@@ -1,0 +1,12 @@
+.statsTablePlayerHeader {
+  height: 3.5rem;
+  width: 3.5rem;
+  font-size: 0;
+}
+
+.statsTableHeader {
+  height: 3.5rem;
+  width: 3.5rem;
+  font-size: 0;
+  border-radius: 9999px;
+}
