@@ -91,6 +91,10 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
       })
   }
 
+  const onClick = (e) => {
+    console.log("clicked");
+  }
+
 
   useEffect(() => {
     getKillResults();
@@ -102,9 +106,10 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
         <div>
           <div className="dropdownContainer">
             <Select
-              value={1}
+              defaultValue={test2[0]}
               options={test2}
-              isSearchable={false}
+              onChange={e => console.log(e)}
+              // isSearchable={false}
               formatOptionLabel={player => (
                 <div>
                   <img src={require(`../overview/assets/champions/${test}.png`)} alt="" />
