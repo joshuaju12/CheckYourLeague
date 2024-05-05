@@ -113,7 +113,6 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid, pl
       {participant > -1 ?
         <div>
           <div className="dropdownContainer">
-            <div className="clearFix"></div>
             <Select
               defaultValue={options[participant]}
               options={options}
@@ -122,7 +121,7 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid, pl
               formatOptionLabel={player => (
                 <div className="optionsContainer">
                   <img className="optionsImage" src={require(`../overview/assets/champions/${player.value.championName}.png`)} alt="" />
-                  <span className="optionsLabel">{player.value.playerName}</span>
+                  <div className="optionsLabel">{player.value.playerName}</div>
                 </div>
               )}
             />
