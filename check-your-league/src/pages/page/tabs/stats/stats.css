@@ -1,5 +1,25 @@
 
+.dropdownContainer {
+display: flex;
+float: right;
+}
+
+.optionsContainer {
+  display: flex;
+  align-items: center;
+  clear: right;
+  width: 10rem;
+}
+
+.optionsImage {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  margin-right: 0.5rem;
+}
+
 .statsKillsAndAssistsContainer {
+  clear: right;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -15,7 +35,6 @@
   width: 3.5rem;
   font-size: 0;
 }
-
 .statsTableHeader {
   height: 3.5rem;
   width: 3.5rem;

@@ -4,8 +4,7 @@ import Select from 'react-select';
 import './stats.css';
 
 
-function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
-
+function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid, players}) {
   const [selectedPuuid, setSelectedPuuid] = useState(puuid);
   const [selectedPlayer, setSelectedPlayer] = useState(championName);
   const [kills, setKills] = useState({});
@@ -13,7 +12,15 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
   const [loaded, setLoaded] = useState(false);
   const [participant, setParticipant] = useState(-1);
   const test = "Brand";
-  const test2 = [{value: 0, label: "option1"}, {value: 1, label: "option2"}];
+  const test2 = [{value: {a: 1}, label: "option1"}, {value: 1, label: "option2"}];
+  const options = [];
+
+  for (let i = 0; i < players.length; i++) {
+    const option = {};
+    option.value = players[i];
+    option.label = players[i].playerName;
+    options.push(option);
+  }
 
   const getKillResults = () => {
     axios.get('http://localhost:3001/timeline', {params: {matchId: matchId}})
@@ -92,7 +99,8 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
   }
 
   const onClick = (e) => {
-    console.log("clicked");
+    setSelectedPuuid(e.value.puuid);
+    setSelectedPlayer(e.value.championName);
   }
 
 
@@ -105,15 +113,16 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
       {participant > -1 ?
         <div>
           <div className="dropdownContainer">
+            <div className="clearFix"></div>
             <Select
-              defaultValue={test2[0]}
-              options={test2}
-              onChange={e => console.log(e)}
-              // isSearchable={false}
+              defaultValue={options[participant]}
+              options={options}
+              onChange={e => onClick(e)}
+              isSearchable={false}
               formatOptionLabel={player => (
-                <div>
-                  <img src={require(`../overview/assets/champions/${test}.png`)} alt="" />
-                  <span>{player.label}</span>
+                <div className="optionsContainer">
+                  <img className="optionsImage" src={require(`../overview/assets/champions/${player.value.championName}.png`)} alt="" />
+                  <span className="optionsLabel">{player.value.playerName}</span>
                 </div>
               )}
             />
@@ -126,7 +135,7 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
                   <tr>
                     <th className="statsTablePlayerHeader">player</th>
                     {enemyTeam.map((value, index) =>
-                      <th className="statsTableHeader" style={{background: `url(${require(`../overview/assets/champions/${value}.png`)})`, backgroundPosition: 'center', backgroundSize: 'cover'}} key={index}>{value}</th>
+                      <th className="statsTableHeader" style={{backgroundImage: `url(${require(`../overview/assets/champions/${value}.png`)})` , backgroundPosition: 'center', backgroundSize: 'cover'}} key={index}>{value}</th>
                     )}
                   </tr>
                 </thead>
@@ -153,7 +162,7 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid}) {
                   <tr>
                     <th className="statsTablePlayerHeader">player</th>
                     {enemyTeam.map((value, index) =>
-                      <th className="statsTableHeader" style={{background: `url(${require(`../overview/assets/champions/${value}.png`)})`, backgroundPosition: 'center', backgroundSize: 'cover'}} key={index}>{value}</th>
+                      <th className="statsTableHeader" style={{backgroundImage: `url(${require(`../overview/assets/champions/${value}.png`)})`, backgroundPosition: 'center', backgroundSize: 'cover'}} key={index}>{value}</th>
                     )}
                   </tr>
                 </thead>
