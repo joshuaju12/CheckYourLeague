@@ -1,9 +1,44 @@
 
+.dropdownContainer {
+display: flex;
+float: right;
+}
+
+.optionsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  clear: right;
+  width: 10.5rem;
+}
+
+.optionsImage {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  margin-right: 1rem;
+}
+
+.optionsLabel {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .statsKillsAndAssistsContainer {
+  clear: right;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 0rem 3rem 5rem 0rem;
+}
+
+.statsKillContainer {
+  padding-right: 3rem;
+}
+
+.statsAssistContainer {
+  padding-left: 3rem;
 }
 
 .statsCombatStatsContainer {
@@ -15,7 +50,6 @@
   width: 3.5rem;
   font-size: 0;
 }
-
 .statsTableHeader {
   height: 3.5rem;
   width: 3.5rem;
@@ -37,14 +71,20 @@
   text-align: center;
 }
 
-/* .statsCombatStatsCombatHeader {
-  border-bottom: solid;
-} */
+.statsCombatStatsCombatHeader, .statsCombatStatsDamageDealtHeader, .statsCombatStatsIncomingDamageHeader, .statsCombatStatsGoldHeader {
+  border-bottom: solid 1px;
+  padding-bottom: 0.5rem;
+}
+
+.statsCombatTableCombat, .statsCombatTableDamageDealt, .statsCombatTableIncomingDamage, .statsCombatTableGold {
+  padding-top: 1rem;
+}
 
 .statsCombatTableValueContainer {
   display: flex;
   flex-direction: row;
   height: 2rem;
+  padding-bottom: 1rem;
 }
 
 .statsCombatTableValueTitle {
@@ -67,8 +107,3 @@
 .statsCombatTableGold .statsCombatTableValueTitle {
   width: 12.5rem;
 }
-
-/* .test { */
-  /* width: 15rem; */
-  /* height: 15rem; */
-/* } */

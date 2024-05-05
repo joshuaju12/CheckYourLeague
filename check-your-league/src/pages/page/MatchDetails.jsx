@@ -22,10 +22,16 @@ function MatchDetails({matchData, matchId, id}) {
     '1' : 0,
   }
   let puuidToChamp = {};
+  let championsAndNames = [];
   let teams = [[], []];
 
-
   for (let i = 0; i < players.length; i++) {
+    let playerData = {};
+    let playerStats = matchData.info.participants;
+    playerData.championName = playerStats[i].championName;
+    playerData.playerName = playerStats[i].riotIdGameName;
+    playerData.puuid = playerStats[i].puuid;
+    championsAndNames.push(playerData);
     if (players[i].puuid === id) {
       player = i;
       if (i <= 4) {
@@ -111,7 +117,7 @@ function MatchDetails({matchData, matchId, id}) {
             <Overview matchData={matchData} id={id} />
           </TabContent>
           <TabContent id="tab2" currentTab={activeTab}>
-            <Stats matchId={matchId} matchData={matchData} puuidToChamp={puuidToChamp} championName={players[player].championName} teams={teams} puuid={id} />
+            <Stats matchId={matchId} matchData={matchData} puuidToChamp={puuidToChamp} championName={players[player].championName} teams={teams} puuid={id} players={championsAndNames} />
           </TabContent>
         </div>
         : null
