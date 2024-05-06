@@ -8,6 +8,7 @@ import QueueType from './QueueType.jsx';
 import OverallPlayers from './OverallPlayers.jsx';
 import GamesPlayedAs from './GamesPlayedAs.jsx';
 import Stats from './tabs/stats/Stats.jsx';
+import TeamGraph from './tabs/teamGraph/TeamGraph.jsx';
 
 function MatchDetails({matchData, matchId, id}) {
 
@@ -109,7 +110,7 @@ function MatchDetails({matchData, matchId, id}) {
             <ul className="nav">
               <Tabtitle title="Overview" id="tab1" activeTab={activeTab} setActiveTab={setActiveTab} />
               <Tabtitle title="Stats" id="tab2" activeTab={activeTab} setActiveTab={setActiveTab} />
-              <Tabtitle title="Gold Graph" id="tab3" activeTab={activeTab} setActiveTab={setActiveTab} />
+              <Tabtitle title="Team Graph" id="tab3" activeTab={activeTab} setActiveTab={setActiveTab} />
               <Tabtitle title="Build" id="tab4" activeTab={activeTab} setActiveTab={setActiveTab} />
             </ul>
           </div>
@@ -118,6 +119,9 @@ function MatchDetails({matchData, matchId, id}) {
           </TabContent>
           <TabContent id="tab2" currentTab={activeTab}>
             <Stats matchId={matchId} matchData={matchData} puuidToChamp={puuidToChamp} championName={players[player].championName} teams={teams} puuid={id} players={championsAndNames} />
+          </TabContent>
+          <TabContent id="tab3" currentTab={activeTab}>
+            <TeamGraph matchId={matchId} matchData={matchData} />
           </TabContent>
         </div>
         : null

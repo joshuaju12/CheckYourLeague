@@ -1,4 +1,4 @@
-import {useState, useEffect, useMemo} from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 import Select from 'react-select';
 import './stats.css';
@@ -26,6 +26,7 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid, pl
     axios.get('http://localhost:3001/timeline', {params: {matchId: matchId}})
       .then((timeline) => {
         const participants = timeline.data.info.participants;
+        // console.log(timeline.data);
         const participantIdToChamp = {};
         const mapParticipants = () => {
           const participantsToChamps = [];
@@ -319,7 +320,7 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid, pl
             </table>
           </div>
         </div>
-      : null
+      : <div className="statsLoader">Loading</div>
       }
     </div>
   )

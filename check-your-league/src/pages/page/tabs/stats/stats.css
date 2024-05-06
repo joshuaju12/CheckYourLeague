@@ -37,8 +37,26 @@ float: right;
   padding-right: 3rem;
 }
 
+.statsKillContainer > :first-child {
+  padding-left: 4rem;
+  padding-bottom: 0.5rem;
+}
+
 .statsAssistContainer {
   padding-left: 3rem;
+}
+
+.statsAssistContainer > :first-child {
+  padding-left: 4rem;
+  padding-bottom: 0.5rem;
+}
+
+.statsTableRowKills {
+  text-align: center;
+}
+
+.statsCombatStatsTable {
+  border-collapse: collapse;
 }
 
 .statsCombatStatsContainer {
@@ -76,7 +94,12 @@ float: right;
   padding-bottom: 0.5rem;
 }
 
-.statsCombatTableCombat, .statsCombatTableDamageDealt, .statsCombatTableIncomingDamage, .statsCombatTableGold {
+.statsCombatTableCombat, .statsCombatTableDamageDealt, .statsCombatTableIncomingDamage {
+  padding-top: 1rem;
+  border-right: 1px solid;
+}
+
+.statsCombatTableGold {
   padding-top: 1rem;
 }
 
@@ -106,4 +129,8 @@ float: right;
 
 .statsCombatTableGold .statsCombatTableValueTitle {
   width: 12.5rem;
+}
+
+.statsLoader {
+  height: 45.4rem;
 }
