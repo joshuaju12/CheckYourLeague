@@ -3,7 +3,7 @@ import './table.css';
 function Table({matchData, team}) {
 
   const rows = [];
-  console.log(matchData);
+  // console.log(matchData);
 
   if (team === 0) {
     for (let i = 0; i < 5; i++) {

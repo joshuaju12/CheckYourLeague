@@ -26,6 +26,7 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid, pl
     axios.get('http://localhost:3001/timeline', {params: {matchId: matchId}})
       .then((timeline) => {
         const participants = timeline.data.info.participants;
+        // console.log(timeline.data);
         const participantIdToChamp = {};
         const mapParticipants = () => {
           const participantsToChamps = [];
