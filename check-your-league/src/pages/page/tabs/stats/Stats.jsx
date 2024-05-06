@@ -1,4 +1,4 @@
-import {useState, useEffect, useMemo} from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 import Select from 'react-select';
 import './stats.css';
