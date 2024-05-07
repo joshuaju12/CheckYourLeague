@@ -13,7 +13,7 @@ function TeamGraph({matchId, matchData}) {
     towers: teamOneData.objectives.tower.kills,
     voidGrubs: teamOneData.objectives.horde.kills,
     heralds: teamOneData.objectives.riftHerald.kills,
-    dragons: teamOneData.objectives.dragon.kills,
+    dragons: [],
     elders: 0,
     barons: teamOneData.objectives.baron.kills,
     bans: [],
@@ -25,7 +25,7 @@ function TeamGraph({matchId, matchData}) {
     towers: teamTwoData.objectives.tower.kills,
     voidGrubs: teamTwoData.objectives.horde.kills,
     heralds: teamTwoData.objectives.riftHerald.kills,
-    dragons: teamTwoData.objectives.dragon.kills,
+    dragons: [],
     elders: 0,
     barons: teamTwoData.objectives.baron.kills,
     bans: [],
@@ -69,11 +69,34 @@ function TeamGraph({matchId, matchData}) {
   const getTimeline = () => {
     axios.get('http://localhost:3001/timeline', {params: {matchId: matchId}})
     .then((timeline) => {
-      console.log(timeline.data);
+      const timelineData = timeline.data.info.frames;
+      // console.log(timelineData);
+      // console.log(timelineData);
       //dragon kill is monsterType: "DRAGON" and type: "ELITE_MONSTER_KILL"
       // but maybe not going to keep track of elders, so only need to do gold from this
+      for (let i = 0; i < timelineData.length; i++) {
+        for (let j = 0; j < timelineData[i].events.length; j++) {
+          if (timelineData[i].events[j].type === "ELITE_MONSTER_KILL" && timelineData[i].events[j].monsterType === "DRAGON") {
+            if (timelineData[i].events[j].killerTeamId === 100) {
+              if (timelineData[i].events[j].monsterSubType === "ELDER_DRAGON") {
+                teamOne.elders++;
+              } else {
+                teamOne.dragons.push(timelineData[i].events[j].monsterSubType);
+              };
+            };
+            if (timelineData[i].events[j].killerTeamId === 200) {
+              if (timelineData[i].events[j].monsterSubType === "ELDER_DRAGON") {
+                teamTwo.elders++;
+              } else {
+                teamTwo.dragons.push(timelineData[i].events[j].monsterSubType);
+              };
+            };
+          };
+        };
+      };
+      console.log(teamOne, teamTwo);
     })
-  }
+  };
 
   getBans();
   getCombatStats();
