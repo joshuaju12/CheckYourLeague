@@ -1,10 +1,13 @@
 import axios from 'axios';
 import './teamGraph.css';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 const {idToChampion} = require('./idToChampion.js');
 
 function TeamGraph({matchId, matchData}) {
   console.log(matchData);
+  const [loaded, setLoaded] = useState(false);
+  const [teamOneDragons, setTeamOneDragons] = useState({});
+  const [teamTwoDragons, setTeamTwoDragons] = useState({});
   const teamOneData = matchData.info.teams[0];
   const teamTwoData = matchData.info.teams[1];
   const teamOne = {
@@ -70,31 +73,35 @@ function TeamGraph({matchId, matchData}) {
     axios.get('http://localhost:3001/timeline', {params: {matchId: matchId}})
     .then((timeline) => {
       const timelineData = timeline.data.info.frames;
-      // console.log(timelineData);
-      // console.log(timelineData);
-      //dragon kill is monsterType: "DRAGON" and type: "ELITE_MONSTER_KILL"
-      // but maybe not going to keep track of elders, so only need to do gold from this
+      const teamOneDragonArray = [];
+      const teamTwoDragonArray = [];
+      let teamOneElders = 0;
+      let teamTwoElders = 0;
+
       for (let i = 0; i < timelineData.length; i++) {
         for (let j = 0; j < timelineData[i].events.length; j++) {
           if (timelineData[i].events[j].type === "ELITE_MONSTER_KILL" && timelineData[i].events[j].monsterType === "DRAGON") {
             if (timelineData[i].events[j].killerTeamId === 100) {
               if (timelineData[i].events[j].monsterSubType === "ELDER_DRAGON") {
-                teamOne.elders++;
+                teamOneElders++;
               } else {
-                teamOne.dragons.push(timelineData[i].events[j].monsterSubType);
+                teamOneDragonArray.push(timelineData[i].events[j].monsterSubType);
               };
             };
             if (timelineData[i].events[j].killerTeamId === 200) {
               if (timelineData[i].events[j].monsterSubType === "ELDER_DRAGON") {
-                teamTwo.elders++;
+                teamTwoElders++;
               } else {
-                teamTwo.dragons.push(timelineData[i].events[j].monsterSubType);
+                teamTwoDragonArray.push(timelineData[i].events[j].monsterSubType);
               };
             };
           };
         };
       };
-      console.log(teamOne, teamTwo);
+
+      setTeamOneDragons({dragons: teamOneDragonArray, elders: teamOneElders});
+      setTeamTwoDragons({dragons: teamTwoDragonArray, elders: teamTwoElders});
+      setLoaded(true);
     })
   };
 
@@ -107,7 +114,77 @@ function TeamGraph({matchId, matchData}) {
 
   return (
     <div>
-      TeamGraph
+      {loaded ?
+        <div>
+          <div className="teamGraphTeamOutcome">
+            <div>Blue Team</div>
+            <div>Red Team</div>
+          </div>
+          <div className="teamGraphOverallContainer">
+            <div className="teamGraphGameStatsContainer">
+              <div className="teamGraphGameStatsRowContainer">
+                <div>GAME STATS</div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                <div></div>
+                <div>KDA</div>
+                <div></div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                <div></div>
+                <div>GOLD</div>
+                <div></div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                <div></div>
+                <div>TOWERS</div>
+                <div></div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                <div></div>
+                <div>VOID GRUBS</div>
+                <div></div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                <div></div>
+                <div>HERALDS</div>
+                <div></div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                <div></div>
+                <div>DRAKES</div>
+                <div></div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                <div></div>
+                <div>ELDERS</div>
+                <div></div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                <div></div>
+                <div>BARONS</div>
+                <div></div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                <div></div>
+                <div>BANS</div>
+                <div></div>
+              </div>
+            </div>
+            <div className="teamGraphDamageDealtContainer">
+              <div className="teamGraphDamageDealt">
+
+              </div>
+              <div className="teamGraphGoldDifferenceContainer">
+                <div className="teamGraphGoldDifference">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      : <div>Loading</div>
+      }
     </div>
   )
 }
