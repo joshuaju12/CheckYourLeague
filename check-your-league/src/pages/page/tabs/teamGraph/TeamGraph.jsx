@@ -1,10 +1,13 @@
 import axios from 'axios';
 import './teamGraph.css';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 const {idToChampion} = require('./idToChampion.js');
 
 function TeamGraph({matchId, matchData}) {
   console.log(matchData);
+  const [loaded, setLoaded] = useState(false);
+  const [teamOneDragons, setTeamOneDragons] = useState({});
+  const [teamTwoDragons, setTeamTwoDragons] = useState({});
   const teamOneData = matchData.info.teams[0];
   const teamTwoData = matchData.info.teams[1];
   const teamOne = {
@@ -13,7 +16,7 @@ function TeamGraph({matchId, matchData}) {
     towers: teamOneData.objectives.tower.kills,
     voidGrubs: teamOneData.objectives.horde.kills,
     heralds: teamOneData.objectives.riftHerald.kills,
-    dragons: teamOneData.objectives.dragon.kills,
+    dragons: [],
     elders: 0,
     barons: teamOneData.objectives.baron.kills,
     bans: [],
@@ -25,7 +28,7 @@ function TeamGraph({matchId, matchData}) {
     towers: teamTwoData.objectives.tower.kills,
     voidGrubs: teamTwoData.objectives.horde.kills,
     heralds: teamTwoData.objectives.riftHerald.kills,
-    dragons: teamTwoData.objectives.dragon.kills,
+    dragons: [],
     elders: 0,
     barons: teamTwoData.objectives.baron.kills,
     bans: [],
@@ -69,11 +72,38 @@ function TeamGraph({matchId, matchData}) {
   const getTimeline = () => {
     axios.get('http://localhost:3001/timeline', {params: {matchId: matchId}})
     .then((timeline) => {
-      console.log(timeline.data);
-      //dragon kill is monsterType: "DRAGON" and type: "ELITE_MONSTER_KILL"
-      // but maybe not going to keep track of elders, so only need to do gold from this
+      const timelineData = timeline.data.info.frames;
+      const teamOneDragonArray = [];
+      const teamTwoDragonArray = [];
+      let teamOneElders = 0;
+      let teamTwoElders = 0;
+
+      for (let i = 0; i < timelineData.length; i++) {
+        for (let j = 0; j < timelineData[i].events.length; j++) {
+          if (timelineData[i].events[j].type === "ELITE_MONSTER_KILL" && timelineData[i].events[j].monsterType === "DRAGON") {
+            if (timelineData[i].events[j].killerTeamId === 100) {
+              if (timelineData[i].events[j].monsterSubType === "ELDER_DRAGON") {
+                teamOneElders++;
+              } else {
+                teamOneDragonArray.push(timelineData[i].events[j].monsterSubType);
+              };
+            };
+            if (timelineData[i].events[j].killerTeamId === 200) {
+              if (timelineData[i].events[j].monsterSubType === "ELDER_DRAGON") {
+                teamTwoElders++;
+              } else {
+                teamTwoDragonArray.push(timelineData[i].events[j].monsterSubType);
+              };
+            };
+          };
+        };
+      };
+
+      setTeamOneDragons({dragons: teamOneDragonArray, elders: teamOneElders});
+      setTeamTwoDragons({dragons: teamTwoDragonArray, elders: teamTwoElders});
+      setLoaded(true);
     })
-  }
+  };
 
   getBans();
   getCombatStats();
@@ -84,7 +114,87 @@ function TeamGraph({matchId, matchData}) {
 
   return (
     <div>
-      TeamGraph
+      {loaded ?
+        <div>
+          <div className="teamGraphTeamOutcome">
+            <div>Blue Team</div>
+            <div>Red Team</div>
+          </div>
+          <div className="teamGraphOverallContainer">
+            <div className="teamGraphGameStatsContainer">
+              <div className="teamGraphGameStatsRowContainer">
+                <div>GAME STATS</div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                <div>{teamOne.kda.kills}/{teamOne.kda.deaths}/{teamOne.kda.assists}</div>
+                <div>KDA</div>
+                <div>{teamTwo.kda.kills}/{teamTwo.kda.deaths}/{teamTwo.kda.assists}</div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                <div>{(teamOne.gold / 1000).toFixed(1)}K</div>
+                <div>GOLD</div>
+                <div>{(teamTwo.gold / 1000).toFixed(1)}K</div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                <div>{teamOne.towers}</div>
+                <div>TOWERS</div>
+                <div>{teamTwo.towers}</div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                {teamOne.voidGrubs > 0 ?
+                  Array.from({length: teamOne.voidGrubs}).map((value, index) =>
+                    <img src={require('./assets/voidgrub.png')} key={index} alt="" />
+                  )
+                :  <div>—</div>
+                }
+                <div>VOID GRUBS</div>
+                {teamTwo.voidGrubs > 0 ?
+                  Array.from({length: teamTwo.voidGrubs}).map((value, index) =>
+                    <img src={require('./assets/voidgrub.png')} key={index} alt="" />
+                  )
+                :  <div>—</div>
+                }
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                <div></div>
+                <div>HERALDS</div>
+                <div></div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                <div></div>
+                <div>DRAKES</div>
+                <div></div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                <div></div>
+                <div>ELDERS</div>
+                <div></div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                <div></div>
+                <div>BARONS</div>
+                <div></div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                <div></div>
+                <div>BANS</div>
+                <div></div>
+              </div>
+            </div>
+            <div className="teamGraphDamageDealtContainer">
+              <div className="teamGraphDamageDealt">
+
+              </div>
+              <div className="teamGraphGoldDifferenceContainer">
+                <div className="teamGraphGoldDifference">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      : <div>Loading</div>
+      }
     </div>
   )
 }

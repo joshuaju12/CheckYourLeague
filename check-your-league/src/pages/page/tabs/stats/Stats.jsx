@@ -20,7 +20,7 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid, pl
     option.value = players[i];
     option.label = players[i].playerName;
     options.push(option);
-  }
+  };
 
   const getKillResults = () => {
     axios.get('http://localhost:3001/timeline', {params: {matchId: matchId}})
@@ -87,22 +87,22 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid, pl
                     killTracker[data[2][timelineData[i].events[j].victimId]][1] = 1;
                   } else {
                     killTracker[data[2][timelineData[i].events[j].victimId]][1]++;
-                  }
-                }
-              }
-            }
-          }
-        }
+                  };
+                };
+              };
+            };
+          };
+        };
         setKills(killTracker);
         setEnemyTeam(teams[opposingTeam]);
         setParticipant(currentParticipant - 1);
       })
-  }
+  };
 
   const onClick = (e) => {
     setSelectedPuuid(e.value.puuid);
     setSelectedPlayer(e.value.championName);
-  }
+  };
 
 
   useEffect(() => {
