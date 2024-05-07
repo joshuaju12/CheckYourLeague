@@ -126,24 +126,34 @@ function TeamGraph({matchId, matchData}) {
                 <div>GAME STATS</div>
               </div>
               <div className="teamGraphGameStatsRowContainer">
-                <div></div>
+                <div>{teamOne.kda.kills}/{teamOne.kda.deaths}/{teamOne.kda.assists}</div>
                 <div>KDA</div>
-                <div></div>
+                <div>{teamTwo.kda.kills}/{teamTwo.kda.deaths}/{teamTwo.kda.assists}</div>
               </div>
               <div className="teamGraphGameStatsRowContainer">
-                <div></div>
+                <div>{(teamOne.gold / 1000).toFixed(1)}K</div>
                 <div>GOLD</div>
-                <div></div>
+                <div>{(teamTwo.gold / 1000).toFixed(1)}K</div>
               </div>
               <div className="teamGraphGameStatsRowContainer">
-                <div></div>
+                <div>{teamOne.towers}</div>
                 <div>TOWERS</div>
-                <div></div>
+                <div>{teamTwo.towers}</div>
               </div>
               <div className="teamGraphGameStatsRowContainer">
-                <div></div>
+                {teamOne.voidGrubs > 0 ?
+                  Array.from({length: teamOne.voidGrubs}).map((value, index) =>
+                    <img src={require('./assets/voidgrub.png')} key={index} alt="" />
+                  )
+                :  <div>—</div>
+                }
                 <div>VOID GRUBS</div>
-                <div></div>
+                {teamTwo.voidGrubs > 0 ?
+                  Array.from({length: teamTwo.voidGrubs}).map((value, index) =>
+                    <img src={require('./assets/voidgrub.png')} key={index} alt="" />
+                  )
+                :  <div>—</div>
+                }
               </div>
               <div className="teamGraphGameStatsRowContainer">
                 <div></div>

@@ -1,0 +1,9 @@
+.teamGraphOverallContainer {
+  display: flex;
+  flex-direction: row;
+}
+.teamGraphGameStatsRowContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
