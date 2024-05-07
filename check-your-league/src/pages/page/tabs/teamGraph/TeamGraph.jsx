@@ -141,39 +141,70 @@ function TeamGraph({matchId, matchData}) {
                 <div>{teamTwo.towers}</div>
               </div>
               <div className="teamGraphGameStatsRowContainer">
-                {teamOne.voidGrubs > 0 ?
-                  Array.from({length: teamOne.voidGrubs}).map((value, index) =>
-                    <img src={require('./assets/voidgrub.png')} key={index} alt="" />
-                  )
-                :  <div>—</div>
-                }
+                <div>{teamOne.voidGrubs}</div>
                 <div>VOID GRUBS</div>
-                {teamTwo.voidGrubs > 0 ?
-                  Array.from({length: teamTwo.voidGrubs}).map((value, index) =>
-                    <img src={require('./assets/voidgrub.png')} key={index} alt="" />
+                <div>{teamTwo.voidGrubs}</div>
+              </div>
+              <div className="teamGraphGameStatsRowContainer">
+                {teamOne.heralds > 0 ?
+                  Array.from({length: teamOne.heralds}).map((value, index) =>
+                    <img src={require('./assets/herald.png')} key={index} alt="" />
+                  )
+                :  <div>—</div>
+                }
+                <div>HERALDS</div>
+                {teamTwo.heralds > 0 ?
+                  Array.from({length: teamTwo.heralds}).map((value, index) =>
+                    <img src={require('./assets/herald.png')} key={index} alt="" />
                   )
                 :  <div>—</div>
                 }
               </div>
               <div className="teamGraphGameStatsRowContainer">
-                <div></div>
-                <div>HERALDS</div>
-                <div></div>
-              </div>
-              <div className="teamGraphGameStatsRowContainer">
-                <div></div>
+                {teamOneDragons.dragons.length > 0 ?
+                  teamOneDragons.dragons.map((value, index) =>
+                    <img src={require(`./assets/${value}.png`)} key={index} alt="" />
+                  )
+                :  <div>—</div>
+                }
                 <div>DRAKES</div>
-                <div></div>
+                {teamTwoDragons.dragons.length > 0 ?
+                  teamTwoDragons.dragons.map((value, index) =>
+                    <img src={require(`./assets/${value}.png`)} key={index} alt="" />
+                  )
+                :  <div>—</div>
+                }
               </div>
+              {/* need to fix fire dragon. it has some smudge on top left */}
               <div className="teamGraphGameStatsRowContainer">
-                <div></div>
+                {teamOneDragons.elders > 0 ?
+                  Array.from({length: teamOneDragons.elders}).map((value, index) =>
+                    <img src={require('./assets/ELDER_DRAGON.png')} key={index} alt="" />
+                  )
+                :  <div>—</div>
+                }
                 <div>ELDERS</div>
-                <div></div>
+                {teamTwoDragons.elders > 0 ?
+                  Array.from({length: teamTwoDragons.elders}).map((value, index) =>
+                    <img src={require('./assets/ELDER_DRAGON.png')} key={index} alt="" />
+                  )
+                :  <div>—</div>
+                }
               </div>
               <div className="teamGraphGameStatsRowContainer">
-                <div></div>
+                {teamOne.barons > 0 ?
+                  Array.from({length: teamOne.barons}).map((value, index) =>
+                    <img src={require('./assets/baron.png')} key={index} alt="" />
+                  )
+                :  <div>—</div>
+                }
                 <div>BARONS</div>
-                <div></div>
+                {teamTwo.barons > 0 ?
+                  Array.from({length: teamTwo.barons}).map((value, index) =>
+                    <img src={require('./assets/baron.png')} key={index} alt="" />
+                  )
+                :  <div>—</div>
+                }
               </div>
               <div className="teamGraphGameStatsRowContainer">
                 <div></div>
