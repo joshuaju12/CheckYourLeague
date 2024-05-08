@@ -207,9 +207,13 @@ function TeamGraph({matchId, matchData}) {
                 }
               </div>
               <div className="teamGraphGameStatsRowContainer">
-                <div></div>
+                {teamOne.bans.map((value, index) =>
+                  <img className="teamGraphBanImage" src={require(`../overview/assets/champions/${value}.png`)} key={index} alt="" />
+                )}
                 <div>BANS</div>
-                <div></div>
+                {teamTwo.bans.map((value, index) =>
+                  <img className="teamGraphBanImage" src={require(`../overview/assets/champions/${value}.png`)} key={index} alt="" />
+                )}
               </div>
             </div>
             <div className="teamGraphDamageDealtContainer">
