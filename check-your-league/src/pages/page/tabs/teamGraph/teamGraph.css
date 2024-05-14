@@ -1,9 +1,45 @@
 .teamGraphOverallContainer {
   display: flex;
+  flex-shrink: 0;
   flex-direction: row;
+  /* width: 44rem; */
 }
+
+.teamGraphGameStatsContainer {
+  border-right: solid;
+}
+
 .teamGraphGameStatsRowContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.teamGraphTitle {
+  width: 12rem;
+  text-align: center;
+}
+
+.teamGraphValue {
+  width: 20rem;
+}
+
+.teamGraphStatsHeraldsImage {
+  height: 6rem;
+  width: 6rem;
+}
+
+.teamGraphStatsDragonsImage {
+  height: 5rem;
+  width: 5rem;
+}
+
+.teamGraphBaronImage {
+  width: 6rem;
+  height: 6rem;
+}
+
+.teamGraphBanImage {
+  width: 3.5rem;
+  height: 3.5rem;
 }
