@@ -126,33 +126,33 @@ function TeamGraph({matchId, matchData}) {
                 <div>GAME STATS</div>
               </div>
               <div className="teamGraphGameStatsRowContainer">
-                <div className="teamGraphValue">{teamOne.kda.kills}/{teamOne.kda.deaths}/{teamOne.kda.assists}</div>
+                <div className="teamGraphValue teamGraphLeft">{teamOne.kda.kills}/{teamOne.kda.deaths}/{teamOne.kda.assists}</div>
                 <div className="teamGraphTitle">KDA</div>
                 <div className="teamGraphValue">{teamTwo.kda.kills}/{teamTwo.kda.deaths}/{teamTwo.kda.assists}</div>
               </div>
               <div className="teamGraphGameStatsRowContainer">
-                <div className="teamGraphValue">{(teamOne.gold / 1000).toFixed(1)}K</div>
+                <div className="teamGraphValue teamGraphLeft">{(teamOne.gold / 1000).toFixed(1)}K</div>
                 <div className="teamGraphTitle">GOLD</div>
                 <div className="teamGraphValue">{(teamTwo.gold / 1000).toFixed(1)}K</div>
               </div>
               <div className="teamGraphGameStatsRowContainer">
-                <div className="teamGraphValue">{teamOne.towers}</div>
+                <div className="teamGraphValue teamGraphLeft">{teamOne.towers}</div>
                 <div className="teamGraphTitle">TOWERS</div>
                 <div className="teamGraphValue">{teamTwo.towers}</div>
               </div>
               <div className="teamGraphGameStatsRowContainer">
-                <div className="teamGraphValue">{teamOne.voidGrubs}</div>
+                <div className="teamGraphValue teamGraphLeft">{teamOne.voidGrubs}</div>
                 <div className="teamGraphTitle">VOID GRUBS</div>
                 <div className="teamGraphValue">{teamTwo.voidGrubs}</div>
               </div>
               <div className="teamGraphGameStatsRowContainer">
                 {teamOne.heralds > 0 ?
-                  <div className="teamGraphValue">
+                  <div className="teamGraphValue teamGraphLeft">
                     {Array.from({length: teamOne.heralds}).map((value, index) =>
                       <img className="teamGraphStatsHeraldsImage" src={require('./assets/herald.png')} key={index} alt="" />
                     )}
                     </div>
-                :  <div className="teamGraphValue">—</div>
+                :  <div className="teamGraphValue teamGraphLeft">—</div>
                 }
                 <div className="teamGraphTitle">HERALDS</div>
                 {teamTwo.heralds > 0 ?
@@ -166,12 +166,12 @@ function TeamGraph({matchId, matchData}) {
               </div>
               <div className="teamGraphGameStatsRowContainer">
                 {teamOneDragons.dragons.length > 0 ?
-                  <div className="teamGraphValue">
+                  <div className="teamGraphValue teamGraphLeft">
                     {[...teamOneDragons.dragons].reverse().map((value, index) =>
                       <img className="teamGraphStatsDragonsImage" src={require(`./assets/${value}.png`)} key={index} alt="" />
                     )}
                   </div>
-                :  <div className="teamGraphValue">—</div>
+                :  <div className="teamGraphValue teamGraphLeft">—</div>
                 }
                 <div className="teamGraphTitle">DRAKES</div>
                 {teamTwoDragons.dragons.length > 0 ?
@@ -185,18 +185,18 @@ function TeamGraph({matchId, matchData}) {
               </div>
               <div className="teamGraphGameStatsRowContainer">
                 {teamOneDragons.elders > 0 ?
-                  <div className="teamGraphValue">
+                  <div className="teamGraphValue teamGraphLeft">
                     {Array.from({length: teamOneDragons.elders}).map((value, index) =>
-                      <img src={require('./assets/ELDER_DRAGON.png')} key={index} alt="" />
+                      <img className="teamGraphElderImage" src={require('./assets/ELDER_DRAGON.png')} key={index} alt="" />
                     )}
                   </div>
-                :  <div className="teamGraphValue">—</div>
+                :  <div className="teamGraphValue teamGraphLeft">—</div>
                 }
                 <div className="teamGraphTitle">ELDERS</div>
                 {teamTwoDragons.elders > 0 ?
                   <div className="teamGraphValue">
                     {Array.from({length: teamTwoDragons.elders}).map((value, index) =>
-                      <img src={require('./assets/ELDER_DRAGON.png')} key={index} alt="" />
+                      <img className="teamGraphElderImage" src={require('./assets/ELDER_DRAGON.png')} key={index} alt="" />
                     )}
                   </div>
                 :  <div className="teamGraphValue">—</div>
@@ -204,12 +204,12 @@ function TeamGraph({matchId, matchData}) {
               </div>
               <div className="teamGraphGameStatsRowContainer">
                 {teamOne.barons > 0 ?
-                  <div className="teamGraphValue">
+                  <div className="teamGraphValue teamGraphLeft">
                     {Array.from({length: teamOne.barons}).map((value, index) =>
                       <img className="teamGraphBaronImage" src={require('./assets/baron.png')} key={index} alt="" />
                     )}
                   </div>
-                :  <div className="teamGraphValue">—</div>
+                :  <div className="teamGraphValue teamGraphLeft">—</div>
                 }
                 <div className="teamGraphTitle">BARONS</div>
                 {teamTwo.barons > 0 ?
@@ -222,7 +222,7 @@ function TeamGraph({matchId, matchData}) {
                 }
               </div>
               <div className="teamGraphGameStatsRowContainer">
-                <div className="teamGraphValue">
+                <div className="teamGraphValue teamGraphLeft">
                   {teamOne.bans.map((value, index) =>
                     <img className="teamGraphBanImage" src={require(`../overview/assets/champions/${value}.png`)} key={index} alt="" />
                   )}

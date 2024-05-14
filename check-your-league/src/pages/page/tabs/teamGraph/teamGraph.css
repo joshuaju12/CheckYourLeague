@@ -21,25 +21,35 @@
 }
 
 .teamGraphValue {
-  width: 20rem;
+  width: 18rem;
+}
+
+.teamGraphLeft {
+  display: flex;
+  justify-content: right;
 }
 
 .teamGraphStatsHeraldsImage {
-  height: 6rem;
-  width: 6rem;
+  height: 4.5rem;
+  width: 4.5rem;
 }
 
 .teamGraphStatsDragonsImage {
-  height: 5rem;
-  width: 5rem;
+  height: 4.5rem;
+  width: 4.5rem;
+}
+
+.teamGraphElderImage {
+  height: 4.5rem;
+  width: 4.5rem;
 }
 
 .teamGraphBaronImage {
-  width: 6rem;
-  height: 6rem;
+  width: 4.5rem;
+  height: 4.5rem;
 }
 
 .teamGraphBanImage {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3rem;
+  height: 3rem;
 }
