@@ -11,6 +11,7 @@
 
 .teamGraphGameStatsRowContainer {
   display: flex;
+  height: 4.5rem;
   flex-direction: row;
   justify-content: center;
 }
@@ -18,15 +19,46 @@
 .teamGraphTitle {
   width: 12rem;
   text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
-.teamGraphValue {
+.teamGraphValueWrapperLeft {
   width: 18rem;
+  display: flex;
+  align-items: center;
+  justify-content: right;
 }
 
-.teamGraphLeft {
+.teamGraphValueWrapperRight {
+  width: 18rem;
+  display: flex;
+  align-items: center;
+}
+
+.teamGraphImageContainerLeft {
+  width: 18rem;
   display: flex;
   justify-content: right;
+}
+
+.teamGraphImageContainerRight {
+  width: 18rem;
+  display: flex;
+}
+
+/* .teamGraphValue {
+  width: 18rem;
+  margin-top: auto;
+  margin-bottom: auto;
+} */
+
+.teamGraphLeft {
+  padding-right: 1.2rem;
+}
+
+.teamGraphRight {
+  padding-left: 1.2rem;
 }
 
 .teamGraphStatsHeraldsImage {
@@ -50,6 +82,25 @@
 }
 
 .teamGraphBanImage {
-  width: 3rem;
-  height: 3rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  margin: 0 0.1rem 0 0.1rem;
 }
+
+.teamGraphBansLeft :last-child {
+  margin-right: 1.2rem;
+}
+
+.teamGraphBansRight :first-child {
+  margin-left: 1.2rem;
+}
+
+/* .teamGraphTest {
+  width: 18rem;
+  display: flex;
+  align-items: center;
+}
+
+.teamGraphTest2 {
+  padding-right: 1rem;
+} */
