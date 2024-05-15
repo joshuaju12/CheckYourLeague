@@ -1,11 +1,12 @@
 import axios from 'axios';
 import './teamGraph.css';
 import {useEffect, useState} from 'react';
+import TeamDamage from './TeamDamage.jsx';
 const {idToChampion} = require('./idToChampion.js');
 
 function TeamGraph({matchId, matchData}) {
   console.log(matchData);
-  const [loaded, setLoaded] = useState(false);
+  const [data, setData] = useState({});
   const [teamOneDragons, setTeamOneDragons] = useState({});
   const [teamTwoDragons, setTeamTwoDragons] = useState({});
   const teamOneData = matchData.info.teams[0];
@@ -73,6 +74,7 @@ function TeamGraph({matchId, matchData}) {
     axios.get('http://localhost:3001/timeline', {params: {matchId: matchId}})
     .then((timeline) => {
       const timelineData = timeline.data.info.frames;
+      const matchData = {set: true, data: timelineData};
       const teamOneDragonArray = [];
       const teamTwoDragonArray = [];
       let teamOneElders = 0;
@@ -101,7 +103,7 @@ function TeamGraph({matchId, matchData}) {
 
       setTeamOneDragons({dragons: teamOneDragonArray, elders: teamOneElders});
       setTeamTwoDragons({dragons: teamTwoDragonArray, elders: teamTwoElders});
-      setLoaded(true);
+      setData(matchData);
     })
   };
 
@@ -114,7 +116,7 @@ function TeamGraph({matchId, matchData}) {
 
   return (
     <div>
-      {loaded ?
+      {data.set ?
         <div>
           <div className="teamGraphTeamOutcome">
             <div>Blue Team</div>
@@ -268,9 +270,7 @@ function TeamGraph({matchId, matchData}) {
               </div>
             </div>
             <div className="teamGraphDamageDealtContainer">
-              <div className="teamGraphDamageDealt">
-
-              </div>
+              <TeamDamage data={data.data} />
               <div className="teamGraphGoldDifferenceContainer">
                 <div className="teamGraphGoldDifference">
 
