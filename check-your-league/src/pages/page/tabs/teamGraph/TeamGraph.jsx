@@ -5,7 +5,7 @@ import TeamDamage from './TeamDamage.jsx';
 const {idToChampion} = require('./idToChampion.js');
 
 function TeamGraph({matchId, matchData}) {
-  console.log(matchData);
+  // console.log(matchData);
   const [data, setData] = useState({});
   const [teamOneDragons, setTeamOneDragons] = useState({});
   const [teamTwoDragons, setTeamTwoDragons] = useState({});
@@ -270,7 +270,7 @@ function TeamGraph({matchId, matchData}) {
               </div>
             </div>
             <div className="teamGraphDamageDealtContainer">
-              <TeamDamage data={data.data} />
+              <TeamDamage data={data.data} matchData={matchData} />
               <div className="teamGraphGoldDifferenceContainer">
                 <div className="teamGraphGoldDifference">
 
