@@ -1,0 +1,10 @@
+
+.teamDamageContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.teamDamageImage {
+  width: 4rem;
+  height: 4rem;
+}
