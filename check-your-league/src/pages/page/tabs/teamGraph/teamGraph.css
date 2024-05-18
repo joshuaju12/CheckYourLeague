@@ -6,7 +6,13 @@
 }
 
 .teamGraphGameStatsContainer {
-  border-right: solid;
+  /* border-right: solid; */
+}
+
+.teamGraphGameStatsColumnTitle {
+  display: flex;
+  height: 3rem;
+  justify-content: center;
 }
 
 .teamGraphGameStatsRowContainer {
@@ -39,12 +45,14 @@
 .teamGraphImageContainerLeft {
   width: 18rem;
   display: flex;
+  align-items: center;
   justify-content: right;
 }
 
 .teamGraphImageContainerRight {
   width: 18rem;
   display: flex;
+  align-items: center;
 }
 
 /* .teamGraphValue {

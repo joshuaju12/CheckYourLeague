@@ -124,7 +124,7 @@ function TeamGraph({matchId, matchData}) {
           </div>
           <div className="teamGraphOverallContainer">
             <div className="teamGraphGameStatsContainer">
-              <div className="teamGraphGameStatsRowContainer">
+              <div className="teamGraphGameStatsColumnTitle">
                 <div>GAME STATS</div>
               </div>
               <div className="teamGraphGameStatsRowContainer">
