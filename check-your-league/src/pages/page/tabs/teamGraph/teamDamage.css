@@ -1,10 +1,118 @@
 
 .teamDamageContainer {
+}
+
+.teamDamageColumnTitle {
+  height: 3rem;
+  text-align: center;
+}
+
+.teamDamageWrapper {
   display: flex;
   flex-direction: row;
 }
 
+.teamDamageContainer {
+  margin-left: 2rem;
+}
+
+.teamDamagePlayerContainer {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 0.1rem;
+}
+
+.teamDamagePlayerContainerTeamTwo {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  padding-bottom: 0.1rem;
+}
+
+.teamDamageTeamOne {
+  width: 17rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.teamDamageTeamTwo {
+  width: 17rem;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+}
+
 .teamDamageImage {
-  width: 4rem;
-  height: 4rem;
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.teamDamageStatsContainer {
+  height: 5rem;
+  width: 13rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.teamDamageStatsContainerTeamTwo {
+  height: 5rem;
+  width: 13rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+}
+
+.teamDamagePlayerName {
+  font-size: 1.2rem;
+  height: 1.8rem;
+  width: 5rem;
+  padding-left: 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.teamDamagePlayerNameTeamTwo {
+  font-size: 1.2rem;
+  height: 1.8rem;
+  width: 5rem;
+  padding-right: 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  margin-left: auto;
+}
+
+.teamDamageDamageValue {
+  font-size: 1.2rem;
+  padding-left: 0.3rem;
+}
+
+.teamDamageDamageValueTeamTwo {
+  font-size: 1.2rem;
+  padding-right: 0.3rem;
+  text-align: right;
+}
+
+.teamDamageDamageBar {
+  background-color: blue;
+  height: 1.3rem;
+  /* width: 100%; */
+  /* margin-right: auto; */
+}
+
+.teamDamageDamageBarTeamTwo {
+  background-color: red;
+  height: 1.3rem;
+  margin-left: auto;
+  /* transform: rotateY(180deg); */
+}
+
+.teamDamageDamageBarWrapper {
+  padding-left: 0.3rem;
+}
+
+.teamDamageDamageBarTeamTwoWrapper {
+  padding-right: 0.3rem;
 }
