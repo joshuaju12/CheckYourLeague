@@ -2,6 +2,7 @@ import axios from 'axios';
 import './teamGraph.css';
 import {useEffect, useState} from 'react';
 import TeamDamage from './TeamDamage.jsx';
+import TeamGold from './TeamGold.jsx';
 const {idToChampion} = require('./idToChampion.js');
 
 function TeamGraph({matchId, matchData}) {
@@ -271,11 +272,7 @@ function TeamGraph({matchId, matchData}) {
             </div>
             <div className="teamGraphDamageDealtContainer">
               <TeamDamage data={data.data} matchData={matchData} />
-              <div className="teamGraphGoldDifferenceContainer">
-                <div className="teamGraphGoldDifference">
-
-                </div>
-              </div>
+              <TeamGold data={data.data} />
             </div>
           </div>
         </div>
