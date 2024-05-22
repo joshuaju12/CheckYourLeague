@@ -1,56 +1,74 @@
 import './teamGold.css';
-import Chart from 'chart.js/auto';
 import {Line} from 'react-chartjs-2';
 import moment from 'moment';
 import 'chartjs-adapter-moment';
 
 function TeamGold ({data}) {
   console.log(data);
-  // console.log(moment("00:15", "hh:mm"))
 
+  const getGoldDifference = (index) => {
 
-  // (async function() {
-  //   new Chart(
-  //     document.getElementById('teamGoldGraph'),
-  //     {
-  //       type: 'line',
-  //       options: {
-  //         animation: false,
-  //         scales: {
-  //           xAxis: {
-  //             type: 'time',
-  //             ticks: {
-  //               source: 'labels'
-  //             },
-  //             time: {
-  //               minUnit: 'minute',
-  //               displayFormats: {
-  //                 minute: "HH:mm",
-  //                 hour: "dd/MM HH:mm",
-  //                 day: "dd/MM",
-  //                 week: "dd/MM",
-  //                 month: "MMMM yyyy",
-  //                 quarter: 'MMMM yyyy',
-  //                 year: "yyyy",
-  //               }
-  //             }
-  //           }
-  //         }
-  //       },
-  //       data: {
-  //         labels: ['0:15', '0:30'],
-  //         datasets: [
-  //           {
-  //             label: 'test',
-  //             data: [4, 5]
-  //           }
-  //         ]
-  //       }
-  //     }
-  //   );
-  // })();
+  }
+
+  const getLabels = () => {
+    let timeStamps = [];
+    let current = 0;
+    let step;
+    if ((data.length / 5) % 1 === 0.5) {
+      step = Math.floor(data.length / 6);
+    } else {
+      step = Math.round(data.length / 6);
+    }
+    for (let i = 0; i < 6; i++) {
+      let currentTime = data[current].timestamp;
+
+      if (i === 5) {
+        if (data[data.length - 1].timestamp / 60000 >= 60) {
+          timeStamps.push(moment(`${Math.floor(data[data.length - 1].timestamp / 60000)}:${Math.round((data[data.length - 1].timestamp / 60000) % .6) * 100}:00`, "h:mm:ss"));
+        } else {
+          timeStamps.push(moment(`00:${Math.floor(data[data.length - 1].timestamp / 60000)}:${Math.round((data[data.length - 1].timestamp % 60000) / 1000)}:00`, "h:mm:ss"))
+        }
+        break;
+      }
+
+      if (data[current].timestamp / 60000 >= 60) {
+        timeStamps.push(moment(`${Math.floor(currentTime / 60000)}:${Math.round((currentTime / 60000) % .6) * 100}:00`, "h:mm:ss"));
+      } else {
+        timeStamps.push(moment(`00:${Math.floor(currentTime / 60000)}:${Math.round((currentTime % 60000) / 1000)}:00`, "h:mm:ss"))
+      }
+      current = current + step;
+    }
+    return timeStamps;
+  }
+
+  const getData = () => {
+    const goldData = [];
+    for (let i = 0; i < data.length; i++) {
+      let currentTime = data[i].timestamp;
+
+      if (currentTime / 60000 >= 60) {
+        goldData.push({"x": moment(`${Math.floor(currentTime) / 60000}: ${Math.round((currentTime / 60000) % .6) * 100}:00`, "h:mm:ss")})
+        // need to add y value. It's going to call getGoldDifference, passing the index, then returns a positive or negative number for now.
+      }
+    }
+  };
 
   const options = {
+    plugins: {
+      tooltip: {
+        callbacks: {
+          title: function(tooltipItems, data) {
+            return '';
+          },
+          // value: function(tooltipItems, data) {
+//
+          // },
+        }
+      },
+      legend: {
+        display: false
+      }
+    },
     scales: {
       x: {
         type: 'time',
@@ -58,52 +76,36 @@ function TeamGold ({data}) {
           source: 'labels',
         },
         time: {
-          parser: "HH:mm",
-          // minUnit: 'minute',
+          parser: "h:mm:ss",
           displayFormats: {
-            minute: "HH:mm",
-            hour: "HH:mm",
-            day: "HH:mm",
-            week: "HH:mm",
-            month: "HH:mm",
-            quarter: 'HH:mm',
-            year: "HH:mm",
+            minute: "mm",
+            hour: "mm:ss",
+            day: "mm:ss",
+            week: "mm:ss",
+            month: "mm:ss",
+            quarter: "mm:ss",
+            year: "mm:ss",
           }
         }
       }
     }
   }
 
-  // const labels = [
-  //   "0:15",
-  //   "0:30"
-  // ];
-
-
   const labels = [
-    moment("00:00", "hh:mm"),
-    moment("00:15", "hh:mm"),
-    moment("00:30", "hh:mm"),
-    moment("00:45", "hh:mm"),
-    moment("01:00", "hh:mm"),
+    moment("0:15:00", "h:mm:ss"),
+    moment("0:30:00", "h:mm:ss"),
+    moment("0:0:00", "h:mm:ss"),
+    moment("0:45:00", "h:mm:ss"),
+    moment("1:0:00", "h:mm:ss"),
   ]
 
   const generateTestSeries = () => {
-    let series = [{"x": moment("00:10", "hh:mm"), "y": 20}, {"x": moment("00:20", "hh:mm"), "y": 40}, {"x": moment("00:30", "hh:mm"), "y": -40}];
-    // let temp = 15;
-    // for (let i = 0; i < 5; i++) {
-    //   series.push({"x": `0:${(temp + 1).toString()}` , "y": 20})
-    //   temp++;
-    // }
-    // for (let i = 0; i < labels.length; i++) {
-//
-      // series.push({"x": moment("00:10", "hh:mm"), "y": 20})
-    // }
+    let series = [{"x": moment("00:10:00", "h:mm:ss"), "y": 30}];
     return series;
   }
 
   const testData = {
-    labels: labels,
+    labels: getLabels(),
     datasets: [{
       label: 'Test',
       data: generateTestSeries(),
@@ -115,7 +117,6 @@ function TeamGold ({data}) {
 
   return(
     <div className="teamGoldContainer">
-      {/* <canvas id="teamGoldGraph"></canvas> */}
       <Line
         data={testData}
         options={options}
