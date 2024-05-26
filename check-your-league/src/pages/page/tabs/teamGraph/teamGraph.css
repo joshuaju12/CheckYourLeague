@@ -1,3 +1,29 @@
+.teamGraphTeamOutcome {
+  display: flex;
+  flex-direction: row;
+  width: 88rem;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+}
+
+.teamGraphTeamOutcome > * {
+  width: 50%;
+}
+
+.teamGraphTeamOutcome :first-child {
+  text-align: right;
+  padding-right: 2rem;
+}
+
+.teamGraphTeamOutcome :last-child {
+  text-align: left;
+  padding-left: 2rem;
+}
+
+/* .teamGraphTeamOutcomeWrapper {
+  width: 88rem;
+} */
+
 .teamGraphOverallContainer {
   display: flex;
   flex-shrink: 0;

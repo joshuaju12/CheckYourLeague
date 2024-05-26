@@ -9,6 +9,7 @@ import OverallPlayers from './OverallPlayers.jsx';
 import GamesPlayedAs from './GamesPlayedAs.jsx';
 import Stats from './tabs/stats/Stats.jsx';
 import TeamGraph from './tabs/teamGraph/TeamGraph.jsx';
+import Build from './tabs/build/Build.jsx';
 
 function MatchDetails({matchData, matchId, id}) {
 
@@ -101,7 +102,6 @@ function MatchDetails({matchData, matchId, id}) {
         {expanded ?
           <button className="buttonFlipped button" onClick={handleExpandClick}>V</button>
           :  <button className="button" onClick={handleExpandClick}>V</button>
-
         }
       </div>
       {expanded ?
@@ -122,6 +122,9 @@ function MatchDetails({matchData, matchId, id}) {
           </TabContent>
           <TabContent id="tab3" currentTab={activeTab}>
             <TeamGraph matchId={matchId} matchData={matchData} />
+          </TabContent>
+          <TabContent id="tab4" currentTab={activeTab}>
+            <Build matchId={matchId} matchData={matchData} puuidToChamp={puuidToChamp} championName={players[player].championName} puuid={id} players={championsAndNames} />
           </TabContent>
         </div>
         : null
