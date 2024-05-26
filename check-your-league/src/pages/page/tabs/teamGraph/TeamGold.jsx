@@ -148,7 +148,7 @@ function TeamGold ({data}) {
       y: {
         ticks: {
           callback: function(value, index, values) {
-            return value < 0 ? -value : value;
+            return value < 0 ? `${-value / 1000}k` : `${value / 1000}k`;
           }
         }
       }

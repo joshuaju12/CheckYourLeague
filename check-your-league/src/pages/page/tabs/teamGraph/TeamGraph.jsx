@@ -12,6 +12,9 @@ function TeamGraph({matchId, matchData}) {
   const [teamTwoDragons, setTeamTwoDragons] = useState({});
   const teamOneData = matchData.info.teams[0];
   const teamTwoData = matchData.info.teams[1];
+  let teamOneStatus;
+  let teamTwoStatus;
+
   const teamOne = {
     kda: {kills: 0, deaths: 0, assists: 0},
     gold: 0,
@@ -24,6 +27,7 @@ function TeamGraph({matchId, matchData}) {
     bans: [],
     damage: [],
   };
+
   const teamTwo = {
     kda: {kills: 0, deaths: 0, assists: 0},
     gold: 0,
@@ -75,7 +79,7 @@ function TeamGraph({matchId, matchData}) {
     axios.get('http://localhost:3001/timeline', {params: {matchId: matchId}})
     .then((timeline) => {
       const timelineData = timeline.data.info.frames;
-      const matchData = {set: true, data: timelineData};
+      const currentMatchData = {set: true, data: timelineData};
       const teamOneDragonArray = [];
       const teamTwoDragonArray = [];
       let teamOneElders = 0;
@@ -104,9 +108,21 @@ function TeamGraph({matchId, matchData}) {
 
       setTeamOneDragons({dragons: teamOneDragonArray, elders: teamOneElders});
       setTeamTwoDragons({dragons: teamTwoDragonArray, elders: teamTwoElders});
-      setData(matchData);
+      setData(currentMatchData);
     })
   };
+
+  if (matchData.info.teams[0].win) {
+    teamOneStatus = 'Victory';
+  } else {
+    teamTwoStatus = 'Defeat';
+  }
+
+  if (matchData.info.teams[1].win) {
+    teamTwoStatus = 'Victory';
+  } else {
+    teamTwoStatus = 'Defeat';
+  }
 
   getBans();
   getCombatStats();
@@ -120,8 +136,8 @@ function TeamGraph({matchId, matchData}) {
       {data.set ?
         <div>
           <div className="teamGraphTeamOutcome">
-            <div>Blue Team</div>
-            <div>Red Team</div>
+              <div>Blue Team {"("}{teamOneStatus}{")"}</div>
+              <div>Red Team {"("}{teamTwoStatus}{")"}</div>
           </div>
           <div className="teamGraphOverallContainer">
             <div className="teamGraphGameStatsContainer">
