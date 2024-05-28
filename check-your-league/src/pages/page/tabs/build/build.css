@@ -1,0 +1,92 @@
+
+.buildPlayerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buildPlayerChampionImage {
+  height: 7rem;
+  width: 7rem;
+}
+
+.buildPlayerBuildContainer > :first-child {
+  padding-left: 1rem;
+  border-bottom: solid 1px;
+  margin-bottom: 1rem;
+}
+
+.buildPlayerBuildContainer > :nth-child(3) {
+  padding: 1rem 0 1rem 1rem;
+  border-top: solid 1px;
+}
+
+.buildPlayer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.buildPlayerItemImage {
+  height: 4.5rem;
+  width: 4.5rem;
+}
+
+.buildPlayerBuildWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.buildPlayerBuild {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 1.2rem;
+}
+
+.buildPlayerBuildItemContainer {
+  display: flex;
+}
+
+.buildPlayerBuildItemContainerWrapper {
+  display: flex;
+  background-color: gray;
+  border-radius: 5px;
+}
+
+.buildPlayerBuildItemContainerWrapper :last-child{
+  margin-right: 0.4rem;
+}
+
+.buildPlayerBuildItem {
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 5px;
+  margin: 0.4rem 0 0.4rem 0.4rem;
+}
+
+.buildPlayerBuildNext {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: gray; */
+}
+
+.buildPlayerBuildNext :first-child {
+  background-color: gray;
+  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+}
+
+.buildPlayerBuildTime {
+  text-align: center;
+}
+
+.buildPlayerBuildNext :first-child {
+  margin-top: auto;
+  margin-bottom: auto;
+}
