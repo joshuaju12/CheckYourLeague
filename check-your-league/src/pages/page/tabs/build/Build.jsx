@@ -91,6 +91,9 @@ function Build ({matchId, matchData, puuidToChamp, championName, teams, puuid, p
             playerActions.push(actions);
           }
         }
+        // console.log(playerActions);
+        // console.log(matchData);
+        console.log(playerActions)
         setBuild(playerActions);
         setParticipant(currentParticipant - 1);
       })
@@ -104,7 +107,63 @@ function Build ({matchId, matchData, puuidToChamp, championName, teams, puuid, p
     <div>
       { participant > -1
       ? <div>
-          Build
+          <div className="buildPlayerContainer">
+            <div className="buildPlayer">
+              <span>{matchData.info.participants[participant].riotIdGameName}</span>
+              <img className="buildPlayerChampionImage" src={require(`../overview/assets/champions/${selectedPlayer}.png`)} alt="" />
+              <span>{selectedPlayer}</span>
+              <div className="buildPlayerItems">
+                <img className="buildPlayerItemImage" src={require(`../overview/assets/items/${matchData.info.participants[participant].item0}.png`)} alt="" />
+                <img className="buildPlayerItemImage" src={require(`../overview/assets/items/${matchData.info.participants[participant].item1}.png`)} alt="" />
+                <img className="buildPlayerItemImage" src={require(`../overview/assets/items/${matchData.info.participants[participant].item2}.png`)} alt="" />
+                <img className="buildPlayerItemImage" src={require(`../overview/assets/items/${matchData.info.participants[participant].item3}.png`)} alt="" />
+                <img className="buildPlayerItemImage" src={require(`../overview/assets/items/${matchData.info.participants[participant].item4}.png`)} alt="" />
+                <img className="buildPlayerItemImage" src={require(`../overview/assets/items/${matchData.info.participants[participant].item5}.png`)} alt="" />
+              </div>
+            </div>
+          </div>
+          <div className="buildPlayerBuildContainer">
+            <div>Build Path</div>
+            <div className="buildPlayerBuildWrapper">
+              {build.map((value, index) => {
+                if (index === build.length -1 ) {
+                  return <div key={index} className="buildPlayerBuild">
+                    <div className="buildPlayerBuildItemContainer">
+                      <div className="buildPlayerBuildItemContainerWrapper">
+                        {value.events.map((innerValue, innerIndex) => {
+                          if (innerValue.times) {
+                            return <img className="buildPlayerBuildItem" key={innerIndex} src={require(`../overview/assets/items/${innerValue.itemId}.png`)} alt="" />
+                          } else {
+                            return <img className="buildPlayerBuildItem" key={innerIndex} src={require(`../overview/assets/items/${innerValue.itemId}.png`)} alt="" />
+                          }
+                        })}
+                      </div>
+                    </div>
+                    <span className="buildPlayerBuildTime">{Math.floor(value.timestamp / 60000)} min</span>
+                  </div>
+                } else {
+                  return <div key={index} className="buildPlayerBuild">
+                    <div className="buildPlayerBuildItemContainer">
+                      <div className="buildPlayerBuildItemContainerWrapper">
+                        {value.events.map((innerValue, innerIndex) => {
+                          if (innerValue.times) {
+                            return <img className="buildPlayerBuildItem" key={innerIndex} src={require(`../overview/assets/items/${innerValue.itemId}.png`)} alt="" />
+                          } else {
+                            return <img className="buildPlayerBuildItem" key={innerIndex} src={require(`../overview/assets/items/${innerValue.itemId}.png`)} alt="" />
+                          }
+                        })}
+                      </div>
+                      <div className="buildPlayerBuildNext">
+                        <div>{'>'}</div>
+                      </div>
+                    </div>
+                    <span className="buildPlayerBuildTime">{Math.floor(value.timestamp / 60000)} min</span>
+                  </div>
+                }
+              })}
+            </div>
+            <div>Runes</div>
+          </div>
         </div>
       : <div>Loading</div>
       }
