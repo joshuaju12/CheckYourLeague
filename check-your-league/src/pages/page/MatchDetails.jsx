@@ -12,6 +12,7 @@ import TeamGraph from './tabs/teamGraph/TeamGraph.jsx';
 import Build from './tabs/build/Build.jsx';
 
 function MatchDetails({matchData, matchId, id}) {
+  console.log(matchData);
 
   const date = formatDistanceStrict(new Date(matchData.info.gameCreation), new Date(), {addSuffix: true});
   const [expanded, setExpanded] = useState(false);
