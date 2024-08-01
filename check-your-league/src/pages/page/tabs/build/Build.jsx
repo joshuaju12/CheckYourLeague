@@ -1,6 +1,7 @@
 import './build.css';
 import axios from 'axios';
 import {useEffect, useState} from 'react';
+import Runes from './Runes.jsx';
 
 function Build ({matchId, matchData, puuidToChamp, championName, teams, puuid, players}) {
 
@@ -93,7 +94,7 @@ function Build ({matchId, matchData, puuidToChamp, championName, teams, puuid, p
         }
         // console.log(playerActions);
         // console.log(matchData);
-        console.log(playerActions)
+        // console.log(playerActions)
         setBuild(playerActions);
         setParticipant(currentParticipant - 1);
       })
@@ -163,6 +164,7 @@ function Build ({matchId, matchData, puuidToChamp, championName, teams, puuid, p
               })}
             </div>
             <div>Runes</div>
+            <Runes runeData={matchData.info.participants[participant].perks}/>
           </div>
         </div>
       : <div>Loading</div>
