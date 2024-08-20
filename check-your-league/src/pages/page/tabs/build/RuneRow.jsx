@@ -1,6 +1,5 @@
 
 function RuneRow ({tree, row, selections, secondary}) {
-  // console.log(selections);
   let keystone;
   if (tree === 1) {
     keystone = [
@@ -54,28 +53,22 @@ function RuneRow ({tree, row, selections, secondary}) {
           if (index === 3) {
             return null;
           }
-          // console.log('runes', keystone[row], 'selections', selections)
           let firstSelection = selections[0].perk.toString();
           let secondSelection = selections[1].perk.toString();
           if (keystone[row].indexOf(firstSelection) > -1 || keystone[row].indexOf(secondSelection) > -1) {
             if (value === firstSelection || value === secondSelection) {
-              return <img className="buildPlayerBuildRuneImageSelected" src={require(`../overview/assets/runes/${value}.png`)} alt="" />
+              return <img key={index} className="buildPlayerBuildRuneImageSelected" src={require(`../overview/assets/runes/${value}.png`)} alt="" />
             } else {
-              return <img className="buildPlayerBuildRuneImage" src={require(`../overview/assets/runes/${value}.png`)} alt="" />
+              return <img key={index} className="buildPlayerBuildRuneImage" src={require(`../overview/assets/runes/${value}.png`)} alt="" />
             }
           } else {
-            return <img className="buildPlayerBuildRuneImage" src={require(`../overview/assets/runes/${value}.png`)} alt="" />
+            return <img key={index} className="buildPlayerBuildRuneImage" src={require(`../overview/assets/runes/${value}.png`)} alt="" />
           }
-          // if (keystone[row + 1][index] === selections[row].perk.toString() && (keystone[row + 1].indexOf(selections[0].perk.toString() > -1) || keystone[row + 1].indexOf(selections[1].perk.toString() > -1))) {
-          //   return <img className="buildPlayerBuildRuneImageSelected" src={require(`../overview/assets/runes/${value}.png`)} alt="" />
-          // } else {
-          //   return <img className="buildPlayerBuildRuneImage" src={require(`../overview/assets/runes/${value}.png`)} alt="" />
-          // }
         } else {
           if (value === selections[row].perk.toString() && keystone[row].indexOf(selections[row].perk.toString() > -1)) {
-            return <img className="buildPlayerBuildRuneImageSelected" src={require(`../overview/assets/runes/${value}.png`)} alt="" />
+            return <img key={index} className="buildPlayerBuildRuneImageSelected" src={require(`../overview/assets/runes/${value}.png`)} alt="" />
           } else {
-            return <img className="buildPlayerBuildRuneImage" src={require(`../overview/assets/runes/${value}.png`)} alt="" />
+            return <img key={index} className="buildPlayerBuildRuneImage" src={require(`../overview/assets/runes/${value}.png`)} alt="" />
           }
         }
       }
