@@ -6,11 +6,30 @@
   padding-right: 2rem;
 }
 
+.buildPlayerBuildRunesWrapper > :first-child {
+  padding-right: 1rem;
+}
+
+.buildPlayerBuildRunesWrapper > :last-child {
+  padding-left: 1rem;
+}
+
 .buildPlayerBuildRuneRow {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 0.5rem;
 }
+
+.buildPlayerBuildRuneRow > :first-child {
+  margin-right: 0.5rem;
+}
+
+.buildPlayerBuildRuneRow > :last-child {
+  margin-left: 0.5rem;
+}
+
+
 
 .buildPlayerBuildRuneImage {
   height: 3rem;
