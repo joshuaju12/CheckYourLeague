@@ -4,6 +4,7 @@ import {useState, createContext, useEffect} from 'react';
 import Home from './pages/home/Home.jsx';
 import Page from './pages/page/Page.jsx';
 import background from './pages/assets/background.jpg';
+import background2 from './pages/assets/background2.png';
 
 export const SharedContext = createContext();
 
@@ -21,7 +22,8 @@ function App() {
 
   const setPageBackground = () => {
     const body = document.body;
-    body.style.backgroundImage = "none";
+    // body.style.backgroundImage = "none";
+    body.style.backgroundImage = `url(${background2})`;
   };
 
   useEffect(() => {

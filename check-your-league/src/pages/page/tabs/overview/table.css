@@ -1,20 +1,11 @@
 
-.test{
-  /* border-right: solid; */
-  /* display: flex; */
-  /* text-align: center; */
-  /* border-right: solid; */
-  /* border-top: solid; */
-  /* padding-left: 3rem; */
-  /* padding-left: 3rem; */
-  /* display: flex; */
-  /* justify-content: space-evenly; */
-  /* display: flex; */
+.overViewTableWrapper {
+  padding: 1rem 1rem 0 1rem;
+  border-radius: 0.5rem;
 }
 
 .overViewTable {
   border-collapse: collapse;
-  /* padding-left: 5rem; */
 }
 
 .smallImage {

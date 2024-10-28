@@ -134,7 +134,7 @@ function TeamGraph({matchId, matchData}) {
   return (
     <div>
       {data.set ?
-        <div>
+        <div className="teamGraphTeamOutcomeWrapper">
           <div className="teamGraphTeamOutcome">
               <div>Blue Team {"("}{teamOneStatus}{")"}</div>
               <div>Red Team {"("}{teamTwoStatus}{")"}</div>
@@ -292,7 +292,7 @@ function TeamGraph({matchId, matchData}) {
             </div>
           </div>
         </div>
-      : <div>Loading</div>
+      : <div className="loader">Loading</div>
       }
     </div>
   )
