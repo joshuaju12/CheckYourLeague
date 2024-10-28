@@ -14,8 +14,7 @@
   display: flex;
   flex-direction: row;
   padding: 1rem 0 1rem 1rem;
-  /* background-color: aliceblue; */
-  background-color: aquamarine;
+  border-radius: 0.5rem;
 }
 
 .overallGameDetails {
@@ -139,8 +138,8 @@
 }
 
 .tabContent {
-  padding-left: 1rem;
-  padding: 1rem 1rem 1rem 1rem;
+  /* padding-left: 1rem; */
+  /* padding: 1rem 1rem 1rem 1rem; */
 }
 
 ul {

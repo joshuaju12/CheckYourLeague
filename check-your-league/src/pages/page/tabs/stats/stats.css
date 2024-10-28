@@ -1,4 +1,9 @@
 
+.statsContentWrapper {
+  background-color: #38383b;
+  border-radius: 0.5rem;
+}
+
 .dropdownContainer {
 display: flex;
 float: right;
@@ -131,6 +136,8 @@ float: right;
   width: 12.5rem;
 }
 
-.statsLoader {
-  height: 45.4rem;
+.loader {
+  /* height: 45.4rem; */
+  height: 30rem;
+  background-color: #38383b;
 }

@@ -141,26 +141,28 @@ function Table({matchData, team}) {
 
 
   return (
-    <table className="overViewTable">
-      <thead>
-        <tr className="headerContainer">
-          {matchData.info.teams[team].win ?
-            <th className="nameHeader">Victory</th>
-            : <th className="nameHeader">Defeat</th>
-          }
-          <th className="kdaHeader">KDA</th>
-          <th className="damageHeader">Damage</th>
-          <th className="ccHeader">CC</th>
-          <th className="healsHeader">Heals</th>
-          <th className="shieldsHeader">Shields</th>
-          <th>CS</th>
-          <th>Gold</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows}
-      </tbody>
-    </table>
+    <div className="overViewTableWrapper" style={{backgroundColor: matchData.info.teams[team].win ? "#03868c" : "#521302"}}>
+      <table className="overViewTable">
+        <thead>
+          <tr className="headerContainer">
+            {matchData.info.teams[team].win ?
+              <th className="nameHeader">Victory</th>
+              : <th className="nameHeader">Defeat</th>
+            }
+            <th className="kdaHeader">KDA</th>
+            <th className="damageHeader">Damage</th>
+            <th className="ccHeader">CC</th>
+            <th className="healsHeader">Heals</th>
+            <th className="shieldsHeader">Shields</th>
+            <th>CS</th>
+            <th>Gold</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows}
+        </tbody>
+      </table>
+    </div>
   )
 };
 

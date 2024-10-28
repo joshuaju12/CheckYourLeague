@@ -107,7 +107,7 @@ function Build ({matchId, matchData, puuidToChamp, championName, teams, puuid, p
   return (
     <div>
       { participant > -1
-      ? <div>
+      ? <div className="buildPlayerWrapper">
           <div className="buildPlayerContainer">
             <div className="buildPlayer">
               <span>{matchData.info.participants[participant].riotIdGameName}</span>
@@ -167,7 +167,7 @@ function Build ({matchId, matchData, puuidToChamp, championName, teams, puuid, p
             <Runes runeData={matchData.info.participants[participant].perks}/>
           </div>
         </div>
-      : <div>Loading</div>
+      : <div className="loader">Loading</div>
       }
     </div>
   )

@@ -1,3 +1,9 @@
+
+.teamGraphTeamOutcomeWrapper {
+  background-color: #38383b;
+  border-radius: 0.5rem;
+}
+
 .teamGraphTeamOutcome {
   display: flex;
   flex-direction: row;

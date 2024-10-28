@@ -112,7 +112,7 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid, pl
   return (
     <div>
       {participant > -1 ?
-        <div>
+        <div className="statsContentWrapper">
           <div className="dropdownContainer">
             <Select
               defaultValue={options[participant]}
@@ -320,7 +320,7 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid, pl
             </table>
           </div>
         </div>
-      : <div className="statsLoader">Loading</div>
+      : <div className="loader">Loading</div>
       }
     </div>
   )
