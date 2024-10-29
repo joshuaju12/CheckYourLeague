@@ -6,6 +6,8 @@
   width: 119rem;
   /* border: solid; */
   margin-bottom: 1rem;
+  background-color: #38383b;
+  border-radius: 1rem;
 }
 
 .profileIcon {
