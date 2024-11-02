@@ -1,0 +1,58 @@
+.playerStatisticsContainer {
+  /* border: solid; */
+  width: 28rem;
+  margin-right: 1rem;
+}
+
+.rankContainerWrapper {
+  background-color: #38383b;
+  height: 15rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.rankContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rankTypeWrapper {
+  width: 100%;
+}
+
+
+.rankInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rankImage {
+  height: 8rem;
+  border-radius: 9999px;
+  background-color: #222226;
+}
+
+.rankInfoPlaceholder {
+  height: 8rem;
+  width: 8rem;
+  border-radius: 9999px;
+  background-color: #222226;
+}
+
+.rankStatisticsContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.rankStatisticsContainer > * {
+  font-size: 1.38rem;
+  display: flex;
+  width: 33%;
+  align-items: center;
+  justify-content: center;
+}

@@ -7,6 +7,7 @@ import './page.css';
 import MatchDetails from './MatchDetails.jsx';
 import ProfileHeader from './ProfileHeader.jsx';
 import {SharedContext} from '../../App.js';
+import PlayerStatistics from './PlayerStatistics.jsx';
 
 function Page() {
 
@@ -70,17 +71,17 @@ function Page() {
     <div className="pageContainer">
       <ProfileHeader name={name} userInfo={userInfo} rankedInfo={rankedInfo} />
       <div className="contentContainer">
-        <div className="playerStatistics">extra stuff</div>
-        <div className="allMatchesContainer">
-          {allMatchData ?
+          {allMatchData.length > 0 ?
             <>
-              {allMatchData.map((value, index) =>
-                <MatchDetails key={index} eventKey={index} matchData={value.data} matchId={matchList[index]} id={userInfo.puuid}/>
-              )}
+              <PlayerStatistics rankedInfo={rankedInfo} />
+              <div className="allMatchesContainer">
+                {allMatchData.map((value, index) =>
+                  <MatchDetails key={index} eventKey={index} matchData={value.data} matchId={matchList[index]} id={userInfo.puuid}/>
+                )}
+              </div>
             </>
             : <div>Loading...</div>
           }
-        </div>
       </div>
     </div>
   )
