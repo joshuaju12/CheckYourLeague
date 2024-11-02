@@ -13,7 +13,8 @@ function Page() {
 
   const {setCurrentRoute} = useContext(SharedContext);
   const location = useLocation();
-  const name = (location.state.name).split(" ");
+  const name = location.state.name;
+  const tag = location.state.tag;
   const [userInfo, setUserInfo] = useState({
     summonerId: '',
     accountId: '',
@@ -29,7 +30,7 @@ function Page() {
 
   const getMatchHistory = useMemo(() => async() => {
     try {
-      const account = await axios.get('http://localhost:3001/account', {params: {summonerName: name[0], tagline: name[1]}});
+      const account = await axios.get('http://localhost:3001/account', {params: {summonerName: name, tagline: tag}});
       const summoner = await axios.get('http://localhost:3001/summoner', {params: {puuid: account.data.puuid}});
       const ranked = await axios.get('http://localhost:3001/ranked', {params: {accountId: summoner.data.id}})
       const matches = await axios.get('http://localhost:3001/allMatches', {params: {puuid: summoner.data.puuid}});
