@@ -70,7 +70,7 @@ function Page() {
 
   return (
     <div className="pageContainer">
-      <ProfileHeader name={name} userInfo={userInfo} rankedInfo={rankedInfo} />
+      <ProfileHeader name={name} tag={tag} userInfo={userInfo} rankedInfo={rankedInfo} />
       <div className="contentContainer">
           {allMatchData.length > 0 ?
             <>

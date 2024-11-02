@@ -35,10 +35,10 @@ function Home() {
     <div className="wrapper">
       <div className="mainComponent">
         <form onSubmit={onButtonSubmit}>
-          <label className="nameLabel">Search</label>
-          <input type="text" value={name} onChange={handleNameChange} placeholder="Riot Id ex. Mekju"></input>
-          <input type="text" value={tag} onChange={handleTagChange} placeholder="Tag ex. na1"/>
-          <button className="searchButton">Go</button>
+          <label className="nameLabel">CheckYourLeague</label>
+          <input className="nameBox" type="text" value={name} onChange={handleNameChange} placeholder="Riot Id ex. Mekju"></input>
+          <input className="tagBox" type="text" value={tag} onChange={handleTagChange} placeholder="Tag ex. na1"/>
+          <button className="searchButton">Search</button>
         </form>
       </div>
     </div>
