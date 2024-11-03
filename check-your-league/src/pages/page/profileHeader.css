@@ -15,3 +15,11 @@
   height: 12rem;
   border-radius: 10px;
 }
+
+.playerDetailsWrapper {
+  padding-left: 1.2rem;
+}
+
+.playerDetailsWrapper :last-child {
+  font-size: 3rem;
+}

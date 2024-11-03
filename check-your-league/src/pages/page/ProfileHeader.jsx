@@ -1,6 +1,6 @@
 import './profileHeader.css';
 
-function ProfileHeader({userInfo, name, rankedInfo}) {
+function ProfileHeader({userInfo, name, tag, rankedInfo}) {
   // console.log(rankedInfo);
   let highestRank;
   let lp;
@@ -59,8 +59,8 @@ function ProfileHeader({userInfo, name, rankedInfo}) {
     <div className="profileWrapper">
       <img className="profileIcon" src={require(`./assets/profileIcon/${userInfo.iconId}.png`)} alt="" />
       <div className=" playerDetailsWrapper">
-        <div>{name[0]}</div>
-        <div>{highestRank}</div>
+        <span>{name} </span>
+        <span> #{tag}</span>
       </div>
     </div>
   );

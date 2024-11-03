@@ -7,14 +7,19 @@ function Home() {
 
   const {setCurrentRoute} = useContext(SharedContext);
   const [name, setName] = useState('');
+  const [tag, setTag] = useState('');
   const navigate = useNavigate();
 
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
 
+  const handleTagChange = (e) => {
+    setTag(e.target.value);
+  }
+
   const handleNavigate = () => {
-    return navigate("/page", {state: {name: name}});
+    return navigate("/page", {state: {name: name, tag: tag}});
   }
 
   const onButtonSubmit = (e) => {
@@ -30,9 +35,10 @@ function Home() {
     <div className="wrapper">
       <div className="mainComponent">
         <form onSubmit={onButtonSubmit}>
-          <label className="nameLabel">Search</label>
-          <input type="text" value={name} onChange={handleNameChange} placeholder="Riot Id ex. Name #na1"></input>
-          <button className="searchButton">Go</button>
+          <label className="nameLabel">CheckYourLeague</label>
+          <input className="nameBox" type="text" value={name} onChange={handleNameChange} placeholder="Riot Id ex. Mekju"></input>
+          <input className="tagBox" type="text" value={tag} onChange={handleTagChange} placeholder="Tag ex. na1"/>
+          <button className="searchButton">Search</button>
         </form>
       </div>
     </div>
