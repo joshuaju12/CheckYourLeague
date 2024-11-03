@@ -8,6 +8,7 @@ import MatchDetails from './MatchDetails.jsx';
 import ProfileHeader from './ProfileHeader.jsx';
 import {SharedContext} from '../../App.js';
 import PlayerStatistics from './PlayerStatistics.jsx';
+import SearchBar from './SearchBar.jsx';
 
 function Page() {
 
@@ -70,6 +71,7 @@ function Page() {
 
   return (
     <div className="pageContainer">
+      <SearchBar />
       <ProfileHeader name={name} tag={tag} userInfo={userInfo} rankedInfo={rankedInfo} />
       <div className="contentContainer">
           {allMatchData.length > 0 ?
