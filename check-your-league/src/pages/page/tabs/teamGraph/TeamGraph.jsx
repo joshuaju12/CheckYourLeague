@@ -114,14 +114,12 @@ function TeamGraph({matchId, matchData}) {
 
   if (matchData.info.teams[0].win) {
     teamOneStatus = 'Victory';
-  } else {
     teamTwoStatus = 'Defeat';
   }
 
   if (matchData.info.teams[1].win) {
+    teamOneStatus = 'Defeat';
     teamTwoStatus = 'Victory';
-  } else {
-    teamTwoStatus = 'Defeat';
   }
 
   getBans();

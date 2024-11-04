@@ -74,12 +74,21 @@
   margin: 0.4rem 0 0.4rem 0.4rem;
 }
 
+.buildPlayerItems :first-child {
+  border: 1px solid;
+  border-style: solid solid solid solid;
+}
+
+.buildPlayerItems :not(:first-child) {
+  border : 1px solid;
+  border-style: solid solid solid none;
+}
+
 .buildPlayerBuildNext {
   font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: gray; */
 }
 
 .buildPlayerBuildNext :first-child {
