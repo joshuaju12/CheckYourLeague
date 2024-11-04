@@ -26,6 +26,37 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 16rem;
+}
+
+.killComparisonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.killComparisonContainer > span {
+  width: 8rem;
+  text-align: right;
+}
+
+.killComparisonContainer > span:last-of-type {
+  text-align: left;
+}
+
+.goldComparisonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.goldComparisonContainer > span {
+  width:8rem;
+  text-align: right;
+}
+
+.goldComparisonContainer > span:last-of-type {
+  text-align: left;
 }
 
 .teamOneStatus {
