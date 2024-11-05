@@ -6,8 +6,27 @@
 
 .buildPlayerContainer {
   display: flex;
-  align-items: center;
   justify-content: center;
+}
+
+.buildPlayerContainer > :first-child {
+  width: 16.4rem;
+  margin-right: auto;
+}
+
+.dropdownContainer {
+  display: flex;
+  width: 16.4rem;
+  height: 3.8rem;
+  margin-left: auto;
+}
+
+.optionsContainer {
+  clear: right;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 10.5rem;
 }
 
 .buildPlayerChampionImage {
