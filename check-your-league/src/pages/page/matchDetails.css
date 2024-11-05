@@ -1,6 +1,8 @@
 .matchContainer {
   margin-bottom: 1rem;
   width: 90rem;
+  background-color: #38383b;
+  border-radius: 0.5rem;
 }
 
 .playersContainer {
@@ -133,7 +135,7 @@
   font-size: 1.9rem;
   height: 4.5rem;
   margin: 1rem 0 1rem 0;
-  background-color: white;
+  background-color: #dce0e6;
   border-radius: 0.3em;
 }
 
@@ -167,5 +169,5 @@ ul {
 }
 
 .nav li.active {
-  background-color: #E1F7FF;
+  background-color: #9a9da1;
 }

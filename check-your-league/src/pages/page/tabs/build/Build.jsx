@@ -2,6 +2,7 @@ import './build.css';
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 import Runes from './Runes.jsx';
+import Select from 'react-select';
 
 function Build ({matchId, matchData, puuidToChamp, championName, teams, puuid, players}) {
 
@@ -97,7 +98,14 @@ function Build ({matchId, matchData, puuidToChamp, championName, teams, puuid, p
         // console.log(playerActions)
         setBuild(playerActions);
         setParticipant(currentParticipant - 1);
+        setLoaded(true);
       })
+  };
+
+  const onClick = (e) => {
+    setSelectedPuuid(e.value.puuid);
+    setSelectedPlayer(e.value.championName);
+    setLoaded(false);
   };
 
   useEffect(() => {
@@ -106,9 +114,10 @@ function Build ({matchId, matchData, puuidToChamp, championName, teams, puuid, p
 
   return (
     <div>
-      { participant > -1
+      { participant > -1 && loaded === true
       ? <div className="buildPlayerWrapper">
           <div className="buildPlayerContainer">
+            <div></div>
             <div className="buildPlayer">
               <span>{matchData.info.participants[participant].riotIdGameName}</span>
               <img className="buildPlayerChampionImage" src={require(`../overview/assets/champions/${selectedPlayer}.png`)} alt="" />
@@ -121,6 +130,20 @@ function Build ({matchId, matchData, puuidToChamp, championName, teams, puuid, p
                 <img className="buildPlayerItemImage" src={require(`../overview/assets/items/${matchData.info.participants[participant].item4}.png`)} alt="" />
                 <img className="buildPlayerItemImage" src={require(`../overview/assets/items/${matchData.info.participants[participant].item5}.png`)} alt="" />
               </div>
+            </div>
+            <div className="dropdownContainer">
+              <Select
+                defaultValue={options[participant]}
+                options={options}
+                onChange={e => onClick(e)}
+                isSearchable={false}
+                formatOptionLabel={player => (
+                  <div className="optionsContainer">
+                    <img className="optionsImage" src={require(`../overview/assets/champions/${player.value.championName}.png`)} alt="" />
+                    <div className="optionsLabel">{player.value.playerName}</div>
+                  </div>
+                )}
+              />
             </div>
           </div>
           <div className="buildPlayerBuildContainer">

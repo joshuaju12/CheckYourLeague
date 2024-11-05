@@ -96,12 +96,14 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid, pl
         setKills(killTracker);
         setEnemyTeam(teams[opposingTeam]);
         setParticipant(currentParticipant - 1);
+        setLoaded(true);
       })
   };
 
   const onClick = (e) => {
     setSelectedPuuid(e.value.puuid);
     setSelectedPlayer(e.value.championName);
+    setLoaded(false);
   };
 
 
@@ -111,7 +113,7 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid, pl
 
   return (
     <div>
-      {participant > -1 ?
+      {participant > -1 && loaded === true ?
         <div className="statsContentWrapper">
           <div className="dropdownContainer">
             <Select

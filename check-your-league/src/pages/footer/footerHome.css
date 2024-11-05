@@ -1,0 +1,17 @@
+.footerHomeWrapper {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-bottom: 3rem;
+  padding-top: 6rem;
+}
+
+.footerHome {
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: beige;
+  width: 80rem;
+}

@@ -6,6 +6,13 @@
   padding-right: 2rem;
 }
 
+.overallPlayersName {
+  /* display: flex;  */
+  /* align-items: center; */
+  height: 2.05rem;
+  line-height: 2.05rem;
+}
+
 .playersRowOne {
   display: flex;
   flex-direction: row;
