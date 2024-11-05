@@ -9,6 +9,7 @@ import ProfileHeader from './ProfileHeader.jsx';
 import {SharedContext} from '../../App.js';
 import PlayerStatistics from './PlayerStatistics.jsx';
 import SearchBar from './SearchBar.jsx';
+import Footer from '../footer/Footer.jsx';
 
 function Page() {
 
@@ -86,6 +87,7 @@ function Page() {
             : <div>Loading...</div>
           }
       </div>
+      <Footer />
     </div>
   )
 }

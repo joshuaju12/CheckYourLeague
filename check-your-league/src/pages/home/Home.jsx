@@ -2,6 +2,7 @@ import {useEffect, useState, useContext} from 'react';
 import {Link, useNavigate} from  "react-router-dom";
 import './home.css';
 import {SharedContext} from '../../App.js';
+import FooterHome from '../footer/FooterHome.jsx';
 
 function Home() {
 
@@ -41,6 +42,7 @@ function Home() {
           <button className="searchButton">Search</button>
         </form>
       </div>
+      <FooterHome />
     </div>
   )
 };
