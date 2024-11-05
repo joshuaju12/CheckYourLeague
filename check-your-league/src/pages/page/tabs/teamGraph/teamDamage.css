@@ -96,14 +96,14 @@
 }
 
 .teamDamageDamageBar {
-  background-color: blue;
+  background-color: #03868c;
   height: 1.3rem;
   /* width: 100%; */
   /* margin-right: auto; */
 }
 
 .teamDamageDamageBarTeamTwo {
-  background-color: red;
+  background-color: #992525;
   height: 1.3rem;
   margin-left: auto;
   /* transform: rotateY(180deg); */

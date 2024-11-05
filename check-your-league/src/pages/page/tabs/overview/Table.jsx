@@ -141,7 +141,7 @@ function Table({matchData, team}) {
 
 
   return (
-    <div className="overViewTableWrapper" style={{backgroundColor: matchData.info.teams[team].win ? "#03868c" : "#521302"}}>
+    <div className="overViewTableWrapper" style={{backgroundColor: matchData.info.teams[team].win ? "#03868c" : "#992525"}}>
       <table className="overViewTable">
         <thead>
           <tr className="headerContainer">
