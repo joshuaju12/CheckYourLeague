@@ -35,7 +35,7 @@ function Home() {
   return (
     <div className="wrapper">
       <div className="mainComponent">
-        <form onSubmit={onButtonSubmit}>
+        <form className="homeLabelWrapper" onSubmit={onButtonSubmit}>
           <label className="nameLabel">CheckYourLeague</label>
           <input className="nameBox" type="text" value={name} onChange={handleNameChange} placeholder="Riot Id ex. Mekju"></input>
           <input className="tagBox" type="text" value={tag} onChange={handleTagChange} placeholder="Tag ex. na1"/>

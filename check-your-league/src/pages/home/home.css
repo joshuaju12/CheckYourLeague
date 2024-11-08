@@ -16,11 +16,12 @@ body {
 }
 
 .mainComponent {
+  color: #cdd1d1;
   display: flex;
   justify-content: center;
   /* border: solid; */
   padding: 0.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 15rem;
 }
 
 .nameLabel {
@@ -35,6 +36,7 @@ body {
   width: 26rem;
   margin-right: 0.5rem;
   border-radius: 0.5rem;
+  padding-left: 1rem;
   font-size: 1.9rem;
   background-color: #208a8a;
 }
@@ -42,6 +44,7 @@ body {
 .tagBox {
   height: 5rem;
   width: 11rem;
+  padding-left: 1rem;
   margin-right: 0.3rem;
   border-radius: 0.5rem;
   font-size: 1.9rem;
@@ -56,3 +59,18 @@ border-radius: 0.5rem;
 background: #5b8b8f;
 font-size: 1.4rem;
 }
+
+.homeLabelWrapper > input {
+  opacity: 0.7;
+}
+
+.homeLabelWrapper > input:focus {
+  opacity: 1;
+  outline: none;
+}
+
+.homeLabelWrapper > input::placeholder {
+  color: #cdd1d1;
+  opacity: 1;
+}
+
