@@ -2,12 +2,14 @@
 .statsContentWrapper {
   background-color: #38383b;
   border-radius: 0.5rem;
+  color: #cdd1d1;
 }
 
 .dropdownContainer {
-display: flex;
-float: right;
-margin-right: 1rem;
+  color: black;
+  display: flex;
+  float: right;
+  margin-right: 1rem;
 }
 
 .optionsContainer {
@@ -67,6 +69,8 @@ margin-right: 1rem;
 
 .statsCombatStatsContainer {
   padding-bottom: 1rem;
+  display: flex;
+  justify-content: center;
 }
 
 .statsTablePlayerHeader {
@@ -96,13 +100,13 @@ margin-right: 1rem;
 }
 
 .statsCombatStatsCombatHeader, .statsCombatStatsDamageDealtHeader, .statsCombatStatsIncomingDamageHeader, .statsCombatStatsGoldHeader {
-  border-bottom: solid 1px;
+  border-bottom: solid 1px black;
   padding-bottom: 0.5rem;
 }
 
 .statsCombatTableCombat, .statsCombatTableDamageDealt, .statsCombatTableIncomingDamage {
   padding-top: 1rem;
-  border-right: 1px solid;
+  border-right: 1px solid black;
 }
 
 .statsCombatTableGold {
@@ -117,6 +121,7 @@ margin-right: 1rem;
 }
 
 .statsCombatTableValueTitle {
+  padding-left: 0.5rem;
   width: 18rem;
 }
 
@@ -139,6 +144,7 @@ margin-right: 1rem;
 
 .loader {
   /* height: 45.4rem; */
+  padding-left: 1rem;
   height: 30rem;
   background-color: #38383b;
 }

@@ -322,7 +322,7 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid, pl
             </table>
           </div>
         </div>
-      : <div className="loader">Loading</div>
+      : <div className="loader">Loading...</div>
       }
     </div>
   )

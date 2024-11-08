@@ -87,7 +87,10 @@ function Page() {
             : <div>Loading...</div>
           }
       </div>
-      <Footer />
+      {allMatchData.length > 0
+      ? <Footer />
+      : null
+      }
     </div>
   )
 }

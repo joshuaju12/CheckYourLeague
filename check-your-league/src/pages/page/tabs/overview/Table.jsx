@@ -1,9 +1,21 @@
 import './table.css';
+import {useNavigate} from 'react-router-dom'
 
 function Table({matchData, team}) {
 
   const rows = [];
+  const navigate = useNavigate();
   // console.log(matchData);
+
+
+  const handleNavigate = (playerName, playerTag) => {
+    return navigate("/page", {state: {name: playerName, tag: playerTag}});
+  }
+
+  const overviewNameOnClick = (playerData) => {
+    handleNavigate(playerData.riotIdGameName, playerData.riotIdTagline);
+    navigate(0);
+  }
 
   if (team === 0) {
     for (let i = 0; i < 5; i++) {
@@ -35,7 +47,10 @@ function Table({matchData, team}) {
                     </div>
                   </td>
                   <td>
-                    <div className="nameHeader">{playerData.riotIdGameName}</div>
+                    {/* <div className="nameHeader">{playerData.riotIdGameName}</div> */}
+                    <div className="nameHeaderWrapper">
+                      <span onClick={() => overviewNameOnClick(playerData)}>{playerData.riotIdGameName}</span>
+                    </div>
                     <div>{playerData.championName}</div>
                   </td>
                   <td>
@@ -100,7 +115,10 @@ function Table({matchData, team}) {
                     </div>
                   </td>
                   <td>
-                    <div className="nameHeader">{playerData.riotIdGameName}</div>
+                    <div className="nameHeaderWrapper">
+                      <span onClick={() => overviewNameOnClick(playerData)}>{playerData.riotIdGameName}</span>
+                    </div>
+                    {/* <div className="nameHeader">{playerData.riotIdGameName}</div> */}
                     <div>{playerData.championName}</div>
                   </td>
                   <td>
@@ -141,7 +159,7 @@ function Table({matchData, team}) {
 
 
   return (
-    <div className="overViewTableWrapper" style={{backgroundColor: matchData.info.teams[team].win ? "#03868c" : "#521302"}}>
+    <div className="overViewTableWrapper" style={{backgroundColor: matchData.info.teams[team].win ? "#03868c" : "#992525"}}>
       <table className="overViewTable">
         <thead>
           <tr className="headerContainer">

@@ -10,8 +10,9 @@
 }
 
 .footerHome {
+  color: #cdd1d1;
   font-size: 1.2rem;
   text-align: center;
-  background-color: beige;
+  /* background-color: beige; */
   width: 80rem;
 }

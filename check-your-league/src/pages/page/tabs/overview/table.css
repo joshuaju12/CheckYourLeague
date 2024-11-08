@@ -27,13 +27,25 @@
   background-color: black;
 }
 
-.nameHeader {
+/* .nameHeader {
+  display: block;
+  width: 10.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
+
+.nameHeaderWrapper {
   display: block;
   width: 10.5rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   /* border-right: solid; */
+}
+
+.nameHeaderWrapper > *:hover {
+  cursor: pointer;
 }
 
 .cellContent {

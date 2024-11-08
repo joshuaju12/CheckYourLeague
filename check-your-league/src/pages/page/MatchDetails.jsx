@@ -56,10 +56,10 @@ function MatchDetails({matchData, matchId, id}) {
     e.preventDefault();
     setExpanded(!expanded);
   };
-//521302
+
   return (
     <div className="matchContainer">
-      <div className="detailsContainer" style={{backgroundColor: matchData.info.teams[team].win ? "#03868c" : "#521302"}}>
+      <div className="detailsContainer" style={{backgroundColor: matchData.info.teams[team].win ? "#03868c" : "#992525"}}>
         <div className="overallGameDetails">
           <div className="overallGameDetailsType">
             <QueueType id={matchData.info.queueId} />

@@ -190,7 +190,7 @@ function Build ({matchId, matchData, puuidToChamp, championName, teams, puuid, p
             <Runes runeData={matchData.info.participants[participant].perks}/>
           </div>
         </div>
-      : <div className="loader">Loading</div>
+      : <div className="loader">Loading...</div>
       }
     </div>
   )

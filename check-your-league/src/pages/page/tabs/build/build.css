@@ -35,14 +35,16 @@
 }
 
 .buildPlayerBuildContainer > :first-child {
+  color: #cdd1d1;
   padding-left: 1rem;
-  border-bottom: solid 1px;
+  border-bottom: solid 1px black;
   margin-bottom: 1rem;
 }
 
 .buildPlayerBuildContainer > :nth-child(3) {
+  color: #cdd1d1;
   padding: 1rem 0 1rem 1rem;
-  border-top: solid 1px;
+  border-top: solid 1px black;
 }
 
 .buildPlayer {
@@ -50,6 +52,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: #cdd1d1;
 }
 
 .buildPlayerItemImage {
@@ -93,6 +96,10 @@
   margin: 0.4rem 0 0.4rem 0.4rem;
 }
 
+.buildPlayerItems {
+  color: black;
+}
+
 .buildPlayerItems :first-child {
   border: 1px solid;
   border-style: solid solid solid solid;
@@ -116,6 +123,7 @@
 }
 
 .buildPlayerBuildTime {
+  color: #cdd1d1;
   text-align: center;
 }
 
