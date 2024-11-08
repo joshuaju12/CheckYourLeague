@@ -1,13 +1,20 @@
 import './table.css';
+import {useNavigate} from 'react-router-dom'
 
 function Table({matchData, team}) {
 
   const rows = [];
+  const navigate = useNavigate();
   // console.log(matchData);
 
-  const overviewNameOnClick = (e) => {
-    e.preventDefault();
-    console.log('clicked');
+
+  const handleNavigate = (playerName, playerTag) => {
+    return navigate("/page", {state: {name: playerName, tag: playerTag}});
+  }
+
+  const overviewNameOnClick = (playerData) => {
+    handleNavigate(playerData.riotIdGameName, playerData.riotIdTagline);
+    navigate(0);
   }
 
   if (team === 0) {
@@ -42,7 +49,7 @@ function Table({matchData, team}) {
                   <td>
                     {/* <div className="nameHeader">{playerData.riotIdGameName}</div> */}
                     <div className="nameHeaderWrapper">
-                      <span onClick={overviewNameOnClick}>{playerData.riotIdGameName}</span>
+                      <span onClick={() => overviewNameOnClick(playerData)}>{playerData.riotIdGameName}</span>
                     </div>
                     <div>{playerData.championName}</div>
                   </td>
@@ -109,7 +116,7 @@ function Table({matchData, team}) {
                   </td>
                   <td>
                     <div className="nameHeaderWrapper">
-                      <span onClick={overviewNameOnClick}>{playerData.riotIdGameName}</span>
+                      <span onClick={() => overviewNameOnClick(playerData)}>{playerData.riotIdGameName}</span>
                     </div>
                     {/* <div className="nameHeader">{playerData.riotIdGameName}</div> */}
                     <div>{playerData.championName}</div>
