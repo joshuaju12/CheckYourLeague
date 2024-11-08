@@ -13,6 +13,10 @@
   line-height: 2.05rem;
 }
 
+.overallPlayersName:hover {
+  cursor: pointer;
+}
+
 .playersRowOne {
   display: flex;
   flex-direction: row;
@@ -20,13 +24,13 @@
   padding-right: 1rem;
 }
 
-.playersRowOne :first-child {
+.playersRowOne > :first-child {
   height: 1.9rem;
   width: 1.9rem;
   border-radius: 5px;
 }
 
-.playersRowOne :last-child {
+.overallPlayersNameWrapper {
   width: 7.6rem;
   white-space: nowrap;
   overflow: hidden;
@@ -34,13 +38,21 @@
   padding-left: 0.2rem;
 }
 
-.playersRowTwo :last-child {
+/* .playersRowOne :last-child {
   width: 7.6rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   padding-left: 0.2rem;
-}
+} */
+
+/* .playersRowTwo :last-child {
+  width: 7.6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 0.2rem;
+} */
 
 .playersOneContainer :last-child {
   padding-bottom: 0.2rem;

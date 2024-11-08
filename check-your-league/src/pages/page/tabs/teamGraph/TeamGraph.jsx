@@ -290,7 +290,7 @@ function TeamGraph({matchId, matchData}) {
             </div>
           </div>
         </div>
-      : <div className="loader">Loading</div>
+      : <div className="loader">Loading...</div>
       }
     </div>
   )
