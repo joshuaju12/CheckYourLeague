@@ -5,6 +5,11 @@ function Table({matchData, team}) {
   const rows = [];
   // console.log(matchData);
 
+  const overviewNameOnClick = (e) => {
+    e.preventDefault();
+    console.log('clicked');
+  }
+
   if (team === 0) {
     for (let i = 0; i < 5; i++) {
       let playerData = matchData.info.participants[i];
@@ -35,7 +40,10 @@ function Table({matchData, team}) {
                     </div>
                   </td>
                   <td>
-                    <div className="nameHeader">{playerData.riotIdGameName}</div>
+                    {/* <div className="nameHeader">{playerData.riotIdGameName}</div> */}
+                    <div className="nameHeaderWrapper">
+                      <span onClick={overviewNameOnClick}>{playerData.riotIdGameName}</span>
+                    </div>
                     <div>{playerData.championName}</div>
                   </td>
                   <td>
@@ -100,7 +108,10 @@ function Table({matchData, team}) {
                     </div>
                   </td>
                   <td>
-                    <div className="nameHeader">{playerData.riotIdGameName}</div>
+                    <div className="nameHeaderWrapper">
+                      <span onClick={overviewNameOnClick}>{playerData.riotIdGameName}</span>
+                    </div>
+                    {/* <div className="nameHeader">{playerData.riotIdGameName}</div> */}
                     <div>{playerData.championName}</div>
                   </td>
                   <td>
