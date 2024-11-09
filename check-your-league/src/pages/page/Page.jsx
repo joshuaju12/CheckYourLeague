@@ -28,14 +28,16 @@ function Page() {
   const [matchList, setMatchList] = useState([]);
   const [allMatchData, setAllMatchData] = useState([]);
   const [start, setStart] = useState(0);
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(5);
 
   const getMatchHistory = useMemo(() => async() => {
+    if (allMatchData.length === 0) {
+      console.log('array is empty')
     try {
       const account = await axios.get('http://localhost:3001/account', {params: {summonerName: name, tagline: tag}});
       const summoner = await axios.get('http://localhost:3001/summoner', {params: {puuid: account.data.puuid}});
       const ranked = await axios.get('http://localhost:3001/ranked', {params: {accountId: summoner.data.id}})
-      const matches = await axios.get('http://localhost:3001/allMatches', {params: {puuid: summoner.data.puuid}});
+      const matches = await axios.get('http://localhost:3001/allMatches', {params: {puuid: summoner.data.puuid, start: start, count: count}});
       const matchArray = await Promise.all(matches.data.map((value) => {
         return axios.get('http://localhost:3001/match', {params: {matchId: value}})
       }));
@@ -60,11 +62,34 @@ function Page() {
     } catch(error) {
       console.log('error getting account');
     }
+  } else {
+    console.log('array is not empty')
+  }
   }, [name]);
+
+
+  const getMore = (startNumber) => {
+    axios.get('http://localhost:3001/allMatches', {params: {puuid: userInfo.puuid, start: startNumber, count: count}})
+      .then((data) => {
+        Promise.all(data.data.map((value) => {
+          return axios.get('http://localhost:3001/match', {params: {matchId: value}})
+        }))
+          .then((results) => {
+            let newArray = allMatchData.concat(results);
+            setAllMatchData(newArray);
+          })
+      })
+  }
+
+  const handleShowMoreClick = (e) => {
+    e.preventDefault();
+    setStart(start + 5);
+    getMore(start + 5);
+  }
 
   useEffect(() => {
     getMatchHistory();
-  }, [start, count])
+  }, [])
 
   useEffect(() => {
     setCurrentRoute('page');
@@ -78,10 +103,13 @@ function Page() {
           {allMatchData.length > 0 ?
             <>
               <PlayerStatistics rankedInfo={rankedInfo} />
-              <div className="allMatchesContainer">
-                {allMatchData.map((value, index) =>
-                  <MatchDetails key={index} eventKey={index} matchData={value.data} matchId={matchList[index]} id={userInfo.puuid}/>
-                )}
+              <div className="allMatchesContainerWrapper">
+                <div className="allMatchesContainer">
+                  {allMatchData.map((value, index) =>
+                    <MatchDetails key={index} eventKey={index} matchData={value.data} matchId={matchList[index]} id={userInfo.puuid}/>
+                  )}
+                </div>
+                <button className="allMatchesButton" onClick={handleShowMoreClick}>More matches</button>
               </div>
             </>
             : <div>Loading...</div>

@@ -17,7 +17,7 @@ exports.findSummoner = (data, cb) => {
 };
 
 exports.findAllMatches = (data, cb) => {
-  axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${data.puuid}/ids`, {params: {"api_key": process.env.RIOT_API_KEY, "start": 0, "count": 5}})
+  axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${data.puuid}/ids`, {params: {"api_key": process.env.RIOT_API_KEY, "start": data.start, "count": data.count}})
     .then(cb)
     .catch((err) => {
       console.log('error retrieving all matches');
