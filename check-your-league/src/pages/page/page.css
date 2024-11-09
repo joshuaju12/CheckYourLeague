@@ -32,6 +32,10 @@ body {
   background-color: #dce0e6;
 }
 
+.allMatchesButton:hover {
+  cursor: pointer;
+}
+
 .contentContainer {
   font-size: 1.6rem;
   display: flex;
