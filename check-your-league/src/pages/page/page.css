@@ -15,8 +15,25 @@ body {
   justify-content: center;
 }
 
+.allMatchesContainerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .allMatchesContainer {
   /* border-bottom: solid; */
+}
+
+.allMatchesButton {
+  width: 11rem;
+  height: 4.2rem;
+  border-radius: 0.5rem;
+  background-color: #dce0e6;
+}
+
+.allMatchesButton:hover {
+  cursor: pointer;
 }
 
 .contentContainer {
