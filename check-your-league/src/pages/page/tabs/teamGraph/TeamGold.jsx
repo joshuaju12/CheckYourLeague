@@ -1,5 +1,6 @@
 import './teamGold.css';
 import {Line} from 'react-chartjs-2';
+import {Chart} from 'chart.js/auto';
 import moment from 'moment';
 import 'chartjs-adapter-moment';
 
@@ -148,7 +149,7 @@ function TeamGold ({data}) {
     },
   }
 
-  const testData = {
+  const gameData = {
     labels: getLabels(),
     datasets: [
       {
@@ -179,7 +180,7 @@ function TeamGold ({data}) {
     <div className="teamGoldContainer">
       <Line
         id="teamGoldChart"
-        data={testData}
+        data={gameData}
         options={options}
       />
     </div>
