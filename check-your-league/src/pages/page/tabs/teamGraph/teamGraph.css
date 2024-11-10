@@ -27,19 +27,10 @@
   padding-left: 2rem;
 }
 
-/* .teamGraphTeamOutcomeWrapper {
-  width: 88rem;
-} */
-
 .teamGraphOverallContainer {
   display: flex;
   flex-shrink: 0;
   flex-direction: row;
-  /* width: 44rem; */
-}
-
-.teamGraphGameStatsContainer {
-  /* border-right: solid; */
 }
 
 .teamGraphGameStatsColumnTitle {
@@ -88,12 +79,6 @@
   align-items: center;
 }
 
-/* .teamGraphValue {
-  width: 18rem;
-  margin-top: auto;
-  margin-bottom: auto;
-} */
-
 .teamGraphLeft {
   padding-right: 1.2rem;
 }
@@ -135,13 +120,3 @@
 .teamGraphBansRight :first-child {
   margin-left: 1.2rem;
 }
-
-/* .teamGraphTest {
-  width: 18rem;
-  display: flex;
-  align-items: center;
-}
-
-.teamGraphTest2 {
-  padding-right: 1rem;
-} */

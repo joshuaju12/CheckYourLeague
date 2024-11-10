@@ -1,7 +1,6 @@
 import './teamDamage.css';
 
 function TeamDamage ({data, matchData}) {
-  // console.log(data);
   const teamOnePlayerData = [];
   const teamTwoPlayerData = [];
   let highestDamage;

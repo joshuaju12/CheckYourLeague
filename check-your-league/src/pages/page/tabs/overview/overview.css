@@ -1,6 +1,5 @@
 .teamComparisonContainer {
   display: flex;
-  /* height: 5rem; */
   flex-direction: row;
   justify-content: center;
   align-items: center;

@@ -6,7 +6,6 @@ import Select from 'react-select';
 
 function Build ({matchId, matchData, puuidToChamp, championName, teams, puuid, players}) {
 
-  // const [timeline, setTimeline] = useState({});
   const [selectedPuuid, setSelectedPuuid] = useState(puuid);
   const [selectedPlayer, setSelectedPlayer] = useState(championName);
   const [build, setBuild] = useState([]);
@@ -93,9 +92,6 @@ function Build ({matchId, matchData, puuidToChamp, championName, teams, puuid, p
             playerActions.push(actions);
           }
         }
-        // console.log(playerActions);
-        // console.log(matchData);
-        // console.log(playerActions)
         setBuild(playerActions);
         setParticipant(currentParticipant - 1);
         setLoaded(true);

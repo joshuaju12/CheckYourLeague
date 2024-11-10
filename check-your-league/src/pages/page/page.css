@@ -6,7 +6,6 @@ body {
 .pageContainer {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   height: 100vh;
 }
 
@@ -19,10 +18,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.allMatchesContainer {
-  /* border-bottom: solid; */
 }
 
 .allMatchesButton {

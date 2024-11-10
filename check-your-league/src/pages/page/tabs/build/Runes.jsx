@@ -2,7 +2,6 @@ import RuneRow from './RuneRow.jsx';
 import './runes.css';
 
 function Runes ({runeData}) {
-  // console.log(runeData);
   let primary = runeData.styles[0].selections;
   let secondary = runeData.styles[1].selections;
   let runesOne;

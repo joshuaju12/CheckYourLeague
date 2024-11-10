@@ -22,7 +22,6 @@ function App() {
 
   const setPageBackground = () => {
     const body = document.body;
-    // body.style.backgroundImage = "none";
     body.style.backgroundImage = `url(${background2})`;
   };
 

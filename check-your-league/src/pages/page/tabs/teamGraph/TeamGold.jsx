@@ -1,19 +1,16 @@
 import './teamGold.css';
-import {Chart} from 'chart.js/auto';
 import {Line} from 'react-chartjs-2';
 import moment from 'moment';
 import 'chartjs-adapter-moment';
 
 
 function TeamGold ({data}) {
-  // console.log(data);
   let highest;
   let lowest;
 
   const getGoldDifference = (index) => {
     let teamOneGold = 0;
     let teamTwoGold = 0;
-    // console.log(data[index].participantFrames[1].totalGold);
     for (let i = 0; i < Object.keys(data[index].participantFrames).length; i++) {
 
       if (i < 5) {
@@ -82,7 +79,6 @@ function TeamGold ({data}) {
 
       if (currentTime / 60000 >= 60) {
         goldData.push({"x": moment(`${Math.floor(currentTime) / 60000}: ${Math.round((currentTime / 60000) % .6) * 100}:00`, "h:mm:ss"), "y": getGoldDifference(i)});
-        // need to add y value. It's going to call getGoldDifference, passing the index, then returns a positive or negative number for now.
       } else {
         goldData.push({"x": moment(`00:${Math.floor(currentTime / 60000)}:00`, "h:mm:ss"), "y": getGoldDifference(i)});
       }
@@ -100,7 +96,6 @@ function TeamGold ({data}) {
       tooltip: {
         callbacks: {
           label: function(tooltipItems, data) {
-            // console.log(tooltipItems)
             if (Number(tooltipItems.formattedValue.replaceAll(',', '')) > 0) {
               return `Blue ahead by ${Number(tooltipItems.formattedValue.replaceAll(',', ''))}`;
             }
@@ -118,8 +113,6 @@ function TeamGold ({data}) {
             console.log(data);
             return '';
           },
-
-          // value is going to show that either blue team is ahead by x amount or red team is up by x amount, based on the value.
         }
       },
       legend: {
@@ -153,19 +146,6 @@ function TeamGold ({data}) {
         }
       }
     },
-  }
-
-  const labels = [
-    moment("0:15:00", "h:mm:ss"),
-    moment("0:30:00", "h:mm:ss"),
-    moment("0:0:00", "h:mm:ss"),
-    moment("0:45:00", "h:mm:ss"),
-    moment("1:0:00", "h:mm:ss"),
-  ]
-
-  const generateTestSeries = () => {
-    let series = [{"x": moment("00:10:00", "h:mm:ss"), "y": 30}];
-    return series;
   }
 
   const testData = {
