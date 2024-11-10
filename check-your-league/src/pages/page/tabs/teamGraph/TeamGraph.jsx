@@ -6,7 +6,6 @@ import TeamGold from './TeamGold.jsx';
 const {idToChampion} = require('./idToChampion.js');
 
 function TeamGraph({matchId, matchData}) {
-  // console.log(matchData);
   const [data, setData] = useState({});
   const [teamOneDragons, setTeamOneDragons] = useState({});
   const [teamTwoDragons, setTeamTwoDragons] = useState({});

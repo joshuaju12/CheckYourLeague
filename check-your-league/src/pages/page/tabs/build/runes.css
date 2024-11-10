@@ -1,6 +1,5 @@
 .buildPlayerBuildRunesWrapper {
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -28,8 +27,6 @@
 .buildPlayerBuildRuneRow > :last-child {
   margin-left: 0.5rem;
 }
-
-
 
 .buildPlayerBuildRuneImage {
   height: 3rem;

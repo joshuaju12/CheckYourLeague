@@ -3,7 +3,6 @@ body {
   padding: 0;
   height: 100vh;
   width: 100vw;
-  /* background: url('../assets/background.jpg'); */
 }
 
 .wrapper {
@@ -12,14 +11,12 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  /* padding: 35rem; */
 }
 
 .mainComponent {
   color: #cdd1d1;
   display: flex;
   justify-content: center;
-  /* border: solid; */
   padding: 0.5rem;
   margin-bottom: 15rem;
 }

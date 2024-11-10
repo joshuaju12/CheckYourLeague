@@ -2,7 +2,6 @@
 function QueueType ({id}) {
 
    const gameId = id.toString();
-   let currentMode = '';
    const modes = {
     '0' : 'Normal',
     '420' : 'Solo/Duo',

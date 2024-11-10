@@ -11,8 +11,6 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid, pl
   const [enemyTeam, setEnemyTeam] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [participant, setParticipant] = useState(-1);
-  const test = "Brand";
-  const test2 = [{value: {a: 1}, label: "option1"}, {value: 1, label: "option2"}];
   const options = [];
 
   for (let i = 0; i < players.length; i++) {
@@ -26,7 +24,6 @@ function Stats({matchId, matchData, puuidToChamp, championName, teams, puuid, pl
     axios.get('http://localhost:3001/timeline', {params: {matchId: matchId}})
       .then((timeline) => {
         const participants = timeline.data.info.participants;
-        // console.log(timeline.data);
         const participantIdToChamp = {};
         const mapParticipants = () => {
           const participantsToChamps = [];

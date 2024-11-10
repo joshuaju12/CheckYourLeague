@@ -1,7 +1,4 @@
 
-.teamDamageContainer {
-}
-
 .teamDamageColumnTitle {
   height: 3rem;
   text-align: center;
@@ -98,15 +95,12 @@
 .teamDamageDamageBar {
   background-color: #03868c;
   height: 1.3rem;
-  /* width: 100%; */
-  /* margin-right: auto; */
 }
 
 .teamDamageDamageBarTeamTwo {
   background-color: #992525;
   height: 1.3rem;
   margin-left: auto;
-  /* transform: rotateY(180deg); */
 }
 
 .teamDamageDamageBarWrapper {

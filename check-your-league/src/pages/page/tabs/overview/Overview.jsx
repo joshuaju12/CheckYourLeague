@@ -78,7 +78,6 @@ function Overview({matchData, id}) {
             }
           </div>
         </div>
-        {/* <div>content3</div> */}
         {teamOne === 0 && matchData.info.teams[0].win ?
           <div className="teamTwoStatus">Defeat</div>
           : <div className="teamTwoStatus">Victory</div>
