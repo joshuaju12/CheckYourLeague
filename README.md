@@ -5,7 +5,14 @@ Inspired heavily by [op.gg](https://www.op.gg/), CheckYourLeague displays inform
 Other additional features include being able to search other players through a search bar or upon clicking on a player's name.
 
 # Built with
-
+- [React](https://react.dev/)
+- [Axios](https://axios-http.com/docs/intro)
+- [Chart.js](https://www.chartjs.org/)
+- [Date-fns](https://date-fns.org/)
+- [Moment.js](https://momentjs.com/)
+- [Dotenv](https://www.npmjs.com/package/dotenv)
+- [Cors](https://www.npmjs.com/package/cors)
+- [Express.js](https://expressjs.com/)
 
 # Author
 Joshua Ham
