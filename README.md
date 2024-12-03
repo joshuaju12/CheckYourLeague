@@ -4,6 +4,10 @@ CheckYourLeague is an application utilizing Riot Games' API to provide and displ
 Inspired heavily by [op.gg](https://www.op.gg/), CheckYourLeague displays information such as win rates, recently games played, individual match details, and rank statistics. <br />
 Other additional features include being able to search other players through a search bar or upon clicking on a player's name.
 
+![](https://github.com/joshuaju12/CheckYourLeague/blob/main/gif1.gif)
+![](https://github.com/joshuaju12/CheckYourLeague/blob/main/gif2.gif)
+![](https://github.com/joshuaju12/CheckYourLeague/blob/main/gif3.gif)
+
 # Built with
 - [React](https://react.dev/)
 - [Axios](https://axios-http.com/docs/intro)
